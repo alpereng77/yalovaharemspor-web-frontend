@@ -166,11 +166,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Kayıt servisi bağlanana kadar kişisel veri gönderilmez ve kayıt yapılmış gibi gösterilmez.
-  document.querySelector('#newsletter-form')?.addEventListener('submit', event => {
-    event.preventDefault();
-    document.querySelector('#newsletter-status').textContent = 'Bülten kaydı yakında açılacak. E-posta adresin henüz kaydedilmedi.';
-  });
+  // Bülten Formu Canlı AJAX Gönderimi
+  const newsletterForm = document.querySelector('#newsletter-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      let statusEl = document.querySelector('#newsletter-status');
+      if (!statusEl) {
+        statusEl = document.createElement('p');
+        statusEl.id = 'newsletter-status';
+        statusEl.className = 'newsletter-status';
+        statusEl.style.marginTop = '8px';
+        newsletterForm.appendChild(statusEl);
+      }
+      const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+      const emailInput = newsletterForm.querySelector('input[name="email"]');
+      
+      statusEl.textContent = 'Kaydediliyor...';
+      statusEl.style.color = '#a0aec0';
+      if (submitBtn) submitBtn.disabled = true;
+
+      try {
+        const formData = new FormData(newsletterForm);
+        const res = await fetch(newsletterForm.action, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body: formData
+        });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          statusEl.textContent = data.message || 'Bültenimize başarıyla kaydoldunuz! Teşekkür ederiz.';
+          statusEl.style.color = '#48bb78';
+          if (emailInput) emailInput.value = '';
+        } else {
+          statusEl.textContent = data.message || 'Bir hata oluştu, lütfen e-posta adresinizi kontrol edin.';
+          statusEl.style.color = '#fc8181';
+        }
+      } catch (err) {
+        statusEl.textContent = 'Bağlantı hatası oluştu, lütfen tekrar deneyin.';
+        statusEl.style.color = '#fc8181';
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
 
   // Bileşenler ekrana her girişte yeniden açılır; düzen ve hover hareketleri korunur.
   if ('IntersectionObserver' in window) {

@@ -1,0 +1,1782 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><title>Türkiye Basketbol Federasyonu</title><script src="https://www.googletagmanager.com/gtag/js?id=G-NWKGD2F58Y" async type="2bfb46d2f225c54f24eab5a3-text/javascript"></script><script type="2bfb46d2f225c54f24eab5a3-text/javascript">
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-NWKGD2F58Y');
+          </script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" type="text/css" crossorigin="anonymous" data-hid="mdi"><style id="vuetify-theme-stylesheet">:root {
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-mainColor: 229,24,56;
+      --v-theme-mainColor-overlay-multiplier: 2;
+      --v-theme-appBarColor: 195,21,48;
+      --v-theme-appBarColor-overlay-multiplier: 2;
+      --v-theme-bgFilterColor: 254,242,242;
+      --v-theme-bgFilterColor-overlay-multiplier: 1;
+      --v-theme-tbf: 229,24,56;
+      --v-theme-tbf-overlay-multiplier: 2;
+      --v-theme-cMensLeague: 0,139,150;
+      --v-theme-cMensLeague-overlay-multiplier: 1;
+      --v-theme-cWomensLeague: 131,52,141;
+      --v-theme-cWomensLeague-overlay-multiplier: 2;
+      --v-theme-cYouthLeague: 62,76,123;
+      --v-theme-cYouthLeague-overlay-multiplier: 2;
+      --v-theme-cTsbLeague: 38,39,105;
+      --v-theme-cTsbLeague-overlay-multiplier: 2;
+      --v-theme-cAnthracite: 48,49,51;
+      --v-theme-cAnthracite-overlay-multiplier: 2;
+      --v-theme-cGray: 143,144,152;
+      --v-theme-cGray-overlay-multiplier: 1;
+      --v-theme-cGray1: 73,74,80;
+      --v-theme-cGray1-overlay-multiplier: 2;
+      --v-theme-cGray50: 249,250,251;
+      --v-theme-cGray50-overlay-multiplier: 1;
+      --v-theme-cGray500: 107,114,128;
+      --v-theme-cGray500-overlay-multiplier: 2;
+      --v-theme-cMatchCardHeader: 75,85,99;
+      --v-theme-cMatchCardHeader-overlay-multiplier: 2;
+      --v-theme-cMatchTime: 113,113,122;
+      --v-theme-cMatchTime-overlay-multiplier: 2;
+      --v-theme-cMatchScoreInFront: 31,41,55;
+      --v-theme-cMatchScoreInFront-overlay-multiplier: 2;
+      --v-theme-cCheckboxText: 109,109,109;
+      --v-theme-cCheckboxText-overlay-multiplier: 2;
+      --v-theme-cBlueDarkGray: 51,65,85;
+      --v-theme-cBlueDarkGray-overlay-multiplier: 2;
+      --v-theme-cBluishDarkGray: 100,116,139;
+      --v-theme-cBluishDarkGray-overlay-multiplier: 2;
+      --v-theme-cSmokeGray: 156,163,175;
+      --v-theme-cSmokeGray-overlay-multiplier: 1;
+      --v-theme-cBluishLightGray: 200,207,216;
+      --v-theme-cBluishLightGray-overlay-multiplier: 1;
+      --v-theme-cFrostedGray: 209,213,219;
+      --v-theme-cFrostedGray-overlay-multiplier: 1;
+      --v-theme-cBlueGray: 226,232,240;
+      --v-theme-cBlueGray-overlay-multiplier: 1;
+      --v-theme-cLightGray: 236,237,242;
+      --v-theme-cLightGray-overlay-multiplier: 1;
+      --v-theme-cCloudGray: 243,244,246;
+      --v-theme-cCloudGray-overlay-multiplier: 1;
+      --v-theme-cExtraLightGray: 239,239,239;
+      --v-theme-cExtraLightGray-overlay-multiplier: 1;
+      --v-theme-cBlack: 2,6,23;
+      --v-theme-cBlack-overlay-multiplier: 2;
+      --v-theme-cLostMatch: 10,17,47;
+      --v-theme-cLostMatch-overlay-multiplier: 2;
+      --v-theme-cWonMatch: 57,129,247;
+      --v-theme-cWonMatch-overlay-multiplier: 1;
+      --v-theme-cPomegranate: 239,68,68;
+      --v-theme-cPomegranate-overlay-multiplier: 1;
+      --v-theme-cDarkRose: 190,18,60;
+      --v-theme-cDarkRose-overlay-multiplier: 2;
+      --v-theme-cExtraLightPink: 254,242,242;
+      --v-theme-cExtraLightPink-overlay-multiplier: 1;
+      --v-theme-cLightLilac: 233,226,235;
+      --v-theme-cLightLilac-overlay-multiplier: 1;
+      --v-theme-cLightSeaGreen: 229,243,244;
+      --v-theme-cLightSeaGreen-overlay-multiplier: 1;
+      --v-theme-cJungleMist: 167,198,205;
+      --v-theme-cJungleMist-overlay-multiplier: 1;
+      --v-theme-cGreen: 47,188,118;
+      --v-theme-cGreen-overlay-multiplier: 1;
+      --v-theme-cRedSecondary: 235,102,102;
+      --v-theme-cRedSecondary-overlay-multiplier: 1;
+      --v-theme-cMistyBlue: 148,163,184;
+      --v-theme-cMistyBlue-overlay-multiplier: 1;
+      --v-theme-cLightPink: 242,226,244;
+      --v-theme-cLightPink-overlay-multiplier: 1;
+      --v-theme-cLightPurple: 221,222,243;
+      --v-theme-cLightPurple-overlay-multiplier: 1;
+      --v-theme-cMatchCardGray: 90,92,95;
+      --v-theme-cMatchCardGray-overlay-multiplier: 2;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-theme-on-mainColor: 255,255,255;
+      --v-theme-on-appBarColor: 255,255,255;
+      --v-theme-on-bgFilterColor: 0,0,0;
+      --v-theme-on-tbf: 255,255,255;
+      --v-theme-on-cMensLeague: 255,255,255;
+      --v-theme-on-cWomensLeague: 255,255,255;
+      --v-theme-on-cYouthLeague: 255,255,255;
+      --v-theme-on-cTsbLeague: 255,255,255;
+      --v-theme-on-cAnthracite: 255,255,255;
+      --v-theme-on-cGray: 255,255,255;
+      --v-theme-on-cGray1: 255,255,255;
+      --v-theme-on-cGray50: 0,0,0;
+      --v-theme-on-cGray500: 255,255,255;
+      --v-theme-on-cMatchCardHeader: 255,255,255;
+      --v-theme-on-cMatchTime: 255,255,255;
+      --v-theme-on-cMatchScoreInFront: 255,255,255;
+      --v-theme-on-cCheckboxText: 255,255,255;
+      --v-theme-on-cBlueDarkGray: 255,255,255;
+      --v-theme-on-cBluishDarkGray: 255,255,255;
+      --v-theme-on-cSmokeGray: 255,255,255;
+      --v-theme-on-cBluishLightGray: 0,0,0;
+      --v-theme-on-cFrostedGray: 0,0,0;
+      --v-theme-on-cBlueGray: 0,0,0;
+      --v-theme-on-cLightGray: 0,0,0;
+      --v-theme-on-cCloudGray: 0,0,0;
+      --v-theme-on-cExtraLightGray: 0,0,0;
+      --v-theme-on-cBlack: 255,255,255;
+      --v-theme-on-cLostMatch: 255,255,255;
+      --v-theme-on-cWonMatch: 255,255,255;
+      --v-theme-on-cPomegranate: 255,255,255;
+      --v-theme-on-cDarkRose: 255,255,255;
+      --v-theme-on-cExtraLightPink: 0,0,0;
+      --v-theme-on-cLightLilac: 0,0,0;
+      --v-theme-on-cLightSeaGreen: 0,0,0;
+      --v-theme-on-cJungleMist: 0,0,0;
+      --v-theme-on-cGreen: 255,255,255;
+      --v-theme-on-cRedSecondary: 255,255,255;
+      --v-theme-on-cMistyBlue: 255,255,255;
+      --v-theme-on-cLightPink: 0,0,0;
+      --v-theme-on-cLightPurple: 0,0,0;
+      --v-theme-on-cMatchCardGray: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 204,191,214;
+      --v-theme-surface-bright-overlay-multiplier: 2;
+      --v-theme-surface-light: 66,66,66;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 200,200,200;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 0,0,0;
+      --v-theme-primary: 33,150,243;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 39,124,193;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 84,182,178;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 72,169,166;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 1;
+      --v-medium-emphasis-opacity: 0.7;
+      --v-disabled-opacity: 0.5;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 66, 66, 66;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .v-theme--mainTheme {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-mainColor: 229,24,56;
+      --v-theme-mainColor-overlay-multiplier: 2;
+      --v-theme-appBarColor: 195,21,48;
+      --v-theme-appBarColor-overlay-multiplier: 2;
+      --v-theme-bgFilterColor: 254,242,242;
+      --v-theme-bgFilterColor-overlay-multiplier: 1;
+      --v-theme-tbf: 229,24,56;
+      --v-theme-tbf-overlay-multiplier: 2;
+      --v-theme-cMensLeague: 0,139,150;
+      --v-theme-cMensLeague-overlay-multiplier: 1;
+      --v-theme-cWomensLeague: 131,52,141;
+      --v-theme-cWomensLeague-overlay-multiplier: 2;
+      --v-theme-cYouthLeague: 62,76,123;
+      --v-theme-cYouthLeague-overlay-multiplier: 2;
+      --v-theme-cTsbLeague: 38,39,105;
+      --v-theme-cTsbLeague-overlay-multiplier: 2;
+      --v-theme-cAnthracite: 48,49,51;
+      --v-theme-cAnthracite-overlay-multiplier: 2;
+      --v-theme-cGray: 143,144,152;
+      --v-theme-cGray-overlay-multiplier: 1;
+      --v-theme-cGray1: 73,74,80;
+      --v-theme-cGray1-overlay-multiplier: 2;
+      --v-theme-cGray50: 249,250,251;
+      --v-theme-cGray50-overlay-multiplier: 1;
+      --v-theme-cGray500: 107,114,128;
+      --v-theme-cGray500-overlay-multiplier: 2;
+      --v-theme-cMatchCardHeader: 75,85,99;
+      --v-theme-cMatchCardHeader-overlay-multiplier: 2;
+      --v-theme-cMatchTime: 113,113,122;
+      --v-theme-cMatchTime-overlay-multiplier: 2;
+      --v-theme-cMatchScoreInFront: 31,41,55;
+      --v-theme-cMatchScoreInFront-overlay-multiplier: 2;
+      --v-theme-cCheckboxText: 109,109,109;
+      --v-theme-cCheckboxText-overlay-multiplier: 2;
+      --v-theme-cBlueDarkGray: 51,65,85;
+      --v-theme-cBlueDarkGray-overlay-multiplier: 2;
+      --v-theme-cBluishDarkGray: 100,116,139;
+      --v-theme-cBluishDarkGray-overlay-multiplier: 2;
+      --v-theme-cSmokeGray: 156,163,175;
+      --v-theme-cSmokeGray-overlay-multiplier: 1;
+      --v-theme-cBluishLightGray: 200,207,216;
+      --v-theme-cBluishLightGray-overlay-multiplier: 1;
+      --v-theme-cFrostedGray: 209,213,219;
+      --v-theme-cFrostedGray-overlay-multiplier: 1;
+      --v-theme-cBlueGray: 226,232,240;
+      --v-theme-cBlueGray-overlay-multiplier: 1;
+      --v-theme-cLightGray: 236,237,242;
+      --v-theme-cLightGray-overlay-multiplier: 1;
+      --v-theme-cCloudGray: 243,244,246;
+      --v-theme-cCloudGray-overlay-multiplier: 1;
+      --v-theme-cExtraLightGray: 239,239,239;
+      --v-theme-cExtraLightGray-overlay-multiplier: 1;
+      --v-theme-cBlack: 2,6,23;
+      --v-theme-cBlack-overlay-multiplier: 2;
+      --v-theme-cLostMatch: 10,17,47;
+      --v-theme-cLostMatch-overlay-multiplier: 2;
+      --v-theme-cWonMatch: 57,129,247;
+      --v-theme-cWonMatch-overlay-multiplier: 1;
+      --v-theme-cPomegranate: 239,68,68;
+      --v-theme-cPomegranate-overlay-multiplier: 1;
+      --v-theme-cDarkRose: 190,18,60;
+      --v-theme-cDarkRose-overlay-multiplier: 2;
+      --v-theme-cExtraLightPink: 254,242,242;
+      --v-theme-cExtraLightPink-overlay-multiplier: 1;
+      --v-theme-cLightLilac: 233,226,235;
+      --v-theme-cLightLilac-overlay-multiplier: 1;
+      --v-theme-cLightSeaGreen: 229,243,244;
+      --v-theme-cLightSeaGreen-overlay-multiplier: 1;
+      --v-theme-cJungleMist: 167,198,205;
+      --v-theme-cJungleMist-overlay-multiplier: 1;
+      --v-theme-cGreen: 47,188,118;
+      --v-theme-cGreen-overlay-multiplier: 1;
+      --v-theme-cRedSecondary: 235,102,102;
+      --v-theme-cRedSecondary-overlay-multiplier: 1;
+      --v-theme-cMistyBlue: 148,163,184;
+      --v-theme-cMistyBlue-overlay-multiplier: 1;
+      --v-theme-cLightPink: 242,226,244;
+      --v-theme-cLightPink-overlay-multiplier: 1;
+      --v-theme-cLightPurple: 221,222,243;
+      --v-theme-cLightPurple-overlay-multiplier: 1;
+      --v-theme-cMatchCardGray: 90,92,95;
+      --v-theme-cMatchCardGray-overlay-multiplier: 2;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-theme-on-mainColor: 255,255,255;
+      --v-theme-on-appBarColor: 255,255,255;
+      --v-theme-on-bgFilterColor: 0,0,0;
+      --v-theme-on-tbf: 255,255,255;
+      --v-theme-on-cMensLeague: 255,255,255;
+      --v-theme-on-cWomensLeague: 255,255,255;
+      --v-theme-on-cYouthLeague: 255,255,255;
+      --v-theme-on-cTsbLeague: 255,255,255;
+      --v-theme-on-cAnthracite: 255,255,255;
+      --v-theme-on-cGray: 255,255,255;
+      --v-theme-on-cGray1: 255,255,255;
+      --v-theme-on-cGray50: 0,0,0;
+      --v-theme-on-cGray500: 255,255,255;
+      --v-theme-on-cMatchCardHeader: 255,255,255;
+      --v-theme-on-cMatchTime: 255,255,255;
+      --v-theme-on-cMatchScoreInFront: 255,255,255;
+      --v-theme-on-cCheckboxText: 255,255,255;
+      --v-theme-on-cBlueDarkGray: 255,255,255;
+      --v-theme-on-cBluishDarkGray: 255,255,255;
+      --v-theme-on-cSmokeGray: 255,255,255;
+      --v-theme-on-cBluishLightGray: 0,0,0;
+      --v-theme-on-cFrostedGray: 0,0,0;
+      --v-theme-on-cBlueGray: 0,0,0;
+      --v-theme-on-cLightGray: 0,0,0;
+      --v-theme-on-cCloudGray: 0,0,0;
+      --v-theme-on-cExtraLightGray: 0,0,0;
+      --v-theme-on-cBlack: 255,255,255;
+      --v-theme-on-cLostMatch: 255,255,255;
+      --v-theme-on-cWonMatch: 255,255,255;
+      --v-theme-on-cPomegranate: 255,255,255;
+      --v-theme-on-cDarkRose: 255,255,255;
+      --v-theme-on-cExtraLightPink: 0,0,0;
+      --v-theme-on-cLightLilac: 0,0,0;
+      --v-theme-on-cLightSeaGreen: 0,0,0;
+      --v-theme-on-cJungleMist: 0,0,0;
+      --v-theme-on-cGreen: 255,255,255;
+      --v-theme-on-cRedSecondary: 255,255,255;
+      --v-theme-on-cMistyBlue: 255,255,255;
+      --v-theme-on-cLightPink: 0,0,0;
+      --v-theme-on-cLightPurple: 0,0,0;
+      --v-theme-on-cMatchCardGray: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--mensTheme {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-mainColor: 0,139,150;
+      --v-theme-mainColor-overlay-multiplier: 1;
+      --v-theme-appBarColor: 0,139,150;
+      --v-theme-appBarColor-overlay-multiplier: 1;
+      --v-theme-bgFilterColor: 229,243,244;
+      --v-theme-bgFilterColor-overlay-multiplier: 1;
+      --v-theme-tbf: 229,24,56;
+      --v-theme-tbf-overlay-multiplier: 2;
+      --v-theme-cMensLeague: 0,139,150;
+      --v-theme-cMensLeague-overlay-multiplier: 1;
+      --v-theme-cWomensLeague: 131,52,141;
+      --v-theme-cWomensLeague-overlay-multiplier: 2;
+      --v-theme-cYouthLeague: 62,76,123;
+      --v-theme-cYouthLeague-overlay-multiplier: 2;
+      --v-theme-cTsbLeague: 38,39,105;
+      --v-theme-cTsbLeague-overlay-multiplier: 2;
+      --v-theme-cAnthracite: 48,49,51;
+      --v-theme-cAnthracite-overlay-multiplier: 2;
+      --v-theme-cGray: 143,144,152;
+      --v-theme-cGray-overlay-multiplier: 1;
+      --v-theme-cGray1: 73,74,80;
+      --v-theme-cGray1-overlay-multiplier: 2;
+      --v-theme-cGray50: 249,250,251;
+      --v-theme-cGray50-overlay-multiplier: 1;
+      --v-theme-cGray500: 107,114,128;
+      --v-theme-cGray500-overlay-multiplier: 2;
+      --v-theme-cMatchCardHeader: 75,85,99;
+      --v-theme-cMatchCardHeader-overlay-multiplier: 2;
+      --v-theme-cMatchTime: 113,113,122;
+      --v-theme-cMatchTime-overlay-multiplier: 2;
+      --v-theme-cMatchScoreInFront: 31,41,55;
+      --v-theme-cMatchScoreInFront-overlay-multiplier: 2;
+      --v-theme-cCheckboxText: 109,109,109;
+      --v-theme-cCheckboxText-overlay-multiplier: 2;
+      --v-theme-cBlueDarkGray: 51,65,85;
+      --v-theme-cBlueDarkGray-overlay-multiplier: 2;
+      --v-theme-cBluishDarkGray: 100,116,139;
+      --v-theme-cBluishDarkGray-overlay-multiplier: 2;
+      --v-theme-cSmokeGray: 156,163,175;
+      --v-theme-cSmokeGray-overlay-multiplier: 1;
+      --v-theme-cBluishLightGray: 200,207,216;
+      --v-theme-cBluishLightGray-overlay-multiplier: 1;
+      --v-theme-cFrostedGray: 209,213,219;
+      --v-theme-cFrostedGray-overlay-multiplier: 1;
+      --v-theme-cBlueGray: 226,232,240;
+      --v-theme-cBlueGray-overlay-multiplier: 1;
+      --v-theme-cLightGray: 236,237,242;
+      --v-theme-cLightGray-overlay-multiplier: 1;
+      --v-theme-cCloudGray: 243,244,246;
+      --v-theme-cCloudGray-overlay-multiplier: 1;
+      --v-theme-cExtraLightGray: 239,239,239;
+      --v-theme-cExtraLightGray-overlay-multiplier: 1;
+      --v-theme-cBlack: 2,6,23;
+      --v-theme-cBlack-overlay-multiplier: 2;
+      --v-theme-cLostMatch: 10,17,47;
+      --v-theme-cLostMatch-overlay-multiplier: 2;
+      --v-theme-cWonMatch: 57,129,247;
+      --v-theme-cWonMatch-overlay-multiplier: 1;
+      --v-theme-cPomegranate: 239,68,68;
+      --v-theme-cPomegranate-overlay-multiplier: 1;
+      --v-theme-cDarkRose: 190,18,60;
+      --v-theme-cDarkRose-overlay-multiplier: 2;
+      --v-theme-cExtraLightPink: 254,242,242;
+      --v-theme-cExtraLightPink-overlay-multiplier: 1;
+      --v-theme-cLightLilac: 233,226,235;
+      --v-theme-cLightLilac-overlay-multiplier: 1;
+      --v-theme-cLightSeaGreen: 229,243,244;
+      --v-theme-cLightSeaGreen-overlay-multiplier: 1;
+      --v-theme-cJungleMist: 167,198,205;
+      --v-theme-cJungleMist-overlay-multiplier: 1;
+      --v-theme-cGreen: 47,188,118;
+      --v-theme-cGreen-overlay-multiplier: 1;
+      --v-theme-cRedSecondary: 235,102,102;
+      --v-theme-cRedSecondary-overlay-multiplier: 1;
+      --v-theme-cMistyBlue: 148,163,184;
+      --v-theme-cMistyBlue-overlay-multiplier: 1;
+      --v-theme-cLightPink: 242,226,244;
+      --v-theme-cLightPink-overlay-multiplier: 1;
+      --v-theme-cLightPurple: 221,222,243;
+      --v-theme-cLightPurple-overlay-multiplier: 1;
+      --v-theme-cMatchCardGray: 90,92,95;
+      --v-theme-cMatchCardGray-overlay-multiplier: 2;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-theme-on-mainColor: 255,255,255;
+      --v-theme-on-appBarColor: 255,255,255;
+      --v-theme-on-bgFilterColor: 0,0,0;
+      --v-theme-on-tbf: 255,255,255;
+      --v-theme-on-cMensLeague: 255,255,255;
+      --v-theme-on-cWomensLeague: 255,255,255;
+      --v-theme-on-cYouthLeague: 255,255,255;
+      --v-theme-on-cTsbLeague: 255,255,255;
+      --v-theme-on-cAnthracite: 255,255,255;
+      --v-theme-on-cGray: 255,255,255;
+      --v-theme-on-cGray1: 255,255,255;
+      --v-theme-on-cGray50: 0,0,0;
+      --v-theme-on-cGray500: 255,255,255;
+      --v-theme-on-cMatchCardHeader: 255,255,255;
+      --v-theme-on-cMatchTime: 255,255,255;
+      --v-theme-on-cMatchScoreInFront: 255,255,255;
+      --v-theme-on-cCheckboxText: 255,255,255;
+      --v-theme-on-cBlueDarkGray: 255,255,255;
+      --v-theme-on-cBluishDarkGray: 255,255,255;
+      --v-theme-on-cSmokeGray: 255,255,255;
+      --v-theme-on-cBluishLightGray: 0,0,0;
+      --v-theme-on-cFrostedGray: 0,0,0;
+      --v-theme-on-cBlueGray: 0,0,0;
+      --v-theme-on-cLightGray: 0,0,0;
+      --v-theme-on-cCloudGray: 0,0,0;
+      --v-theme-on-cExtraLightGray: 0,0,0;
+      --v-theme-on-cBlack: 255,255,255;
+      --v-theme-on-cLostMatch: 255,255,255;
+      --v-theme-on-cWonMatch: 255,255,255;
+      --v-theme-on-cPomegranate: 255,255,255;
+      --v-theme-on-cDarkRose: 255,255,255;
+      --v-theme-on-cExtraLightPink: 0,0,0;
+      --v-theme-on-cLightLilac: 0,0,0;
+      --v-theme-on-cLightSeaGreen: 0,0,0;
+      --v-theme-on-cJungleMist: 0,0,0;
+      --v-theme-on-cGreen: 255,255,255;
+      --v-theme-on-cRedSecondary: 255,255,255;
+      --v-theme-on-cMistyBlue: 255,255,255;
+      --v-theme-on-cLightPink: 0,0,0;
+      --v-theme-on-cLightPurple: 0,0,0;
+      --v-theme-on-cMatchCardGray: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--womensTheme {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-mainColor: 131,52,141;
+      --v-theme-mainColor-overlay-multiplier: 2;
+      --v-theme-appBarColor: 131,52,141;
+      --v-theme-appBarColor-overlay-multiplier: 2;
+      --v-theme-bgFilterColor: 242,226,244;
+      --v-theme-bgFilterColor-overlay-multiplier: 1;
+      --v-theme-tbf: 229,24,56;
+      --v-theme-tbf-overlay-multiplier: 2;
+      --v-theme-cMensLeague: 0,139,150;
+      --v-theme-cMensLeague-overlay-multiplier: 1;
+      --v-theme-cWomensLeague: 131,52,141;
+      --v-theme-cWomensLeague-overlay-multiplier: 2;
+      --v-theme-cYouthLeague: 62,76,123;
+      --v-theme-cYouthLeague-overlay-multiplier: 2;
+      --v-theme-cTsbLeague: 38,39,105;
+      --v-theme-cTsbLeague-overlay-multiplier: 2;
+      --v-theme-cAnthracite: 48,49,51;
+      --v-theme-cAnthracite-overlay-multiplier: 2;
+      --v-theme-cGray: 143,144,152;
+      --v-theme-cGray-overlay-multiplier: 1;
+      --v-theme-cGray1: 73,74,80;
+      --v-theme-cGray1-overlay-multiplier: 2;
+      --v-theme-cGray50: 249,250,251;
+      --v-theme-cGray50-overlay-multiplier: 1;
+      --v-theme-cGray500: 107,114,128;
+      --v-theme-cGray500-overlay-multiplier: 2;
+      --v-theme-cMatchCardHeader: 75,85,99;
+      --v-theme-cMatchCardHeader-overlay-multiplier: 2;
+      --v-theme-cMatchTime: 113,113,122;
+      --v-theme-cMatchTime-overlay-multiplier: 2;
+      --v-theme-cMatchScoreInFront: 31,41,55;
+      --v-theme-cMatchScoreInFront-overlay-multiplier: 2;
+      --v-theme-cCheckboxText: 109,109,109;
+      --v-theme-cCheckboxText-overlay-multiplier: 2;
+      --v-theme-cBlueDarkGray: 51,65,85;
+      --v-theme-cBlueDarkGray-overlay-multiplier: 2;
+      --v-theme-cBluishDarkGray: 100,116,139;
+      --v-theme-cBluishDarkGray-overlay-multiplier: 2;
+      --v-theme-cSmokeGray: 156,163,175;
+      --v-theme-cSmokeGray-overlay-multiplier: 1;
+      --v-theme-cBluishLightGray: 200,207,216;
+      --v-theme-cBluishLightGray-overlay-multiplier: 1;
+      --v-theme-cFrostedGray: 209,213,219;
+      --v-theme-cFrostedGray-overlay-multiplier: 1;
+      --v-theme-cBlueGray: 226,232,240;
+      --v-theme-cBlueGray-overlay-multiplier: 1;
+      --v-theme-cLightGray: 236,237,242;
+      --v-theme-cLightGray-overlay-multiplier: 1;
+      --v-theme-cCloudGray: 243,244,246;
+      --v-theme-cCloudGray-overlay-multiplier: 1;
+      --v-theme-cExtraLightGray: 239,239,239;
+      --v-theme-cExtraLightGray-overlay-multiplier: 1;
+      --v-theme-cBlack: 2,6,23;
+      --v-theme-cBlack-overlay-multiplier: 2;
+      --v-theme-cLostMatch: 10,17,47;
+      --v-theme-cLostMatch-overlay-multiplier: 2;
+      --v-theme-cWonMatch: 57,129,247;
+      --v-theme-cWonMatch-overlay-multiplier: 1;
+      --v-theme-cPomegranate: 239,68,68;
+      --v-theme-cPomegranate-overlay-multiplier: 1;
+      --v-theme-cDarkRose: 190,18,60;
+      --v-theme-cDarkRose-overlay-multiplier: 2;
+      --v-theme-cExtraLightPink: 254,242,242;
+      --v-theme-cExtraLightPink-overlay-multiplier: 1;
+      --v-theme-cLightLilac: 233,226,235;
+      --v-theme-cLightLilac-overlay-multiplier: 1;
+      --v-theme-cLightSeaGreen: 229,243,244;
+      --v-theme-cLightSeaGreen-overlay-multiplier: 1;
+      --v-theme-cJungleMist: 167,198,205;
+      --v-theme-cJungleMist-overlay-multiplier: 1;
+      --v-theme-cGreen: 47,188,118;
+      --v-theme-cGreen-overlay-multiplier: 1;
+      --v-theme-cRedSecondary: 235,102,102;
+      --v-theme-cRedSecondary-overlay-multiplier: 1;
+      --v-theme-cMistyBlue: 148,163,184;
+      --v-theme-cMistyBlue-overlay-multiplier: 1;
+      --v-theme-cLightPink: 242,226,244;
+      --v-theme-cLightPink-overlay-multiplier: 1;
+      --v-theme-cLightPurple: 221,222,243;
+      --v-theme-cLightPurple-overlay-multiplier: 1;
+      --v-theme-cMatchCardGray: 90,92,95;
+      --v-theme-cMatchCardGray-overlay-multiplier: 2;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-theme-on-mainColor: 255,255,255;
+      --v-theme-on-appBarColor: 255,255,255;
+      --v-theme-on-bgFilterColor: 0,0,0;
+      --v-theme-on-tbf: 255,255,255;
+      --v-theme-on-cMensLeague: 255,255,255;
+      --v-theme-on-cWomensLeague: 255,255,255;
+      --v-theme-on-cYouthLeague: 255,255,255;
+      --v-theme-on-cTsbLeague: 255,255,255;
+      --v-theme-on-cAnthracite: 255,255,255;
+      --v-theme-on-cGray: 255,255,255;
+      --v-theme-on-cGray1: 255,255,255;
+      --v-theme-on-cGray50: 0,0,0;
+      --v-theme-on-cGray500: 255,255,255;
+      --v-theme-on-cMatchCardHeader: 255,255,255;
+      --v-theme-on-cMatchTime: 255,255,255;
+      --v-theme-on-cMatchScoreInFront: 255,255,255;
+      --v-theme-on-cCheckboxText: 255,255,255;
+      --v-theme-on-cBlueDarkGray: 255,255,255;
+      --v-theme-on-cBluishDarkGray: 255,255,255;
+      --v-theme-on-cSmokeGray: 255,255,255;
+      --v-theme-on-cBluishLightGray: 0,0,0;
+      --v-theme-on-cFrostedGray: 0,0,0;
+      --v-theme-on-cBlueGray: 0,0,0;
+      --v-theme-on-cLightGray: 0,0,0;
+      --v-theme-on-cCloudGray: 0,0,0;
+      --v-theme-on-cExtraLightGray: 0,0,0;
+      --v-theme-on-cBlack: 255,255,255;
+      --v-theme-on-cLostMatch: 255,255,255;
+      --v-theme-on-cWonMatch: 255,255,255;
+      --v-theme-on-cPomegranate: 255,255,255;
+      --v-theme-on-cDarkRose: 255,255,255;
+      --v-theme-on-cExtraLightPink: 0,0,0;
+      --v-theme-on-cLightLilac: 0,0,0;
+      --v-theme-on-cLightSeaGreen: 0,0,0;
+      --v-theme-on-cJungleMist: 0,0,0;
+      --v-theme-on-cGreen: 255,255,255;
+      --v-theme-on-cRedSecondary: 255,255,255;
+      --v-theme-on-cMistyBlue: 255,255,255;
+      --v-theme-on-cLightPink: 0,0,0;
+      --v-theme-on-cLightPurple: 0,0,0;
+      --v-theme-on-cMatchCardGray: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--youthTheme {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-bright: 255,255,255;
+      --v-theme-surface-bright-overlay-multiplier: 1;
+      --v-theme-surface-light: 238,238,238;
+      --v-theme-surface-light-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 24,103,192;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 31,85,146;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 72,169,166;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 1;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-mainColor: 62,76,123;
+      --v-theme-mainColor-overlay-multiplier: 2;
+      --v-theme-appBarColor: 62,76,123;
+      --v-theme-appBarColor-overlay-multiplier: 2;
+      --v-theme-bgFilterColor: 221,222,243;
+      --v-theme-bgFilterColor-overlay-multiplier: 1;
+      --v-theme-tbf: 229,24,56;
+      --v-theme-tbf-overlay-multiplier: 2;
+      --v-theme-cMensLeague: 0,139,150;
+      --v-theme-cMensLeague-overlay-multiplier: 1;
+      --v-theme-cWomensLeague: 131,52,141;
+      --v-theme-cWomensLeague-overlay-multiplier: 2;
+      --v-theme-cYouthLeague: 62,76,123;
+      --v-theme-cYouthLeague-overlay-multiplier: 2;
+      --v-theme-cTsbLeague: 38,39,105;
+      --v-theme-cTsbLeague-overlay-multiplier: 2;
+      --v-theme-cAnthracite: 48,49,51;
+      --v-theme-cAnthracite-overlay-multiplier: 2;
+      --v-theme-cGray: 143,144,152;
+      --v-theme-cGray-overlay-multiplier: 1;
+      --v-theme-cGray1: 73,74,80;
+      --v-theme-cGray1-overlay-multiplier: 2;
+      --v-theme-cGray50: 249,250,251;
+      --v-theme-cGray50-overlay-multiplier: 1;
+      --v-theme-cGray500: 107,114,128;
+      --v-theme-cGray500-overlay-multiplier: 2;
+      --v-theme-cMatchCardHeader: 75,85,99;
+      --v-theme-cMatchCardHeader-overlay-multiplier: 2;
+      --v-theme-cMatchTime: 113,113,122;
+      --v-theme-cMatchTime-overlay-multiplier: 2;
+      --v-theme-cMatchScoreInFront: 31,41,55;
+      --v-theme-cMatchScoreInFront-overlay-multiplier: 2;
+      --v-theme-cCheckboxText: 109,109,109;
+      --v-theme-cCheckboxText-overlay-multiplier: 2;
+      --v-theme-cBlueDarkGray: 51,65,85;
+      --v-theme-cBlueDarkGray-overlay-multiplier: 2;
+      --v-theme-cBluishDarkGray: 100,116,139;
+      --v-theme-cBluishDarkGray-overlay-multiplier: 2;
+      --v-theme-cSmokeGray: 156,163,175;
+      --v-theme-cSmokeGray-overlay-multiplier: 1;
+      --v-theme-cBluishLightGray: 200,207,216;
+      --v-theme-cBluishLightGray-overlay-multiplier: 1;
+      --v-theme-cFrostedGray: 209,213,219;
+      --v-theme-cFrostedGray-overlay-multiplier: 1;
+      --v-theme-cBlueGray: 226,232,240;
+      --v-theme-cBlueGray-overlay-multiplier: 1;
+      --v-theme-cLightGray: 236,237,242;
+      --v-theme-cLightGray-overlay-multiplier: 1;
+      --v-theme-cCloudGray: 243,244,246;
+      --v-theme-cCloudGray-overlay-multiplier: 1;
+      --v-theme-cExtraLightGray: 239,239,239;
+      --v-theme-cExtraLightGray-overlay-multiplier: 1;
+      --v-theme-cBlack: 2,6,23;
+      --v-theme-cBlack-overlay-multiplier: 2;
+      --v-theme-cLostMatch: 10,17,47;
+      --v-theme-cLostMatch-overlay-multiplier: 2;
+      --v-theme-cWonMatch: 57,129,247;
+      --v-theme-cWonMatch-overlay-multiplier: 1;
+      --v-theme-cPomegranate: 239,68,68;
+      --v-theme-cPomegranate-overlay-multiplier: 1;
+      --v-theme-cDarkRose: 190,18,60;
+      --v-theme-cDarkRose-overlay-multiplier: 2;
+      --v-theme-cExtraLightPink: 254,242,242;
+      --v-theme-cExtraLightPink-overlay-multiplier: 1;
+      --v-theme-cLightLilac: 233,226,235;
+      --v-theme-cLightLilac-overlay-multiplier: 1;
+      --v-theme-cLightSeaGreen: 229,243,244;
+      --v-theme-cLightSeaGreen-overlay-multiplier: 1;
+      --v-theme-cJungleMist: 167,198,205;
+      --v-theme-cJungleMist-overlay-multiplier: 1;
+      --v-theme-cGreen: 47,188,118;
+      --v-theme-cGreen-overlay-multiplier: 1;
+      --v-theme-cRedSecondary: 235,102,102;
+      --v-theme-cRedSecondary-overlay-multiplier: 1;
+      --v-theme-cMistyBlue: 148,163,184;
+      --v-theme-cMistyBlue-overlay-multiplier: 1;
+      --v-theme-cLightPink: 242,226,244;
+      --v-theme-cLightPink-overlay-multiplier: 1;
+      --v-theme-cLightPurple: 221,222,243;
+      --v-theme-cLightPurple-overlay-multiplier: 1;
+      --v-theme-cMatchCardGray: 90,92,95;
+      --v-theme-cMatchCardGray-overlay-multiplier: 2;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-surface-bright: 0,0,0;
+      --v-theme-on-surface-light: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 255,255,255;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-theme-on-mainColor: 255,255,255;
+      --v-theme-on-appBarColor: 255,255,255;
+      --v-theme-on-bgFilterColor: 0,0,0;
+      --v-theme-on-tbf: 255,255,255;
+      --v-theme-on-cMensLeague: 255,255,255;
+      --v-theme-on-cWomensLeague: 255,255,255;
+      --v-theme-on-cYouthLeague: 255,255,255;
+      --v-theme-on-cTsbLeague: 255,255,255;
+      --v-theme-on-cAnthracite: 255,255,255;
+      --v-theme-on-cGray: 255,255,255;
+      --v-theme-on-cGray1: 255,255,255;
+      --v-theme-on-cGray50: 0,0,0;
+      --v-theme-on-cGray500: 255,255,255;
+      --v-theme-on-cMatchCardHeader: 255,255,255;
+      --v-theme-on-cMatchTime: 255,255,255;
+      --v-theme-on-cMatchScoreInFront: 255,255,255;
+      --v-theme-on-cCheckboxText: 255,255,255;
+      --v-theme-on-cBlueDarkGray: 255,255,255;
+      --v-theme-on-cBluishDarkGray: 255,255,255;
+      --v-theme-on-cSmokeGray: 255,255,255;
+      --v-theme-on-cBluishLightGray: 0,0,0;
+      --v-theme-on-cFrostedGray: 0,0,0;
+      --v-theme-on-cBlueGray: 0,0,0;
+      --v-theme-on-cLightGray: 0,0,0;
+      --v-theme-on-cCloudGray: 0,0,0;
+      --v-theme-on-cExtraLightGray: 0,0,0;
+      --v-theme-on-cBlack: 255,255,255;
+      --v-theme-on-cLostMatch: 255,255,255;
+      --v-theme-on-cWonMatch: 255,255,255;
+      --v-theme-on-cPomegranate: 255,255,255;
+      --v-theme-on-cDarkRose: 255,255,255;
+      --v-theme-on-cExtraLightPink: 0,0,0;
+      --v-theme-on-cLightLilac: 0,0,0;
+      --v-theme-on-cLightSeaGreen: 0,0,0;
+      --v-theme-on-cJungleMist: 0,0,0;
+      --v-theme-on-cGreen: 255,255,255;
+      --v-theme-on-cRedSecondary: 255,255,255;
+      --v-theme-on-cMistyBlue: 255,255,255;
+      --v-theme-on-cLightPink: 0,0,0;
+      --v-theme-on-cLightPurple: 0,0,0;
+      --v-theme-on-cMatchCardGray: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 238, 238, 238;
+      --v-theme-on-kbd: 0, 0, 0;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background-color: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-bright {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-bright-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-bright)) !important;
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .bg-surface-light {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-light-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-light)) !important;
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background-color: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background-color: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background-color: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background-color: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background-color: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .bg-mainColor {
+      --v-theme-overlay-multiplier: var(--v-theme-mainColor-overlay-multiplier);
+      background-color: rgb(var(--v-theme-mainColor)) !important;
+      color: rgb(var(--v-theme-on-mainColor)) !important;
+    }
+    .bg-appBarColor {
+      --v-theme-overlay-multiplier: var(--v-theme-appBarColor-overlay-multiplier);
+      background-color: rgb(var(--v-theme-appBarColor)) !important;
+      color: rgb(var(--v-theme-on-appBarColor)) !important;
+    }
+    .bg-bgFilterColor {
+      --v-theme-overlay-multiplier: var(--v-theme-bgFilterColor-overlay-multiplier);
+      background-color: rgb(var(--v-theme-bgFilterColor)) !important;
+      color: rgb(var(--v-theme-on-bgFilterColor)) !important;
+    }
+    .bg-tbf {
+      --v-theme-overlay-multiplier: var(--v-theme-tbf-overlay-multiplier);
+      background-color: rgb(var(--v-theme-tbf)) !important;
+      color: rgb(var(--v-theme-on-tbf)) !important;
+    }
+    .bg-cMensLeague {
+      --v-theme-overlay-multiplier: var(--v-theme-cMensLeague-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cMensLeague)) !important;
+      color: rgb(var(--v-theme-on-cMensLeague)) !important;
+    }
+    .bg-cWomensLeague {
+      --v-theme-overlay-multiplier: var(--v-theme-cWomensLeague-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cWomensLeague)) !important;
+      color: rgb(var(--v-theme-on-cWomensLeague)) !important;
+    }
+    .bg-cYouthLeague {
+      --v-theme-overlay-multiplier: var(--v-theme-cYouthLeague-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cYouthLeague)) !important;
+      color: rgb(var(--v-theme-on-cYouthLeague)) !important;
+    }
+    .bg-cTsbLeague {
+      --v-theme-overlay-multiplier: var(--v-theme-cTsbLeague-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cTsbLeague)) !important;
+      color: rgb(var(--v-theme-on-cTsbLeague)) !important;
+    }
+    .bg-cAnthracite {
+      --v-theme-overlay-multiplier: var(--v-theme-cAnthracite-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cAnthracite)) !important;
+      color: rgb(var(--v-theme-on-cAnthracite)) !important;
+    }
+    .bg-cGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cGray)) !important;
+      color: rgb(var(--v-theme-on-cGray)) !important;
+    }
+    .bg-cGray1 {
+      --v-theme-overlay-multiplier: var(--v-theme-cGray1-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cGray1)) !important;
+      color: rgb(var(--v-theme-on-cGray1)) !important;
+    }
+    .bg-cGray50 {
+      --v-theme-overlay-multiplier: var(--v-theme-cGray50-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cGray50)) !important;
+      color: rgb(var(--v-theme-on-cGray50)) !important;
+    }
+    .bg-cGray500 {
+      --v-theme-overlay-multiplier: var(--v-theme-cGray500-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cGray500)) !important;
+      color: rgb(var(--v-theme-on-cGray500)) !important;
+    }
+    .bg-cMatchCardHeader {
+      --v-theme-overlay-multiplier: var(--v-theme-cMatchCardHeader-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cMatchCardHeader)) !important;
+      color: rgb(var(--v-theme-on-cMatchCardHeader)) !important;
+    }
+    .bg-cMatchTime {
+      --v-theme-overlay-multiplier: var(--v-theme-cMatchTime-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cMatchTime)) !important;
+      color: rgb(var(--v-theme-on-cMatchTime)) !important;
+    }
+    .bg-cMatchScoreInFront {
+      --v-theme-overlay-multiplier: var(--v-theme-cMatchScoreInFront-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cMatchScoreInFront)) !important;
+      color: rgb(var(--v-theme-on-cMatchScoreInFront)) !important;
+    }
+    .bg-cCheckboxText {
+      --v-theme-overlay-multiplier: var(--v-theme-cCheckboxText-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cCheckboxText)) !important;
+      color: rgb(var(--v-theme-on-cCheckboxText)) !important;
+    }
+    .bg-cBlueDarkGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cBlueDarkGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cBlueDarkGray)) !important;
+      color: rgb(var(--v-theme-on-cBlueDarkGray)) !important;
+    }
+    .bg-cBluishDarkGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cBluishDarkGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cBluishDarkGray)) !important;
+      color: rgb(var(--v-theme-on-cBluishDarkGray)) !important;
+    }
+    .bg-cSmokeGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cSmokeGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cSmokeGray)) !important;
+      color: rgb(var(--v-theme-on-cSmokeGray)) !important;
+    }
+    .bg-cBluishLightGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cBluishLightGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cBluishLightGray)) !important;
+      color: rgb(var(--v-theme-on-cBluishLightGray)) !important;
+    }
+    .bg-cFrostedGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cFrostedGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cFrostedGray)) !important;
+      color: rgb(var(--v-theme-on-cFrostedGray)) !important;
+    }
+    .bg-cBlueGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cBlueGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cBlueGray)) !important;
+      color: rgb(var(--v-theme-on-cBlueGray)) !important;
+    }
+    .bg-cLightGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cLightGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cLightGray)) !important;
+      color: rgb(var(--v-theme-on-cLightGray)) !important;
+    }
+    .bg-cCloudGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cCloudGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cCloudGray)) !important;
+      color: rgb(var(--v-theme-on-cCloudGray)) !important;
+    }
+    .bg-cExtraLightGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cExtraLightGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cExtraLightGray)) !important;
+      color: rgb(var(--v-theme-on-cExtraLightGray)) !important;
+    }
+    .bg-cBlack {
+      --v-theme-overlay-multiplier: var(--v-theme-cBlack-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cBlack)) !important;
+      color: rgb(var(--v-theme-on-cBlack)) !important;
+    }
+    .bg-cLostMatch {
+      --v-theme-overlay-multiplier: var(--v-theme-cLostMatch-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cLostMatch)) !important;
+      color: rgb(var(--v-theme-on-cLostMatch)) !important;
+    }
+    .bg-cWonMatch {
+      --v-theme-overlay-multiplier: var(--v-theme-cWonMatch-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cWonMatch)) !important;
+      color: rgb(var(--v-theme-on-cWonMatch)) !important;
+    }
+    .bg-cPomegranate {
+      --v-theme-overlay-multiplier: var(--v-theme-cPomegranate-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cPomegranate)) !important;
+      color: rgb(var(--v-theme-on-cPomegranate)) !important;
+    }
+    .bg-cDarkRose {
+      --v-theme-overlay-multiplier: var(--v-theme-cDarkRose-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cDarkRose)) !important;
+      color: rgb(var(--v-theme-on-cDarkRose)) !important;
+    }
+    .bg-cExtraLightPink {
+      --v-theme-overlay-multiplier: var(--v-theme-cExtraLightPink-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cExtraLightPink)) !important;
+      color: rgb(var(--v-theme-on-cExtraLightPink)) !important;
+    }
+    .bg-cLightLilac {
+      --v-theme-overlay-multiplier: var(--v-theme-cLightLilac-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cLightLilac)) !important;
+      color: rgb(var(--v-theme-on-cLightLilac)) !important;
+    }
+    .bg-cLightSeaGreen {
+      --v-theme-overlay-multiplier: var(--v-theme-cLightSeaGreen-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cLightSeaGreen)) !important;
+      color: rgb(var(--v-theme-on-cLightSeaGreen)) !important;
+    }
+    .bg-cJungleMist {
+      --v-theme-overlay-multiplier: var(--v-theme-cJungleMist-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cJungleMist)) !important;
+      color: rgb(var(--v-theme-on-cJungleMist)) !important;
+    }
+    .bg-cGreen {
+      --v-theme-overlay-multiplier: var(--v-theme-cGreen-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cGreen)) !important;
+      color: rgb(var(--v-theme-on-cGreen)) !important;
+    }
+    .bg-cRedSecondary {
+      --v-theme-overlay-multiplier: var(--v-theme-cRedSecondary-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cRedSecondary)) !important;
+      color: rgb(var(--v-theme-on-cRedSecondary)) !important;
+    }
+    .bg-cMistyBlue {
+      --v-theme-overlay-multiplier: var(--v-theme-cMistyBlue-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cMistyBlue)) !important;
+      color: rgb(var(--v-theme-on-cMistyBlue)) !important;
+    }
+    .bg-cLightPink {
+      --v-theme-overlay-multiplier: var(--v-theme-cLightPink-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cLightPink)) !important;
+      color: rgb(var(--v-theme-on-cLightPink)) !important;
+    }
+    .bg-cLightPurple {
+      --v-theme-overlay-multiplier: var(--v-theme-cLightPurple-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cLightPurple)) !important;
+      color: rgb(var(--v-theme-on-cLightPurple)) !important;
+    }
+    .bg-cMatchCardGray {
+      --v-theme-overlay-multiplier: var(--v-theme-cMatchCardGray-overlay-multiplier);
+      background-color: rgb(var(--v-theme-cMatchCardGray)) !important;
+      color: rgb(var(--v-theme-on-cMatchCardGray)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-bright {
+      color: rgb(var(--v-theme-surface-bright)) !important;
+    }
+    .border-surface-bright {
+      --v-border-color: var(--v-theme-surface-bright);
+    }
+    .text-surface-light {
+      color: rgb(var(--v-theme-surface-light)) !important;
+    }
+    .border-surface-light {
+      --v-border-color: var(--v-theme-surface-light);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-surface-bright {
+      color: rgb(var(--v-theme-on-surface-bright)) !important;
+    }
+    .on-surface-light {
+      color: rgb(var(--v-theme-on-surface-light)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-mainColor {
+      color: rgb(var(--v-theme-mainColor)) !important;
+    }
+    .border-mainColor {
+      --v-border-color: var(--v-theme-mainColor);
+    }
+    .text-appBarColor {
+      color: rgb(var(--v-theme-appBarColor)) !important;
+    }
+    .border-appBarColor {
+      --v-border-color: var(--v-theme-appBarColor);
+    }
+    .text-bgFilterColor {
+      color: rgb(var(--v-theme-bgFilterColor)) !important;
+    }
+    .border-bgFilterColor {
+      --v-border-color: var(--v-theme-bgFilterColor);
+    }
+    .text-tbf {
+      color: rgb(var(--v-theme-tbf)) !important;
+    }
+    .border-tbf {
+      --v-border-color: var(--v-theme-tbf);
+    }
+    .text-cMensLeague {
+      color: rgb(var(--v-theme-cMensLeague)) !important;
+    }
+    .border-cMensLeague {
+      --v-border-color: var(--v-theme-cMensLeague);
+    }
+    .text-cWomensLeague {
+      color: rgb(var(--v-theme-cWomensLeague)) !important;
+    }
+    .border-cWomensLeague {
+      --v-border-color: var(--v-theme-cWomensLeague);
+    }
+    .text-cYouthLeague {
+      color: rgb(var(--v-theme-cYouthLeague)) !important;
+    }
+    .border-cYouthLeague {
+      --v-border-color: var(--v-theme-cYouthLeague);
+    }
+    .text-cTsbLeague {
+      color: rgb(var(--v-theme-cTsbLeague)) !important;
+    }
+    .border-cTsbLeague {
+      --v-border-color: var(--v-theme-cTsbLeague);
+    }
+    .text-cAnthracite {
+      color: rgb(var(--v-theme-cAnthracite)) !important;
+    }
+    .border-cAnthracite {
+      --v-border-color: var(--v-theme-cAnthracite);
+    }
+    .text-cGray {
+      color: rgb(var(--v-theme-cGray)) !important;
+    }
+    .border-cGray {
+      --v-border-color: var(--v-theme-cGray);
+    }
+    .text-cGray1 {
+      color: rgb(var(--v-theme-cGray1)) !important;
+    }
+    .border-cGray1 {
+      --v-border-color: var(--v-theme-cGray1);
+    }
+    .text-cGray50 {
+      color: rgb(var(--v-theme-cGray50)) !important;
+    }
+    .border-cGray50 {
+      --v-border-color: var(--v-theme-cGray50);
+    }
+    .text-cGray500 {
+      color: rgb(var(--v-theme-cGray500)) !important;
+    }
+    .border-cGray500 {
+      --v-border-color: var(--v-theme-cGray500);
+    }
+    .text-cMatchCardHeader {
+      color: rgb(var(--v-theme-cMatchCardHeader)) !important;
+    }
+    .border-cMatchCardHeader {
+      --v-border-color: var(--v-theme-cMatchCardHeader);
+    }
+    .text-cMatchTime {
+      color: rgb(var(--v-theme-cMatchTime)) !important;
+    }
+    .border-cMatchTime {
+      --v-border-color: var(--v-theme-cMatchTime);
+    }
+    .text-cMatchScoreInFront {
+      color: rgb(var(--v-theme-cMatchScoreInFront)) !important;
+    }
+    .border-cMatchScoreInFront {
+      --v-border-color: var(--v-theme-cMatchScoreInFront);
+    }
+    .text-cCheckboxText {
+      color: rgb(var(--v-theme-cCheckboxText)) !important;
+    }
+    .border-cCheckboxText {
+      --v-border-color: var(--v-theme-cCheckboxText);
+    }
+    .text-cBlueDarkGray {
+      color: rgb(var(--v-theme-cBlueDarkGray)) !important;
+    }
+    .border-cBlueDarkGray {
+      --v-border-color: var(--v-theme-cBlueDarkGray);
+    }
+    .text-cBluishDarkGray {
+      color: rgb(var(--v-theme-cBluishDarkGray)) !important;
+    }
+    .border-cBluishDarkGray {
+      --v-border-color: var(--v-theme-cBluishDarkGray);
+    }
+    .text-cSmokeGray {
+      color: rgb(var(--v-theme-cSmokeGray)) !important;
+    }
+    .border-cSmokeGray {
+      --v-border-color: var(--v-theme-cSmokeGray);
+    }
+    .text-cBluishLightGray {
+      color: rgb(var(--v-theme-cBluishLightGray)) !important;
+    }
+    .border-cBluishLightGray {
+      --v-border-color: var(--v-theme-cBluishLightGray);
+    }
+    .text-cFrostedGray {
+      color: rgb(var(--v-theme-cFrostedGray)) !important;
+    }
+    .border-cFrostedGray {
+      --v-border-color: var(--v-theme-cFrostedGray);
+    }
+    .text-cBlueGray {
+      color: rgb(var(--v-theme-cBlueGray)) !important;
+    }
+    .border-cBlueGray {
+      --v-border-color: var(--v-theme-cBlueGray);
+    }
+    .text-cLightGray {
+      color: rgb(var(--v-theme-cLightGray)) !important;
+    }
+    .border-cLightGray {
+      --v-border-color: var(--v-theme-cLightGray);
+    }
+    .text-cCloudGray {
+      color: rgb(var(--v-theme-cCloudGray)) !important;
+    }
+    .border-cCloudGray {
+      --v-border-color: var(--v-theme-cCloudGray);
+    }
+    .text-cExtraLightGray {
+      color: rgb(var(--v-theme-cExtraLightGray)) !important;
+    }
+    .border-cExtraLightGray {
+      --v-border-color: var(--v-theme-cExtraLightGray);
+    }
+    .text-cBlack {
+      color: rgb(var(--v-theme-cBlack)) !important;
+    }
+    .border-cBlack {
+      --v-border-color: var(--v-theme-cBlack);
+    }
+    .text-cLostMatch {
+      color: rgb(var(--v-theme-cLostMatch)) !important;
+    }
+    .border-cLostMatch {
+      --v-border-color: var(--v-theme-cLostMatch);
+    }
+    .text-cWonMatch {
+      color: rgb(var(--v-theme-cWonMatch)) !important;
+    }
+    .border-cWonMatch {
+      --v-border-color: var(--v-theme-cWonMatch);
+    }
+    .text-cPomegranate {
+      color: rgb(var(--v-theme-cPomegranate)) !important;
+    }
+    .border-cPomegranate {
+      --v-border-color: var(--v-theme-cPomegranate);
+    }
+    .text-cDarkRose {
+      color: rgb(var(--v-theme-cDarkRose)) !important;
+    }
+    .border-cDarkRose {
+      --v-border-color: var(--v-theme-cDarkRose);
+    }
+    .text-cExtraLightPink {
+      color: rgb(var(--v-theme-cExtraLightPink)) !important;
+    }
+    .border-cExtraLightPink {
+      --v-border-color: var(--v-theme-cExtraLightPink);
+    }
+    .text-cLightLilac {
+      color: rgb(var(--v-theme-cLightLilac)) !important;
+    }
+    .border-cLightLilac {
+      --v-border-color: var(--v-theme-cLightLilac);
+    }
+    .text-cLightSeaGreen {
+      color: rgb(var(--v-theme-cLightSeaGreen)) !important;
+    }
+    .border-cLightSeaGreen {
+      --v-border-color: var(--v-theme-cLightSeaGreen);
+    }
+    .text-cJungleMist {
+      color: rgb(var(--v-theme-cJungleMist)) !important;
+    }
+    .border-cJungleMist {
+      --v-border-color: var(--v-theme-cJungleMist);
+    }
+    .text-cGreen {
+      color: rgb(var(--v-theme-cGreen)) !important;
+    }
+    .border-cGreen {
+      --v-border-color: var(--v-theme-cGreen);
+    }
+    .text-cRedSecondary {
+      color: rgb(var(--v-theme-cRedSecondary)) !important;
+    }
+    .border-cRedSecondary {
+      --v-border-color: var(--v-theme-cRedSecondary);
+    }
+    .text-cMistyBlue {
+      color: rgb(var(--v-theme-cMistyBlue)) !important;
+    }
+    .border-cMistyBlue {
+      --v-border-color: var(--v-theme-cMistyBlue);
+    }
+    .text-cLightPink {
+      color: rgb(var(--v-theme-cLightPink)) !important;
+    }
+    .border-cLightPink {
+      --v-border-color: var(--v-theme-cLightPink);
+    }
+    .text-cLightPurple {
+      color: rgb(var(--v-theme-cLightPurple)) !important;
+    }
+    .border-cLightPurple {
+      --v-border-color: var(--v-theme-cLightPurple);
+    }
+    .text-cMatchCardGray {
+      color: rgb(var(--v-theme-cMatchCardGray)) !important;
+    }
+    .border-cMatchCardGray {
+      --v-border-color: var(--v-theme-cMatchCardGray);
+    }
+    .on-mainColor {
+      color: rgb(var(--v-theme-on-mainColor)) !important;
+    }
+    .on-appBarColor {
+      color: rgb(var(--v-theme-on-appBarColor)) !important;
+    }
+    .on-bgFilterColor {
+      color: rgb(var(--v-theme-on-bgFilterColor)) !important;
+    }
+    .on-tbf {
+      color: rgb(var(--v-theme-on-tbf)) !important;
+    }
+    .on-cMensLeague {
+      color: rgb(var(--v-theme-on-cMensLeague)) !important;
+    }
+    .on-cWomensLeague {
+      color: rgb(var(--v-theme-on-cWomensLeague)) !important;
+    }
+    .on-cYouthLeague {
+      color: rgb(var(--v-theme-on-cYouthLeague)) !important;
+    }
+    .on-cTsbLeague {
+      color: rgb(var(--v-theme-on-cTsbLeague)) !important;
+    }
+    .on-cAnthracite {
+      color: rgb(var(--v-theme-on-cAnthracite)) !important;
+    }
+    .on-cGray {
+      color: rgb(var(--v-theme-on-cGray)) !important;
+    }
+    .on-cGray1 {
+      color: rgb(var(--v-theme-on-cGray1)) !important;
+    }
+    .on-cGray50 {
+      color: rgb(var(--v-theme-on-cGray50)) !important;
+    }
+    .on-cGray500 {
+      color: rgb(var(--v-theme-on-cGray500)) !important;
+    }
+    .on-cMatchCardHeader {
+      color: rgb(var(--v-theme-on-cMatchCardHeader)) !important;
+    }
+    .on-cMatchTime {
+      color: rgb(var(--v-theme-on-cMatchTime)) !important;
+    }
+    .on-cMatchScoreInFront {
+      color: rgb(var(--v-theme-on-cMatchScoreInFront)) !important;
+    }
+    .on-cCheckboxText {
+      color: rgb(var(--v-theme-on-cCheckboxText)) !important;
+    }
+    .on-cBlueDarkGray {
+      color: rgb(var(--v-theme-on-cBlueDarkGray)) !important;
+    }
+    .on-cBluishDarkGray {
+      color: rgb(var(--v-theme-on-cBluishDarkGray)) !important;
+    }
+    .on-cSmokeGray {
+      color: rgb(var(--v-theme-on-cSmokeGray)) !important;
+    }
+    .on-cBluishLightGray {
+      color: rgb(var(--v-theme-on-cBluishLightGray)) !important;
+    }
+    .on-cFrostedGray {
+      color: rgb(var(--v-theme-on-cFrostedGray)) !important;
+    }
+    .on-cBlueGray {
+      color: rgb(var(--v-theme-on-cBlueGray)) !important;
+    }
+    .on-cLightGray {
+      color: rgb(var(--v-theme-on-cLightGray)) !important;
+    }
+    .on-cCloudGray {
+      color: rgb(var(--v-theme-on-cCloudGray)) !important;
+    }
+    .on-cExtraLightGray {
+      color: rgb(var(--v-theme-on-cExtraLightGray)) !important;
+    }
+    .on-cBlack {
+      color: rgb(var(--v-theme-on-cBlack)) !important;
+    }
+    .on-cLostMatch {
+      color: rgb(var(--v-theme-on-cLostMatch)) !important;
+    }
+    .on-cWonMatch {
+      color: rgb(var(--v-theme-on-cWonMatch)) !important;
+    }
+    .on-cPomegranate {
+      color: rgb(var(--v-theme-on-cPomegranate)) !important;
+    }
+    .on-cDarkRose {
+      color: rgb(var(--v-theme-on-cDarkRose)) !important;
+    }
+    .on-cExtraLightPink {
+      color: rgb(var(--v-theme-on-cExtraLightPink)) !important;
+    }
+    .on-cLightLilac {
+      color: rgb(var(--v-theme-on-cLightLilac)) !important;
+    }
+    .on-cLightSeaGreen {
+      color: rgb(var(--v-theme-on-cLightSeaGreen)) !important;
+    }
+    .on-cJungleMist {
+      color: rgb(var(--v-theme-on-cJungleMist)) !important;
+    }
+    .on-cGreen {
+      color: rgb(var(--v-theme-on-cGreen)) !important;
+    }
+    .on-cRedSecondary {
+      color: rgb(var(--v-theme-on-cRedSecondary)) !important;
+    }
+    .on-cMistyBlue {
+      color: rgb(var(--v-theme-on-cMistyBlue)) !important;
+    }
+    .on-cLightPink {
+      color: rgb(var(--v-theme-on-cLightPink)) !important;
+    }
+    .on-cLightPurple {
+      color: rgb(var(--v-theme-on-cLightPurple)) !important;
+    }
+    .on-cMatchCardGray {
+      color: rgb(var(--v-theme-on-cMatchCardGray)) !important;
+    }
+</style><link rel="stylesheet" href="/_nuxt/entry.DfJMEJWh.css" crossorigin><link rel="preload" href="/fonts/Montserrat-Light.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/fonts/Montserrat-ExtraBold.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="preload" href="/fonts/Montserrat-Black.woff2" as="font" type="font/woff2" crossorigin="anonymous"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/C8HMyikv.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Dd_uD5pT.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/hdRdof5o.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/CgInwcrd.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/DC4g1QIE.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/CUKg0wYk.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/D9Yujx1L.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/BmdJAsi3.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/COyBmRRF.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/C3hofEVn.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/CHeF3cOM.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/49YneCmk.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Bi7nQCtC.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Bl1ZypsH.js"><script type="2bfb46d2f225c54f24eab5a3-module" src="/_nuxt/C8HMyikv.js" crossorigin></script><link rel="prefetch" as="image" type="image/png" href="/_nuxt/man.B2znAw0j.png"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/woman.Duy2ACNJ.png"><link rel="prefetch" as="script" crossorigin href="/_nuxt/D2onxyPF.js"><link rel="prefetch" as="style" crossorigin href="/_nuxt/istatistik.BvPKE_Ct.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/density.CH4lNufO.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VSelect.C_MriWa5.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/loader.DN_K8q4d.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VOverlay.DImtBMgm.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VAvatar.DlNzvXWU.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VImg.BJFOZh3C.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VList.C2jRhQI-.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VDivider.BeM1gRhl.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VTextField.BII1rVeK.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VChip.C7Nyb-86.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VMenu.Cb6mv2Mi.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VSheet.Pl-5uamy.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VBtn.DEMA2czB.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VRow.ClL9ETKf.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/CommonColspanTable.DVEs1Usw.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VTable.DCcLSqlX.css"><link rel="prefetch" as="script" crossorigin href="/_nuxt/_DtZb3Fc.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/B38JfyrI.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/B_mh6fjk.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CGe0tySS.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/B9G1-efG.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CMTkzhNi.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DFGXZsVR.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/HWWlOMyj.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DU_Dpjcb.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/f0Asrxx_.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/UfP6JLiD.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DJm7SL2u.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CBqszFZd.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DVIO26lg.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DOvh5akW.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DdlvlO9A.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CVJE8XVj.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/BJt7MtfO.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/BUPtorhA.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/glnQh9vX.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/RzURW7Hz.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/B3Jco6e0.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CNpQGNBh.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/IgEKl5GN.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/Cb-v1aOU.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CRW5pwQX.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/Dzei5phI.js"><link rel="prefetch" as="style" crossorigin href="/_nuxt/kariyer.DrOLCK3A.css"><link rel="prefetch" as="script" crossorigin href="/_nuxt/BeG0SadN.js"><link rel="prefetch" as="style" crossorigin href="/_nuxt/default.BaeP79xa.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VCard.BykLV_63.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VContainer.CuF2aXmi.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/VToolbar.BCBobgbt.css"><link rel="prefetch" as="style" crossorigin href="/_nuxt/SeasonDropdown.BH_xWTZi.css"><link rel="prefetch" as="script" crossorigin href="/_nuxt/Bex_mcnU.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DQDdt7Rq.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/C963r092.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CDy2lc0q.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/BOjCkSDJ.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/D0igqvEf.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DLzBeU4b.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/S9GgVnWx.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CsEHwdu6.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/BGEljPxQ.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/DOPDwVfI.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/CLo4RDEo.js"><meta name="referrer" content="no-referrer"></head><body><div id="__nuxt"><div class="error-page-container" data-v-e07b9c72><h1 class="error-page-container-title" data-v-e07b9c72>404 — Sayfa Bulunamadı </h1><p class="error-page-container-message" data-v-e07b9c72> Üzgünüz, aradığınız sayfa mevcut değil. </p><button class="error-page-container-button" data-v-e07b9c72> Ana Sayfaya Git </button></div></div><div id="teleports"></div><script type="2bfb46d2f225c54f24eab5a3-text/javascript">window.__NUXT__={};window.__NUXT__.config={public:{apiBaseUrl:"https://miniappapi.tbf.org.tr/webapi-service",apiHashing:"$(ENABLE_API_HASHING)"},app:{baseURL:"/",buildId:"b4566ed3-0d1c-447e-92d9-26a48aa400b5",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__">[["ShallowReactive",1],{"error":2,"data":8,"state":358,"once":363,"_errors":365,"serverRendered":288,"path":4},["null","error",3,"url",4,"statusCode",5,"statusMessage",6,"message",6,"data",7,"statusText",6,"status",5],"true","\u002Fimages\u002Froster-transfers\u002Farrived.png",404,"Page not found: \u002Fimages\u002Froster-transfers\u002Farrived.png",{"path":4},["ShallowReactive",9],{"national-teams-data":10,"featured-9-leagues":291},{"data":11,"isSuccess":288,"message":289,"problemDetails":290},[12,39,60,81,102,123,143,162,184,205,224,243,259,274],{"id":13,"order":14,"ustBaslik":15,"url":16,"sayfalar":17},84,1,"A Erkek Milli Takım","a-milli-erkek-takim",[18,23,28,34],{"id":19,"sayfa_Ismi":20,"url":21,"alt_Kirilim":13,"ustBaslik":15,"newsContextIds":22},85,"TEKNİK KADRO","teknik-kadro",[],{"id":24,"sayfa_Ismi":25,"url":26,"alt_Kirilim":13,"ustBaslik":15,"newsContextIds":27},86,"BASKETBOLCULAR","basketbolcular",[],{"id":29,"sayfa_Ismi":30,"url":31,"alt_Kirilim":13,"ustBaslik":15,"newsContextIds":32},87,"HABERLER","283",[33],283,{"id":35,"sayfa_Ismi":36,"url":37,"alt_Kirilim":13,"ustBaslik":15,"newsContextIds":38},88,"MAÇLAR","71583",[],{"id":40,"order":41,"ustBaslik":42,"url":43,"sayfalar":44},132,2,"A Kadın Milli Takım","a-milli-kadin-takim",[45,48,51,56],{"id":46,"sayfa_Ismi":20,"url":21,"alt_Kirilim":40,"ustBaslik":42,"newsContextIds":47},133,[],{"id":49,"sayfa_Ismi":25,"url":26,"alt_Kirilim":40,"ustBaslik":42,"newsContextIds":50},134,[],{"id":52,"sayfa_Ismi":30,"url":53,"alt_Kirilim":40,"ustBaslik":42,"newsContextIds":54},135,"155",[55],155,{"id":57,"sayfa_Ismi":36,"url":58,"alt_Kirilim":40,"ustBaslik":42,"newsContextIds":59},136,"71548",[],{"id":61,"order":62,"ustBaslik":63,"url":64,"sayfalar":65},137,3,"20 Yaş Altı Erkek Milli Takım","umit-milli-erkek-takim",[66,69,72,77],{"id":67,"sayfa_Ismi":20,"url":21,"alt_Kirilim":61,"ustBaslik":63,"newsContextIds":68},138,[],{"id":70,"sayfa_Ismi":25,"url":26,"alt_Kirilim":61,"ustBaslik":63,"newsContextIds":71},139,[],{"id":73,"sayfa_Ismi":30,"url":74,"alt_Kirilim":61,"ustBaslik":63,"newsContextIds":75},140,"19",[76],19,{"id":78,"sayfa_Ismi":36,"url":79,"alt_Kirilim":61,"ustBaslik":63,"newsContextIds":80},141,"71551",[],{"id":82,"order":83,"ustBaslik":84,"url":85,"sayfalar":86},142,4,"20 Yaş Altı Kız Milli Takım","umit-milli-kiz-takim",[87,90,93,98],{"id":88,"sayfa_Ismi":20,"url":21,"alt_Kirilim":82,"ustBaslik":84,"newsContextIds":89},143,[],{"id":91,"sayfa_Ismi":25,"url":26,"alt_Kirilim":82,"ustBaslik":84,"newsContextIds":92},144,[],{"id":94,"sayfa_Ismi":30,"url":95,"alt_Kirilim":82,"ustBaslik":84,"newsContextIds":96},145,"14",[97],14,{"id":99,"sayfa_Ismi":36,"url":100,"alt_Kirilim":82,"ustBaslik":84,"newsContextIds":101},146,"71550",[],{"id":103,"order":104,"ustBaslik":105,"url":106,"sayfalar":107},147,5,"18 Yaş Altı Erkek Milli Takım","u18-genc-milli-erkek-takim",[108,111,114,119],{"id":109,"sayfa_Ismi":20,"url":21,"alt_Kirilim":103,"ustBaslik":105,"newsContextIds":110},148,[],{"id":112,"sayfa_Ismi":25,"url":26,"alt_Kirilim":103,"ustBaslik":105,"newsContextIds":113},149,[],{"id":115,"sayfa_Ismi":30,"url":116,"alt_Kirilim":103,"ustBaslik":105,"newsContextIds":117},150,"20",[118],20,{"id":120,"sayfa_Ismi":36,"url":121,"alt_Kirilim":103,"ustBaslik":105,"newsContextIds":122},151,"71552",[],{"id":124,"order":125,"ustBaslik":126,"url":127,"sayfalar":128},152,6,"18 Yaş Altı Kız Milli Takım","u18-genc-milli-kiz-takim",[129,132,135,139],{"id":130,"sayfa_Ismi":20,"url":21,"alt_Kirilim":124,"ustBaslik":126,"newsContextIds":131},153,[],{"id":133,"sayfa_Ismi":25,"url":26,"alt_Kirilim":124,"ustBaslik":126,"newsContextIds":134},154,[],{"id":55,"sayfa_Ismi":30,"url":136,"alt_Kirilim":124,"ustBaslik":126,"newsContextIds":137},"15",[138],15,{"id":140,"sayfa_Ismi":36,"url":141,"alt_Kirilim":124,"ustBaslik":126,"newsContextIds":142},156,"74413",[],{"id":144,"order":145,"ustBaslik":146,"url":147,"sayfalar":148},1306,7,"17 Yaş Altı Erkek Milli Takım","u17-yildiz-erkek-milli-takim",[149,152,155,158],{"id":150,"sayfa_Ismi":20,"url":21,"alt_Kirilim":144,"ustBaslik":146,"newsContextIds":151},1307,[],{"id":153,"sayfa_Ismi":25,"url":26,"alt_Kirilim":144,"ustBaslik":146,"newsContextIds":154},1308,[],{"id":156,"sayfa_Ismi":30,"url":116,"alt_Kirilim":144,"ustBaslik":146,"newsContextIds":157},1309,[118],{"id":159,"sayfa_Ismi":36,"url":160,"alt_Kirilim":144,"ustBaslik":146,"newsContextIds":161},1310,"178084",[],{"id":163,"order":164,"ustBaslik":165,"url":166,"sayfalar":167},162,8,"16 Yaş Altı Erkek Milli Takım","erkekler-yildiz-takim",[168,171,174,180],{"id":169,"sayfa_Ismi":20,"url":21,"alt_Kirilim":163,"ustBaslik":165,"newsContextIds":170},163,[],{"id":172,"sayfa_Ismi":25,"url":26,"alt_Kirilim":163,"ustBaslik":165,"newsContextIds":173},164,[],{"id":175,"sayfa_Ismi":30,"url":176,"alt_Kirilim":163,"ustBaslik":165,"newsContextIds":177},165,"237-22",[178,179],237,22,{"id":181,"sayfa_Ismi":36,"url":182,"alt_Kirilim":163,"ustBaslik":165,"newsContextIds":183},166,"69247",[],{"id":185,"order":186,"ustBaslik":187,"url":188,"sayfalar":189},157,9,"16 Yaş Altı Kız Milli Takım","yildiz-milli-kiz-takim",[190,193,196,201],{"id":191,"sayfa_Ismi":20,"url":21,"alt_Kirilim":185,"ustBaslik":187,"newsContextIds":192},158,[],{"id":194,"sayfa_Ismi":25,"url":26,"alt_Kirilim":185,"ustBaslik":187,"newsContextIds":195},159,[],{"id":197,"sayfa_Ismi":30,"url":198,"alt_Kirilim":185,"ustBaslik":187,"newsContextIds":199},160,"240",[200],240,{"id":202,"sayfa_Ismi":36,"url":203,"alt_Kirilim":185,"ustBaslik":187,"newsContextIds":204},161,"73082",[],{"id":206,"order":207,"ustBaslik":208,"url":209,"sayfalar":210},2338,10,"15 Yaş Altı Kız Milli Takım","15-yas-alti-kiz-milli-takim",[211,214,217,220],{"id":212,"sayfa_Ismi":20,"url":21,"alt_Kirilim":206,"ustBaslik":208,"newsContextIds":213},2339,[],{"id":215,"sayfa_Ismi":25,"url":26,"alt_Kirilim":206,"ustBaslik":208,"newsContextIds":216},2340,[],{"id":218,"sayfa_Ismi":30,"url":198,"alt_Kirilim":206,"ustBaslik":208,"newsContextIds":219},2341,[200],{"id":221,"sayfa_Ismi":36,"url":222,"alt_Kirilim":206,"ustBaslik":208,"newsContextIds":223},2342,"178087",[],{"id":225,"order":226,"ustBaslik":227,"url":228,"sayfalar":229},248,11,"3x3 Erkek Milli Takım","3x3-milli-erkek-takim",[230,234,237],{"id":231,"sayfa_Ismi":20,"url":21,"alt_Kirilim":225,"ustBaslik":232,"newsContextIds":233},250,"3x3 Milli Erkek Takım",[],{"id":235,"sayfa_Ismi":25,"url":26,"alt_Kirilim":225,"ustBaslik":232,"newsContextIds":236},251,[],{"id":238,"sayfa_Ismi":30,"url":239,"alt_Kirilim":225,"ustBaslik":232,"newsContextIds":240},252,"115-130-134",[241,242,49],115,130,{"id":244,"order":245,"ustBaslik":246,"url":247,"sayfalar":248},249,12,"3x3 Kadın Milli Takım","3x3-milli-kadin-takim",[249,253,256],{"id":250,"sayfa_Ismi":20,"url":21,"alt_Kirilim":244,"ustBaslik":251,"newsContextIds":252},254,"3x3 Milli Kadın Takım",[],{"id":254,"sayfa_Ismi":25,"url":26,"alt_Kirilim":244,"ustBaslik":251,"newsContextIds":255},255,[],{"id":257,"sayfa_Ismi":30,"url":239,"alt_Kirilim":244,"ustBaslik":251,"newsContextIds":258},256,[241,242,49],{"id":260,"order":261,"ustBaslik":262,"url":263,"sayfalar":264},273,13,"3x3 U23 Erkek Milli Takım","3x3-u23-erkek-milli-takim",[265,268,271],{"id":266,"sayfa_Ismi":20,"url":21,"alt_Kirilim":260,"ustBaslik":262,"newsContextIds":267},274,[],{"id":269,"sayfa_Ismi":25,"url":26,"alt_Kirilim":260,"ustBaslik":262,"newsContextIds":270},275,[],{"id":272,"sayfa_Ismi":30,"url":239,"alt_Kirilim":260,"ustBaslik":262,"newsContextIds":273},276,[241,242,49],{"id":275,"order":97,"ustBaslik":276,"url":277,"sayfalar":278},278,"3x3 U23 Kadın Milli Takım","3x3-u23-kadin-milli-takim",[279,282,285],{"id":280,"sayfa_Ismi":20,"url":21,"alt_Kirilim":275,"ustBaslik":276,"newsContextIds":281},279,[],{"id":283,"sayfa_Ismi":25,"url":26,"alt_Kirilim":275,"ustBaslik":276,"newsContextIds":284},280,[],{"id":286,"sayfa_Ismi":30,"url":239,"alt_Kirilim":275,"ustBaslik":276,"newsContextIds":287},281,[241,242,49],true,"Success",null,{"data":292,"isSuccess":288,"message":289,"problemDetails":290},[293,302,309,316,323,331,338,342,351],{"activityId":294,"gorunenTamAdi":295,"prefixUrl":296,"leagueLogo":297,"transparentLeagueLogo":298,"hasSponsor":288,"seasonId":299,"season":300,"logoGray":301,"sort":14},22214,"Türkiye Sigorta Basketbol Süper Ligi","bsl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fbslrenkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fbslbeyaz.svg",174,"2026-2027","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fbslgri.svg",{"activityId":303,"gorunenTamAdi":304,"prefixUrl":305,"leagueLogo":306,"transparentLeagueLogo":307,"hasSponsor":288,"seasonId":299,"season":300,"logoGray":308,"sort":41},22209,"Halkbank Kadınlar Basketbol Süper Ligi","kbsl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fkbslrenkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fkbslbeyaz.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fkbslgri.svg",{"activityId":310,"gorunenTamAdi":311,"prefixUrl":312,"leagueLogo":313,"transparentLeagueLogo":314,"hasSponsor":288,"seasonId":299,"season":300,"logoGray":315,"sort":62},22215,"Türkiye Sigorta Türkiye Basketbol Ligi","tbl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftblrenkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftblbeyaz.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftblgri.svg",{"activityId":317,"gorunenTamAdi":318,"prefixUrl":319,"leagueLogo":320,"transparentLeagueLogo":321,"hasSponsor":288,"seasonId":299,"season":300,"logoGray":322,"sort":83},22210,"Halkbank Türkiye Kadınlar Basketbol Ligi","tkbl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftkblrenkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftkblbeyaz.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftkblgri.svg",{"activityId":324,"gorunenTamAdi":325,"prefixUrl":326,"leagueLogo":327,"transparentLeagueLogo":328,"hasSponsor":329,"seasonId":299,"season":300,"logoGray":330,"sort":104},22223,"Türkiye Basketbol 2. Ligi","tb2l","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftb2lrenkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftb2lbeyaz.svg",false,"https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Ftb2lgri.svg",{"activityId":332,"gorunenTamAdi":333,"prefixUrl":334,"leagueLogo":335,"transparentLeagueLogo":336,"hasSponsor":329,"seasonId":299,"season":300,"logoGray":337,"sort":125},23540,"Basketbol Gençler Ligi Erkekler","bgl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002FBGL_lkerlogorenklicropped1.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002FBGL_lkerlogobeyazcropped1.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002FBGL_lkerlogogricropped1.svg",{"activityId":339,"gorunenTamAdi":340,"prefixUrl":341,"leagueLogo":335,"transparentLeagueLogo":336,"hasSponsor":329,"seasonId":299,"season":300,"logoGray":337,"sort":145},23541,"Basketbol Gençler Ligi Kızlar","bglk",{"activityId":343,"gorunenTamAdi":344,"prefixUrl":345,"leagueLogo":346,"transparentLeagueLogo":347,"hasSponsor":329,"seasonId":348,"season":349,"logoGray":350,"sort":164},20726,"Erkekler Bölgesel Basketbol Ligi","ebbl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Febbl-renkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Febbl-beyaz.svg",172,"2025-2026","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Febbl-gri.svg",{"activityId":352,"gorunenTamAdi":353,"prefixUrl":354,"leagueLogo":355,"transparentLeagueLogo":356,"hasSponsor":329,"seasonId":299,"season":300,"logoGray":357,"sort":186},23539,"Kadınlar Bölgesel Basketbol Ligi","kbbl","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fkbbl-renkli.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fkbbl-beyaz.svg","https:\u002F\u002Ftbf.org.tr\u002Fassets\u002Fimages\u002Fsites-logo\u002Fkbbl-gri.svg",["Reactive",359],{"$sfeatured-9-leagues":291,"$snational-teams":11,"$sglobal-loading":329,"$sglobal-loading-count":360,"$sglobal-loading-requests":361,"$svuetify:nuxt:ssr-client-hints":362},0,["Map"],{"firstRequest":288,"prefersColorSchemeAvailable":288,"prefersReducedMotionAvailable":329,"viewportHeightAvailable":288,"viewportWidthAvailable":288,"devicePixelRatioAvailable":329,"colorSchemeCookie":-1},["Set",364],"$KbgL11m2A8",["ShallowReactive",366],{"national-teams-data":-1,"featured-9-leagues":-1}]</script><script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="2bfb46d2f225c54f24eab5a3-|49" defer></script></body></html>
