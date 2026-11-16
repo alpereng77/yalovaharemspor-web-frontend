@@ -62,6 +62,10 @@ class GiveawayController extends Controller
             'filter' => $filter,
             'totalCount' => $giveaway->entries()->count(),
             'eligibleCount' => $giveaway->entries()->where('is_eligible', true)->count(),
+            // Elenme nedenleri (ör. "Yetersiz etiket (0/2)" → "Yetersiz etiket"), en sık olan önce
+            'ineligibleReasons' => $giveaway->entries()->where('is_eligible', false)->pluck('ineligible_reason')
+                ->map(fn($r) => trim(preg_replace('/\s*\(.*\)$/', '', (string) $r)) ?: 'Bilinmiyor')
+                ->countBy()->sortDesc(),
             // Çekiliş animasyonunda dönen isimler
             'eligibleNames' => $giveaway->picks->isEmpty()
                 ? $giveaway->entries()->where('is_eligible', true)->limit(400)->pluck('username')

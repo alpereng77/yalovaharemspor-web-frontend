@@ -39,6 +39,8 @@ Route::post('/cekilis/{giveaway}/katil', [GiveawayPageController::class, 'regist
 Route::post('/api/tbf-import', [TbfImportController::class, 'store'])->name('api.tbf.import');
 Route::options('/api/tbf-import', [TbfImportController::class, 'preflight']);
 Route::post('/api/tbf-import/photo', [TbfImportController::class, 'photo'])->name('api.tbf.import.photo');
+Route::post('/api/tbf-import/logo', [TbfImportController::class, 'logo'])->name('api.tbf.import.logo');
+Route::options('/api/tbf-import/{part}', [TbfImportController::class, 'preflight'])->whereIn('part', ['photo', 'logo']);
 
 Route::post('/newsletter', function (Request $request) {
     $validator = Validator::make($request->all(), [

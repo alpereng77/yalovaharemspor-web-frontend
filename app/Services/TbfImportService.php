@@ -7,6 +7,7 @@ use App\Models\BotLog;
 use App\Models\Player;
 use App\Models\PlayerStat;
 use App\Models\Standing;
+use App\Models\TeamLogo;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -62,6 +63,8 @@ class TbfImportService
 
         $summary['photos_needed'] = $summary['players']['photos_needed'];
         unset($summary['players']['photos_needed']);
+        $summary['logos_needed'] = $summary['matches']['logos_needed'];
+        unset($summary['matches']['logos_needed']);
 
         return ['message' => $message] + $summary;
     }
@@ -106,10 +109,11 @@ class TbfImportService
 
     private function importMatches(array $games): array
     {
-        $result = ['updated' => 0, 'created' => 0, 'duplicates_removed' => 0];
+        $result = ['updated' => 0, 'created' => 0, 'duplicates_removed' => 0, 'logos_needed' => []];
         if (!$games) {
             return $result;
         }
+        $teams = []; // tbf_team_id => [name, logo]
 
         $claimed = [];
 
@@ -134,7 +138,14 @@ class TbfImportService
                 'status' => $played ? 'played' : 'upcoming',
                 'home_score' => $played ? (int) $g['skorA'] : null,
                 'away_score' => $played ? (int) $g['skorB'] : null,
+                'home_tbf_team_id' => (int) ($g['takimAId'] ?? 0) ?: null,
+                'away_tbf_team_id' => (int) ($g['takimBId'] ?? 0) ?: null,
             ];
+            foreach ([['takimAId', 'takimA', 'takimALogo'], ['takimBId', 'takimB', 'takimBLogo']] as [$idKey, $nameKey, $logoKey]) {
+                if (!empty($g[$idKey])) {
+                    $teams[(int) $g[$idKey]] = ['name' => (string) ($g[$nameKey] ?? ''), 'logo' => (string) ($g[$logoKey] ?? '')];
+                }
+            }
 
             if ($match) {
                 // Takım adları yöneticinin düzenlediği haliyle kalır.
@@ -161,11 +172,67 @@ class TbfImportService
             }
         }
 
+        $result['logos_needed'] = $this->syncTeamLogos($teams);
+
         // Sıradaki maç: oynanmamış en yakın maç.
         BasketballMatch::query()->update(['is_next_match' => false]);
         BasketballMatch::where('status', 'upcoming')->orderBy('match_date')->limit(1)->update(['is_next_match' => true]);
 
         return $result;
+    }
+
+    /**
+     * Takımları kaydeder; dosyası olmayan ya da TBF'de logosu değişmiş takımları "indirilecek" diye döndürür.
+     * TBF'de logo yoksa hiçbir şey uydurulmaz: takım logosuz kalır.
+     * @param array<int, array{name: string, logo: string}> $teams
+     * @return array<int, array{tbf_team_id: int, url: string}>
+     */
+    private function syncTeamLogos(array $teams): array
+    {
+        $needed = [];
+        foreach ($teams as $id => $t) {
+            $logo = TeamLogo::firstOrNew(['tbf_team_id' => $id]);
+            $logo->name = $this->turkishTitle($t['name']);
+            $url = preg_match('#^https://(www\.)?tbf\.org\.tr/#i', $t['logo']) ? $t['logo'] : '';
+            if ($url === '') {
+                $logo->save();
+                continue;
+            }
+            $hasFile = $logo->image_path && is_file(public_path($logo->image_path));
+            if (!$hasFile || $logo->source_url !== $url) {
+                $needed[] = ['tbf_team_id' => $id, 'url' => $url];
+            }
+            $logo->save();
+        }
+        return $needed;
+    }
+
+    /** Tarayıcıdan gelen logoyu doğrular ve kaydeder (sadece TBF'nin bildirdiği adres için). */
+    public function saveLogo(int $teamId, string $url, string $binary): string
+    {
+        $logo = TeamLogo::where('tbf_team_id', $teamId)->firstOrFail();
+        if (!preg_match('#^https://(www\.)?tbf\.org\.tr/#i', $url)) {
+            throw new \InvalidArgumentException('Geçersiz logo adresi.');
+        }
+        $info = @getimagesizefromstring($binary);
+        $ext = ['image/jpeg' => 'jpg', 'image/png' => 'png', 'image/webp' => 'webp', 'image/gif' => 'gif'][$info['mime'] ?? ''] ?? null;
+        if (!$info || !$ext || strlen($binary) > 3 * 1024 * 1024) {
+            throw new \InvalidArgumentException('Geçersiz görsel.');
+        }
+
+        $dir = public_path('assets/teams');
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+        $path = 'assets/teams/tbf_' . $teamId . '_' . substr(md5($url), 0, 10) . '.' . $ext;
+        file_put_contents(public_path($path), $binary);
+
+        $old = (string) $logo->image_path;
+        $logo->update(['image_path' => $path, 'source_url' => $url]);
+        if ($old && $old !== $path && str_starts_with($old, 'assets/teams/tbf_' . $teamId . '_') && is_file(public_path($old))) {
+            @unlink(public_path($old));
+        }
+        return $path;
     }
 
     /** TBF kimliği olmayan, aynı iç/dış saha durumundaki en yakın tarihli maç (±3 gün). */

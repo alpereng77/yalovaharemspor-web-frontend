@@ -41,7 +41,7 @@
     font-size: 2rem;
     font-weight: 800;
     line-height: 1.1;
-    color: #fff;
+    color: var(--text-strong);
   }
 
   .dash-grid {
@@ -191,7 +191,7 @@
         <a href="{{ route('admin.matches.index') }}" class="btn btn-sm btn-secondary">Düzenle</a>
       </div>
       @if($upcomingMatch)
-        <div style="background: rgba(0,0,0,0.3); padding: 1rem; border-radius: 6px; text-align: center; border: 1px solid var(--border-color);">
+        <div style="background: var(--surface-sunken); padding: 1rem; border-radius: 6px; text-align: center; border: 1px solid var(--border-color);">
           <div style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 700; text-transform: uppercase;">
             {{ $upcomingMatch->is_home ? 'İÇ SAHA KARŞILAŞMASI' : 'DEPLASMAN' }}
           </div>
@@ -201,7 +201,7 @@
           <div style="font-size: 0.85rem; color: var(--text-muted);">
             {{ $upcomingMatch->formatted_date }}
           </div>
-          <div style="font-size: 0.8rem; color: #fff; margin-top: 0.3rem; display: flex; align-items: center; justify-content: center; gap: 4px;">
+          <div style="font-size: 0.8rem; color: var(--text-strong); margin-top: 0.3rem; display: flex; align-items: center; justify-content: center; gap: 4px;">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>{{ $upcomingMatch->venue ?? 'Yalova 90. Yıl Spor Salonu' }}</span>
           </div>

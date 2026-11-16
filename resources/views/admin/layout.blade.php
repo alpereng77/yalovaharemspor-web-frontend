@@ -7,8 +7,20 @@
   <link rel="icon" href="{{ asset('assets/images/yalova-logo.jpg') }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    // Tema: sayfa çizilmeden önce kayıtlı tercihi uygula (yanıp sönmeyi önler)
+    (function () { var t = 'dark'; try { t = localStorage.getItem('admin-theme') || 'dark'; } catch (e) {} document.documentElement.setAttribute('data-theme', t); })();
+  </script>
   <style>
     :root {
+      color-scheme: dark;
+      --text-strong: #ffffff;
+      --text-soft: #e2e8f0;
+      --surface-sunken: rgba(0, 0, 0, 0.25);
+      --hover: rgba(255, 255, 255, 0.06);
+      --warn-text: #f6e0b5;
+      --danger-text: #feb2b2;
+      --success-text: #68d391;
       --bg-dark: #07100b;
       --bg-sidebar: #0b1712;
       --bg-card: #10211a;
@@ -23,6 +35,56 @@
       --text-muted: #8b9d94;
       --sidebar-width: 260px;
     }
+    /* Açık tema */
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg-dark: #f3f5f4;
+      --bg-sidebar: #ffffff;
+      --bg-card: #ffffff;
+      --bg-input: #ffffff;
+      --border-color: #e2e7e4;
+      --text-main: #1d2721;
+      --text-muted: #5d6c64;
+      --text-strong: #0e1712;
+      --text-soft: #36433c;
+      --surface-sunken: #f4f6f5;
+      --hover: rgba(0, 0, 0, 0.05);
+      --accent-gold: #a8660b;
+      --warn-text: #7a4b00;
+      --danger-text: #b91c1c;
+      --success-text: #15803d;
+    }
+    :root[data-theme="light"] .card { box-shadow: 0 1px 2px rgba(16, 24, 20, 0.05); }
+    :root[data-theme="light"] .nav-item:hover { background: var(--hover); color: var(--text-strong); }
+    :root[data-theme="light"] .nav-item.active { color: #fff; }
+    :root[data-theme="light"] .live-site-link { background: var(--surface-sunken); color: var(--text-strong); border: 1px solid var(--border-color); }
+    :root[data-theme="light"] .live-site-link:hover { background: #e9edeb; }
+    :root[data-theme="light"] .logout-btn { border-color: var(--border-color); color: #c53030; }
+    :root[data-theme="light"] .btn-secondary { background: #eef1ef; color: var(--text-strong); border: 1px solid var(--border-color); }
+    :root[data-theme="light"] .btn-secondary:hover { background: #e3e8e5; }
+    :root[data-theme="light"] .btn-danger { background: #fdecec; color: #b91c1c; border-color: #f6caca; }
+    :root[data-theme="light"] .btn-danger:hover { background: #dc2626; color: #fff; }
+    :root[data-theme="light"] .btn-green { border-color: transparent; }
+    :root[data-theme="light"] .table th { background: var(--surface-sunken); }
+    :root[data-theme="light"] .table tbody tr:hover { background: #f7f9f8; }
+    :root[data-theme="light"] .badge-success { background: #dcfce7; color: #15803d; }
+    :root[data-theme="light"] .badge-danger { background: #fee2e2; color: #b91c1c; }
+    :root[data-theme="light"] .badge-gold { background: #fef3c7; color: #8a5a00; }
+    :root[data-theme="light"] .alert-success { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+    :root[data-theme="light"] .alert-warning { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+    :root[data-theme="light"] .alert-error { background: #fef2f2; border-color: #fecaca; color: #b91c1c; }
+    :root[data-theme="light"] .alert-info { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+    :root[data-theme="light"] .user-badge { background: #fef3c7; color: #8a5a00; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+      height: 34px; padding: 0 0.75rem; border-radius: 999px; cursor: pointer;
+      border: 1px solid var(--border-color); background: var(--surface-sunken); color: var(--text-main);
+      font: 600 0.8rem 'Inter', sans-serif;
+    }
+    .theme-toggle:hover { background: var(--hover); }
+    .theme-toggle:focus-visible { outline: 2px solid var(--accent-gold); outline-offset: 2px; }
+    .theme-toggle .when-light, :root[data-theme="light"] .theme-toggle .when-dark { display: none; }
+    :root[data-theme="light"] .theme-toggle .when-light { display: inline; }
     * {
       box-sizing: border-box;
       margin: 0;
@@ -55,7 +117,7 @@
       gap: 0.85rem;
       border-bottom: 1px solid var(--border-color);
       text-decoration: none;
-      color: #fff;
+      color: var(--text-strong);
     }
     .sidebar-brand img {
       width: 42px;
@@ -110,7 +172,7 @@
     }
     .nav-item:hover {
       background: rgba(255, 255, 255, 0.05);
-      color: #fff;
+      color: var(--text-strong);
     }
     .nav-item.active {
       background: var(--primary-red);
@@ -135,7 +197,7 @@
       justify-content: center;
       gap: 0.5rem;
       background: rgba(255, 255, 255, 0.06);
-      color: #fff;
+      color: var(--text-strong);
       padding: 0.6rem;
       border-radius: 6px;
       font-size: 0.82rem;
@@ -265,7 +327,7 @@
       font-family: 'Barlow Condensed', sans-serif;
       font-size: 1.3rem;
       font-weight: 800;
-      color: #fff;
+      color: var(--text-strong);
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -310,7 +372,7 @@
     }
     .btn-secondary {
       background: rgba(255, 255, 255, 0.08);
-      color: #fff;
+      color: var(--text-strong);
     }
     .btn-secondary:hover {
       background: rgba(255, 255, 255, 0.15);
@@ -323,6 +385,11 @@
     .btn-danger:hover {
       background: #f56565;
       color: #fff;
+    }
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      pointer-events: none;
     }
     .btn-sm {
       padding: 0.35rem 0.75rem;
@@ -347,7 +414,7 @@
       border: 1px solid var(--border-color);
       border-radius: 6px;
       padding: 0.65rem 0.85rem;
-      color: #fff;
+      color: var(--text-strong);
       font-size: 0.9rem;
       font-family: inherit;
       transition: border-color 0.2s, box-shadow 0.2s;
@@ -374,7 +441,7 @@
       font-size: 0.88rem;
     }
     .table th {
-      background: rgba(0, 0, 0, 0.25);
+      background: var(--surface-sunken);
       color: var(--text-muted);
       font-size: 0.75rem;
       font-weight: 700;
@@ -515,6 +582,10 @@
         @yield('topbar-title', 'Yönetim Paneli')
       </div>
       <div class="topbar-user">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Temayı değiştir">
+          <span class="when-dark" aria-hidden="true">☀️</span><span class="when-dark">Açık tema</span>
+          <span class="when-light" aria-hidden="true">🌙</span><span class="when-light">Koyu tema</span>
+        </button>
         <span class="user-badge">ADMIN</span>
         <span>{{ auth()->user()->name ?? 'Yönetici' }}</span>
       </div>
@@ -553,6 +624,17 @@
     </main>
   </div>
 
+  <script>
+    (function () {
+      var btn = document.getElementById('themeToggle');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', next);
+        try { localStorage.setItem('admin-theme', next); } catch (e) {}
+      });
+    })();
+  </script>
   @yield('scripts')
 </body>
 </html>

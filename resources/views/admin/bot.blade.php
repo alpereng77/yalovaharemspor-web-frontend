@@ -68,7 +68,7 @@
   }
   .sync-stat-val {
     font-size: 1.15rem;
-    color: #fff;
+    color: var(--text-strong);
     font-weight: 700;
     margin-top: 0.2rem;
   }
@@ -97,7 +97,13 @@
     . 'const d=await new Promise((res,rej)=>{const f=new FileReader();f.onload=()=>res(f.result);f.onerror=rej;f.readAsDataURL(b);});'
     . 'const pr=await (await fetch(U+"/photo",{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({token:T,tbf_id:ph.tbf_id,url:ph.url,data:d})})).json();'
     . 'pr.success?ok++:fail++;}catch(e){fail++;}}'
-    . 'alert("✓ "+j.message+(ok||fail?"\\n"+ok+" oyuncu fotoğrafı eklendi"+(fail?", "+fail+" başarısız":"")+".":""));'
+    // Rakip takım logoları: TBF sunucudan gelen isteği engellediği için tarayıcıda indirilip yüklenir
+    . 'let lok=0,lfail=0;for(const lg of (j.logos_needed||[])){try{'
+    . 'const b=await (await fetch(new URL(lg.url).pathname,{credentials:"include"})).blob();'
+    . 'const d=await new Promise((res,rej)=>{const f=new FileReader();f.onload=()=>res(f.result);f.onerror=rej;f.readAsDataURL(b);});'
+    . 'const lr=await (await fetch(U+"/logo",{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({token:T,tbf_team_id:lg.tbf_team_id,url:lg.url,data:d})})).json();'
+    . 'lr.success?lok++:lfail++;}catch(e){lfail++;}}'
+    . 'alert("✓ "+j.message+(ok||fail?"\\n"+ok+" oyuncu fotoğrafı eklendi"+(fail?", "+fail+" başarısız":"")+".":"")+(lok||lfail?"\\n"+lok+" takım logosu eklendi"+(lfail?", "+lfail+" başarısız":"")+".":""));'
     . '}catch(e){alert("TBF aktarımı başarısız: "+e.message);}})();';
   $tbfBookmarklet = 'javascript:' . rawurlencode($tbfJs);
 @endphp
@@ -112,7 +118,7 @@
   <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
     Puan durumu, tüm maçlar ve oyuncu istatistikleri resmi TBF verisinden gelir. Sayfayı siz kendi tarayıcınızda açtığınız için Cloudflare doğrulaması sorun olmaz.
   </p>
-  <ol style="color: #e2e8f0; font-size: 0.9rem; line-height: 1.8; margin: 0 0 1rem 1.2rem;">
+  <ol style="color: var(--text-soft); font-size: 0.9rem; line-height: 1.8; margin: 0 0 1rem 1.2rem;">
     <li>Aşağıdaki yeşil butonu tarayıcınızın <strong>yer imleri çubuğuna sürükleyin</strong> (bir kez yapmanız yeterli).</li>
     <li><a href="https://www.tbf.org.tr/ligler/{{ $tbfPrefix }}-2026-2027/takim-detay/{{ $tbfTeam }}/genel-bakis" target="_blank" rel="noopener" style="color: var(--accent-gold);">TBF takım sayfasını açın ↗</a> ve sayfanın yüklenmesini bekleyin.</li>
     <li>Yer imleri çubuğundaki <strong>"TBF → Site"</strong> yer imine tıklayın. Sonuç bir uyarı penceresinde görünür.</li>
@@ -166,7 +172,7 @@
               <span class="badge badge-danger">Hata</span>
             @endif
           </td>
-          <td style="font-size: 0.88rem; color: #fff;">
+          <td style="font-size: 0.88rem; color: var(--text-strong);">
             {{ $log->message }}
           </td>
         </tr>

@@ -58,7 +58,7 @@
     </div>
 
     <div class="form-group" style="margin-bottom: 2rem;">
-      <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: #fff;">
+      <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-strong);">
         <input type="checkbox" name="is_active" value="1" checked> Sitede Yayında Göster
       </label>
     </div>

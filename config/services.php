@@ -31,4 +31,9 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // Mobil uygulama: yazma isteklerinde X-App-Key başlığıyla eşleşmesi gereken anahtar (boşsa kontrol yok)
+    'mobile_app' => [
+        'key' => env('MOBILE_APP_KEY', ''),
+    ],
+
 ];

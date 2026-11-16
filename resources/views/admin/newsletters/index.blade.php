@@ -18,7 +18,7 @@
 
     <div class="card" style="margin-bottom: 0; padding: 1.25rem; border-left: 4px solid var(--primary-red);">
       <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px;">Toplam Kayıt</div>
-      <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 2.3rem; font-weight: 900; color: #fff; line-height: 1.1; margin-top: 0.25rem;">
+      <div style="font-family: 'Barlow Condensed', sans-serif; font-size: 2.3rem; font-weight: 900; color: var(--text-strong); line-height: 1.1; margin-top: 0.25rem;">
         {{ number_format($totalCount) }}
       </div>
       <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.25rem;">Tüm zamanlar kayıt sayısı</div>
@@ -74,12 +74,12 @@
     <form method="GET" action="{{ route('admin.newsletters.index') }}" style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem;">
       <div style="flex: 1; min-width: 240px; position: relative;">
         <input type="text" name="search" value="{{ request('search') }}" placeholder="E-posta adresine göre ara..." 
-               style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: #fff; padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.9rem;">
+               style="width: 100%; background: var(--surface-sunken); border: 1px solid var(--border-color); color: var(--text-strong); padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.9rem;">
       </div>
 
       <div style="min-width: 160px;">
         <select name="status" onchange="this.form.submit()" 
-                style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: #fff; padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.9rem;">
+                style="width: 100%; background: var(--surface-sunken); border: 1px solid var(--border-color); color: var(--text-strong); padding: 0.6rem 0.85rem; border-radius: 6px; font-size: 0.9rem;">
           <option value="all" {{ request('status') === 'all' ? 'selected' : '' }}>Tüm Durumlar</option>
           <option value="active" {{ request('status') === 'active' || !request()->has('status') ? 'selected' : '' }}>Yalnızca Aktif</option>
           <option value="unsubscribed" {{ request('status') === 'unsubscribed' ? 'selected' : '' }}>Abonelikten Çıkanlar</option>
@@ -115,7 +115,7 @@
           <tr>
             <td style="color: var(--text-muted); font-size: 0.85rem;">{{ $sub->id }}</td>
             <td>
-              <a href="mailto:{{ $sub->email }}" style="color: #fff; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem;">
+              <a href="mailto:{{ $sub->email }}" style="color: var(--text-strong); font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-muted);"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 <span>{{ $sub->email }}</span>
               </a>
@@ -189,7 +189,7 @@
 <div id="addSubscriberModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; padding: 1rem;">
   <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 8px; width: 100%; max-width: 520px; box-shadow: 0 20px 40px rgba(0,0,0,0.8); overflow: hidden;">
     <div style="padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
-      <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; margin: 0; color: #fff; font-weight: 800;">
+      <h3 style="font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem; margin: 0; color: var(--text-strong); font-weight: 800;">
         MANUEL BÜLTEN ABONESİ EKLE
       </h3>
       <button type="button" onclick="toggleAddModal()" style="color: var(--text-muted); font-size: 1.4rem; line-height: 1; cursor: pointer;">&times;</button>
@@ -198,20 +198,20 @@
     <form action="{{ route('admin.newsletters.store') }}" method="POST" style="padding: 1.5rem;">
       @csrf
       <div style="margin-bottom: 1.25rem;">
-        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-strong); margin-bottom: 0.4rem;">
           E-Posta Adresi (veya Birden Fazla Adres) <span style="color: var(--primary-red);">*</span>
         </label>
         <textarea name="email" rows="4" required placeholder="ornek@alanadi.com&#10;ornek2@alanadi.com (Birden fazla adresi virgül veya satırla ayırabilirsiniz)"
-                  style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: #fff; padding: 0.75rem; border-radius: 6px; font-size: 0.88rem; resize: vertical;"></textarea>
+                  style="width: 100%; background: var(--surface-sunken); border: 1px solid var(--border-color); color: var(--text-strong); padding: 0.75rem; border-radius: 6px; font-size: 0.88rem; resize: vertical;"></textarea>
         <small style="color: var(--text-muted); display: block; margin-top: 4px;">Toplu eklemelerde virgül veya alt alta satır kullanabilirsiniz.</small>
       </div>
 
       <div style="margin-bottom: 1.5rem;">
-        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem;">
+        <label style="display: block; font-size: 0.85rem; font-weight: 600; color: var(--text-strong); margin-bottom: 0.4rem;">
           İç Not / Kaynak (İsteğe bağlı)
         </label>
         <input type="text" name="notes" placeholder="Örn: Maç günü salonda form dolduran taraftar"
-               style="width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border-color); color: #fff; padding: 0.65rem 0.75rem; border-radius: 6px; font-size: 0.88rem;">
+               style="width: 100%; background: var(--surface-sunken); border: 1px solid var(--border-color); color: var(--text-strong); padding: 0.65rem 0.75rem; border-radius: 6px; font-size: 0.88rem;">
       </div>
 
       <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">

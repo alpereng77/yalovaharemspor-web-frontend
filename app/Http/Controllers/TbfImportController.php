@@ -73,6 +73,30 @@ class TbfImportController extends Controller
         }
     }
 
+    /** Bookmarklet her rakip takım logosunu ayrı bir istekle gönderir (base64). */
+    public function logo(Request $request): JsonResponse
+    {
+        $payload = json_decode($request->getContent(), true);
+        $expected = (string) SiteSetting::get('tbf_import_token', '');
+        $given = is_array($payload) ? (string) ($payload['token'] ?? '') : '';
+        if ($expected === '' || !hash_equals($expected, $given)) {
+            return $this->cors($request, response()->json(['success' => false, 'message' => 'Geçersiz içe aktarma anahtarı.'], 403));
+        }
+
+        $binary = base64_decode(preg_replace('#^data:[^,]*,#', '', (string) ($payload['data'] ?? '')), true);
+        if (!$binary || empty($payload['tbf_team_id']) || empty($payload['url'])) {
+            return $this->cors($request, response()->json(['success' => false, 'message' => 'Logo verisi eksik.'], 422));
+        }
+
+        try {
+            $teamId = (int) SiteSetting::get('tbf_team_id', '266056');
+            $path = (new TbfImportService($teamId))->saveLogo((int) $payload['tbf_team_id'], (string) $payload['url'], $binary);
+            return $this->cors($request, response()->json(['success' => true, 'path' => $path]));
+        } catch (\Throwable $e) {
+            return $this->cors($request, response()->json(['success' => false, 'message' => $e->getMessage()], 422));
+        }
+    }
+
     private function cors(Request $request, $response)
     {
         $origin = $request->headers->get('Origin');

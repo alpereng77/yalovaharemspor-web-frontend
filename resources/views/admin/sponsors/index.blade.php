@@ -26,7 +26,7 @@
       <tbody>
         @forelse($sponsors as $sponsor)
         <tr>
-          <td style="width: 140px; background: rgba(0,0,0,0.3); text-align: center; border-radius: 4px;">
+          <td style="width: 140px; background: var(--surface-sunken); text-align: center; border-radius: 4px;">
             <img src="{{ $sponsor->logo }}" alt="" style="max-width: 120px; max-height: 40px; object-fit: contain;">
           </td>
           <td><strong>{{ $sponsor->name }}</strong></td>

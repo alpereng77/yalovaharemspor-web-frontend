@@ -11,9 +11,9 @@
   .req-row { display: grid; grid-template-columns: 1fr auto; gap: 0.25rem 1rem; align-items: center; padding: 0.85rem 1rem; border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.15); }
   .req-row:last-child { border-bottom: 0; }
   .req-help { grid-column: 1 / -1; margin: 0; color: var(--text-muted); font-size: 0.8rem; line-height: 1.5; padding-left: 3.1rem; }
-  .req-extra { grid-column: 1 / -1; padding-left: 3.1rem; margin-top: 0.4rem; color: #e2e8f0; font-size: 0.85rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+  .req-extra { grid-column: 1 / -1; padding-left: 3.1rem; margin-top: 0.4rem; color: var(--text-soft); font-size: 0.85rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
   .req-extra.is-hidden { display: none; }
-  .req-switch { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; color: #fff; font-weight: 600; }
+  .req-switch { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; color: var(--text-strong); font-weight: 600; }
   .req-switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
   .req-slider { width: 2.4rem; height: 1.35rem; border-radius: 999px; background: #2d3b34; position: relative; flex: none; transition: background .15s; }
   .req-slider::after { content: ""; position: absolute; top: 3px; left: 3px; width: calc(1.35rem - 6px); height: calc(1.35rem - 6px); border-radius: 50%; background: #fff; transition: transform .15s; }

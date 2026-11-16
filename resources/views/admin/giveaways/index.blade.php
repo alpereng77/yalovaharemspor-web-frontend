@@ -34,7 +34,7 @@
       <tbody>
         @forelse($giveaways as $g)
         <tr>
-          <td><a href="{{ route('admin.giveaways.show', $g) }}" style="color: #fff; font-weight: 700; text-decoration: none;">{{ $g->title }}</a></td>
+          <td><a href="{{ route('admin.giveaways.show', $g) }}" style="color: var(--text-strong); font-weight: 700; text-decoration: none;">{{ $g->title }}</a></td>
           <td>{{ $g->prize }}</td>
           <td style="white-space: nowrap;">{{ $g->ends_at ? $g->ends_at->format('d.m.Y H:i') : '—' }}</td>
           <td>
@@ -83,7 +83,7 @@
       <h2 class="card-title">MOBİL UYGULAMA BAĞLANTILARI</h2>
       <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.3rem;">
         "Mobil uygulamamızı indir" şartında çekiliş sayfası bu bağlantıları gösterir.
-        YouTube kanalı ve Instagram hesabı <a href="{{ route('admin.settings.index') }}" style="color: var(--accent-gold);">Site Ayarları</a>'ndaki sosyal medya bağlantılarından alınır.
+        Instagram hesabı <a href="{{ route('admin.settings.index') }}" style="color: var(--accent-gold);">Site Ayarları</a>'ndaki sosyal medya bağlantılarından alınır.
       </p>
     </div>
   </div>

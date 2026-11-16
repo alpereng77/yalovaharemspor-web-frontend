@@ -105,13 +105,12 @@ class GiveawayService
         $reason = match (true) {
             in_array($entry->username, $excluded, true) => 'Hariç tutulan hesap',
             $giveaway->requires('site_registration') && !$entry->registered_at => 'Sitede kayıt yok',
+            $giveaway->requires('app_download') && !$entry->app_verified_at => 'Uygulamadan katılım yok',
             $giveaway->requires('instagram_comment') && !$hasComment => 'Instagram yorumu bulunamadı',
             $giveaway->requires('instagram_comment') && $entry->mention_count < $giveaway->required_mentions
                 => "Yetersiz etiket ({$entry->mention_count}/{$giveaway->required_mentions})",
             $giveaway->requires('instagram_comment') && $giveaway->ends_at && $entry->first_commented_at && $entry->first_commented_at->gt($giveaway->ends_at)
                 => 'Süre bittikten sonra yorum',
-            $giveaway->requires('youtube_subscribe') && $giveaway->requires('site_registration') && !$entry->youtube_handle
-                => 'YouTube kanal adı yok',
             default => null,
         };
 
@@ -137,7 +136,7 @@ class GiveawayService
      * Sitedeki form ile katılım. Aynı kullanıcı adı tekrar yazarsa kaydı güncellenir.
      * @return array{entry: GiveawayEntry, created: bool}
      */
-    public function register(Giveaway $giveaway, string $username, ?string $youtube, string $ip): array
+    public function register(Giveaway $giveaway, string $username, string $ip): array
     {
         $this->ensureOpen($giveaway);
         $ipHash = hash('sha256', $ip . '|' . config('app.key'));
@@ -157,9 +156,6 @@ class GiveawayService
                 $entry->source = 'site';
             }
         }
-        if ($youtube) {
-            $entry->youtube_handle = $youtube;
-        }
         $this->evaluate($giveaway, $entry);
         $entry->save();
 
@@ -167,6 +163,58 @@ class GiveawayService
     }
 
     public const MAX_REGISTRATIONS_PER_IP = 5;
+
+    // ------------------------------------------------------------- Uygulama kaydı
+
+    /** Cihaz kimliği ham hâliyle saklanmaz; uygulama anahtarıyla özetlenir. */
+    public static function deviceHash(string $deviceId): string
+    {
+        return hash('sha256', 'device|' . $deviceId . '|' . config('app.key'));
+    }
+
+    /**
+     * Mobil uygulamadan katılım. "Uygulamayı indir" şartını sağlayan tek yol budur.
+     * Kurallar: bir cihaz bir çekilişe tek kullanıcı adıyla katılır; aynı kullanıcı adı başka
+     * bir cihazdan doğrulanmışsa devralınamaz. Uygulamadan katılım, sitedeki form kaydı da sayılır.
+     * @return array{entry: GiveawayEntry, created: bool}
+     */
+    public function registerFromApp(Giveaway $giveaway, string $username, string $deviceId, string $ip): array
+    {
+        $this->ensureOpen($giveaway);
+        $device = self::deviceHash($deviceId);
+
+        return DB::transaction(function () use ($giveaway, $username, $device, $ip) {
+            $sameDevice = $giveaway->entries()->where('app_device_hash', $device)->lockForUpdate()->first();
+            if ($sameDevice && $sameDevice->username !== $username) {
+                throw new RuntimeException("Bu cihazdan bu çekilişe zaten @{$sameDevice->username} hesabıyla katıldın. Her cihazdan tek hesapla katılabilirsin.");
+            }
+
+            $entry = $giveaway->entries()->where('username', $username)->lockForUpdate()->first()
+                ?? $giveaway->entries()->make(['username' => $username, 'source' => 'app']);
+            if ($entry->app_device_hash && $entry->app_device_hash !== $device) {
+                throw new RuntimeException("@{$username} bu çekilişe başka bir cihazdan katılmış.");
+            }
+
+            $created = !$entry->app_verified_at;
+            $now = now(self::TZ)->format('Y-m-d H:i:s');
+            $entry->app_verified_at = $entry->app_verified_at ?: $now;
+            $entry->app_device_hash = $device;
+            if (!$entry->registered_at) {
+                $entry->registered_at = $now;
+                $entry->registration_ip_hash = hash('sha256', $ip . '|' . config('app.key'));
+            }
+            $this->evaluate($giveaway, $entry);
+            $entry->save();
+
+            return ['entry' => $entry, 'created' => $created];
+        });
+    }
+
+    /** Bu cihazın bu çekilişteki kaydı (uygulamada "katıldın" durumunu göstermek için). */
+    public function entryForDevice(Giveaway $giveaway, string $deviceId): ?GiveawayEntry
+    {
+        return $giveaway->entries()->where('app_device_hash', self::deviceHash($deviceId))->first();
+    }
 
     private function ensureOpen(Giveaway $giveaway): void
     {

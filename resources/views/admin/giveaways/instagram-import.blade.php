@@ -8,7 +8,7 @@
   .ig-wrap { max-width: 1000px; }
   .ig-head { text-align: center; margin-bottom: 1.25rem; }
   .ig-head img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; border: 3px solid var(--primary-red); background: #000; }
-  .ig-head h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; color: #fff; margin: 0.6rem 0 0.2rem; }
+  .ig-head h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; color: var(--text-strong); margin: 0.6rem 0 0.2rem; }
   .ig-head p { color: var(--text-muted); margin: 0; }
   .ig-tools { display: flex; gap: 0.75rem; justify-content: flex-end; flex-wrap: wrap; margin-bottom: 1rem; }
   .ig-tools select { max-width: 220px; }
@@ -22,7 +22,7 @@
   .ig-count { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); background: #fff; color: #1a202c; border-radius: 999px; padding: 4px 12px; font-size: 0.82rem; font-weight: 700; white-space: nowrap; box-shadow: 0 4px 12px rgba(0,0,0,.35); }
   .ig-has { position: absolute; top: 8px; left: 8px; background: var(--accent-gold); color: #1a1205; border-radius: 6px; padding: 3px 7px; font-size: 0.7rem; font-weight: 800; }
   .ig-state { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); }
-  .ig-state strong { display: block; color: #fff; font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .ig-state strong { display: block; color: var(--text-strong); font-size: 1.15rem; margin-bottom: 0.4rem; }
   .ig-bar { height: 12px; max-width: 460px; margin: 1.25rem auto 0.5rem; background: rgba(255,255,255,.1); border-radius: 999px; overflow: hidden; }
   .ig-bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--primary-red), var(--accent-gold)); transition: width .3s; }
   .ig-spin { width: 34px; height: 34px; border: 3px solid rgba(255,255,255,.15); border-top-color: var(--accent-gold); border-radius: 50%; margin: 0 auto 1rem; animation: igspin 1s linear infinite; }
@@ -41,17 +41,18 @@
     <p style="color: var(--text-muted); line-height: 1.6;">
       Instagram gönderilerinizi ve yorumlarını, Instagram'ı kendi tarayıcınızda açıp tek tıkla siteye aktarırsınız. Kurulum veya Instagram uygulaması gerekmez.
     </p>
-    <ol class="ig-steps" style="color: #e2e8f0; line-height: 1.7; margin: 1rem 0 1.25rem 1.2rem;">
+    <ol class="ig-steps" style="color: var(--text-soft); line-height: 1.7; margin: 1rem 0 1.25rem 1.2rem;">
       <li>Aşağıdaki butonu tarayıcınızın <strong>yer imleri çubuğuna sürükleyin</strong> (bir kez yapmanız yeterli).</li>
       <li><a href="https://www.instagram.com/" target="_blank" rel="noopener" style="color: var(--accent-gold);">instagram.com</a>'u açın ve kulüp hesabıyla giriş yapmış olun.</li>
-      <li>Yer imine tıklayın. Bu pencere açılır ve son 10 gönderiniz listelenir; çekiliş gönderisini seçin.
-        <br><small style="color: var(--text-muted);">Bir gönderinin sayfasındayken tıklarsanız doğrudan o gönderinin yorumları aktarılır.</small></li>
+      <li>Kulüp <strong>profil sayfasını</strong> açıp yenileyin (F5), gönderiler görününce yer imine tıklayın. Bu pencerede gönderiler anında listelenir; çekiliş gönderisini seçin.
+        <br><small style="color: var(--text-muted);">Gönderi Instagram sekmesinde kendiliğinden açılır ve yorumlar kaydırılarak okunur; Instagram'a ayrıca istek atılmaz.</small></li>
       <li>Yorumlar okunduktan sonra hangi çekilişe aktarılacağını seçip <strong>Aktar</strong>'a basın.</li>
     </ol>
     @include('admin.giveaways._ig-bookmarklet')
     <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 1rem; line-height: 1.6;">
-      Yer imi Instagram'ın kendi web sayfasının kullandığı adreslerden okur. Instagram bu adresleri değiştirirse yer imi güncellenmelidir.
-      Yorumlar hesabınızı yormamak için araya kısa beklemeler konarak okunur; çok yorumlu gönderilerde birkaç dakika sürebilir. Yanıt olarak yazılan yorumlar dahil edilmez.
+      Yer imi kendi isteğini atmaz; Instagram sayfasının yüklediği verileri okur ve yorum listesini sizin yerinize kaydırır. Instagram sayfa düzenini değiştirirse yer imi güncellenmelidir.
+      Yanıt olarak yazılan yorumlar dahil edilmez.
+      <br><strong style="color: var(--text-soft);">Yer imini güncelledikten sonra yer imleri çubuğundaki eski butonu silip bu butonu yeniden sürükleyin.</strong>
     </p>
   </div>
 
@@ -68,7 +69,7 @@
     <div class="ig-head">
       <img id="ig-user-pic" alt="" hidden>
       <h2 id="ig-user-name">Merhaba</h2>
-      <p>Son 10 gönderiniz. Çekiliş yapmak istediğiniz gönderiyi seçin.</p>
+      <p>Profildeki son gönderiler. Çekiliş yapmak istediğiniz gönderiyi seçin; Instagram sekmesinde açılıp yorumları okunacak.</p>
     </div>
     <div class="ig-tools">
       <select class="form-control" id="ig-filter" aria-label="Gönderi türü">
@@ -92,8 +93,10 @@
     <div class="ig-preview">
       <img id="ig-prev-img" alt="" hidden>
       <div style="flex: 1; min-width: 240px;">
-        <p id="ig-prev-cap" style="color: #cbd5e0; margin: 0 0 0.75rem; white-space: pre-line;"></p>
+        <p id="ig-prev-cap" style="color: var(--text-soft); margin: 0 0 0.75rem; white-space: pre-line;"></p>
         <p style="margin: 0 0 1rem;"><span class="badge badge-gold" id="ig-prev-count"></span> <span class="badge badge-success" id="ig-prev-users"></span></p>
+        <p id="ig-prev-note" hidden style="font-size: 0.85rem; margin: 0 0 1rem;"></p>
+        <details class="ig-diag" hidden style="margin: 0 0 1rem;"><summary style="cursor: pointer; color: var(--text-muted); font-size: 0.82rem;">Teknik rapor (destek için kopyalayın)</summary><textarea class="form-control" readonly rows="8" style="font-family: monospace; font-size: 0.72rem; margin-top: 0.5rem;"></textarea></details>
         <div class="form-group">
           <label class="form-label" for="ig-target">Hangi çekilişe aktarılsın?</label>
           <select class="form-control" id="ig-target">
@@ -115,6 +118,7 @@
     <strong>Aktarım tamamlanamadı</strong>
     <span id="ig-error-text"></span>
     <p style="margin-top: 1rem;">Instagram sekmesine dönüp yer imine tekrar tıklayabilirsiniz.</p>
+    <details class="ig-diag" hidden style="margin-top: 1rem; text-align: left;"><summary style="cursor: pointer; font-size: 0.82rem;">Teknik rapor (destek için kopyalayın)</summary><textarea class="form-control" readonly rows="8" style="font-family: monospace; font-size: 0.72rem; margin-top: 0.5rem;"></textarea></details>
   </div>
 </div>
 @endsection
@@ -129,6 +133,12 @@
   var opener = window.opener, igOrigin = null, posts = [], data = null;
   var typeLabel = { reel: 'REELS', carousel: 'ALBÜM', video: 'VİDEO', image: '' };
 
+  function showDiag(d, extra) {
+    if (!d || !d.diag) return;
+    var txt = JSON.stringify(Object.assign({}, extra || {}, d.diag), null, 1);
+    document.querySelectorAll('.ig-diag').forEach(function (el) { el.hidden = false; el.querySelector('textarea').value = txt; });
+  }
+
   function reply(msg) { if (opener && igOrigin) opener.postMessage(msg, igOrigin); }
 
   // Yer imi bu pencereyi açtıysa hazır olduğumuzu bildir (Instagram tarafı gönderimi buna göre başlatır)
@@ -142,7 +152,7 @@
     var b = document.createElement('button');
     b.type = 'button'; b.className = 'ig-post';
     var date = p.time ? new Date(p.time * 1000).toLocaleDateString('tr-TR') : '';
-    b.setAttribute('aria-label', (p.caption || 'Gönderi').slice(0, 80) + ' — ' + p.comments + ' yorum' + (date ? ', ' + date : ''));
+    b.setAttribute('aria-label', (p.caption || 'Gönderi').slice(0, 80) + (typeof p.comments === 'number' ? ' — ' + p.comments + ' yorum' : '') + (date ? ', ' + date : ''));
     if (p.image) {
       var img = document.createElement('img'); img.src = p.image; img.alt = ''; img.loading = 'lazy'; img.referrerPolicy = 'no-referrer';
       img.onerror = function () { img.remove(); };
@@ -152,7 +162,8 @@
     if (typeLabel[p.type]) { var t = document.createElement('span'); t.className = 'ig-type'; t.textContent = typeLabel[p.type]; b.appendChild(t); }
     var has = document.querySelector('#ig-target option[data-media="' + p.id + '"]');
     if (has) { var h = document.createElement('span'); h.className = 'ig-has'; h.textContent = 'ÇEKİLİŞ VAR'; b.appendChild(h); }
-    var c = document.createElement('span'); c.className = 'ig-count'; c.textContent = '💬 ' + p.comments; b.appendChild(c);
+    if (typeof p.comments === 'number') { var c = document.createElement('span'); c.className = 'ig-count'; c.textContent = '💬 ' + p.comments; b.appendChild(c); }
+    else if (p.pinned) { var pn = document.createElement('span'); pn.className = 'ig-count'; pn.textContent = '📌 Sabitlenmiş'; b.appendChild(pn); }
     b.addEventListener('click', function () {
       reply({ type: 'ig-pick', id: p.id, code: p.code });
       $('ig-wait-title').textContent = 'Yorumlar okunuyor…';
@@ -179,7 +190,18 @@
       if (d.user && d.user.username) $('ig-user-name').textContent = 'Merhaba, @' + d.user.username;
       if (d.user && d.user.pic) { $('ig-user-pic').src = d.user.pic; $('ig-user-pic').referrerPolicy = 'no-referrer'; $('ig-user-pic').hidden = false; }
       renderGrid(); show('ig-pick');
+    } else if (d.type === 'ig-throttle') {
+      if (d.seconds > 0) {
+        var mm = Math.floor(d.seconds / 60), ss = d.seconds % 60;
+        $('ig-wait-title').textContent = 'Instagram yavaşlamamızı istedi — ' + (mm ? mm + ' dk ' : '') + ss + ' sn sonra devam edilecek';
+        $('ig-wait-text').textContent = 'Bekleme ' + d.attempt + ' / ' + d.max + '. Okunan yorumlar korunuyor; iki sekmeyi de kapatmayın.';
+      } else {
+        $('ig-wait-title').textContent = 'Devam ediliyor…';
+        $('ig-wait-text').textContent = 'Instagram sekmesini kapatmayın.';
+      }
+      if ($('ig-pick').hidden) show('ig-wait');
     } else if (d.type === 'ig-progress') {
+      $('ig-wait-text').textContent = 'Gönderi Instagram sekmesinde açıldı ve yorumlar kaydırılarak yükleniyor. Instagram sekmesini kapatmayın.';
       $('ig-wait-title').textContent = 'Yorumlar okunuyor… ' + d.count + (d.total ? ' / ' + d.total : '');
       $('ig-bar-wrap').hidden = !d.total;
       if (d.total) $('ig-bar').style.width = Math.min(100, Math.round(d.count / d.total * 100)) + '%';
@@ -191,12 +213,33 @@
       $('ig-prev-cap').textContent = (d.post.caption || '').slice(0, 300);
       $('ig-prev-count').textContent = '💬 ' + (d.comments || []).length + ' yorum';
       $('ig-prev-users').textContent = Object.keys(users).length + ' farklı hesap';
+      var nTop = (d.comments || []).length, nRep = d.post.replies || 0, igTotal = d.post.comment_count;
+      $('ig-prev-count').textContent = '💬 ' + nTop + ' yorum' + (nRep ? ' + ' + nRep + ' yanıt' : '');
+      var note = $('ig-prev-note');
+      if (!nTop || typeof igTotal !== 'number') showDiag(d, { post: d.post.shortcode, top: nTop, replies: nRep, igTotal: igTotal });
+      if (!nTop && igTotal !== 0) {
+        note.hidden = false;
+        note.className = 'alert alert-error';
+        note.textContent = 'Hiç yorum okunamadı. Aşağıdaki teknik raporu kopyalayıp destek için iletin; Instagram profilini yenileyip (F5) tekrar deneyebilirsiniz.';
+      } else if (typeof igTotal === 'number') {
+        var missing = igTotal - nTop - nRep;
+        note.hidden = false;
+        if (missing > 0) {
+          showDiag(d, { post: d.post.shortcode, top: nTop, replies: nRep, igTotal: igTotal });
+          note.className = 'alert alert-error';
+          note.textContent = 'Instagram ' + igTotal + ' yorum gösteriyor, ' + (nTop + nRep) + ' tanesi okundu; ' + missing + ' yorum eksik. Instagram profilini yenileyip (F5) yer imini tekrar çalıştırın.';
+        } else {
+          note.className = 'alert alert-success';
+          note.textContent = 'Tamam: Instagram\'daki ' + igTotal + ' yorumun hepsi okundu' + (nRep ? ' (' + nTop + ' ana yorum + ' + nRep + ' yanıt). Yanıtlar çekilişe katılım sayılmaz.' : '.');
+        }
+      }
       if (d.post.image) { $('ig-prev-img').src = d.post.image; $('ig-prev-img').referrerPolicy = 'no-referrer'; $('ig-prev-img').hidden = false; $('ig-prev-img').onerror = function () { this.hidden = true; }; }
       var same = document.querySelector('#ig-target option[data-media="' + d.post.media_id + '"]');
       if (same) $('ig-target').value = same.value;
       show('ig-done');
     } else if (d.type === 'ig-error') {
       $('ig-error-text').textContent = d.message || 'Bilinmeyen hata';
+      showDiag(d, { error: d.message });
       show('ig-error');
     }
   });

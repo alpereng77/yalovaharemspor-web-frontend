@@ -23,6 +23,8 @@ class BasketballMatch extends Model
         'venue',
         'status',
         'is_next_match',
+        'home_tbf_team_id',
+        'away_tbf_team_id',
     ];
 
     protected $casts = [

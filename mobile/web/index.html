@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#05100A" />
+    <title>Yalova Haremspor · Uygulama önizlemesi</title>
+    <style>
+      /* Telefondaki gömülü yazı tipleriyle aynı aile adları */
+      @font-face { font-family: 'Barlow-Regular'; src: url('../src/assets/fonts/Barlow-Regular.ttf'); }
+      @font-face { font-family: 'Barlow-Medium'; src: url('../src/assets/fonts/Barlow-Medium.ttf'); }
+      @font-face { font-family: 'Barlow-SemiBold'; src: url('../src/assets/fonts/Barlow-SemiBold.ttf'); }
+      @font-face { font-family: 'Barlow-Bold'; src: url('../src/assets/fonts/Barlow-Bold.ttf'); }
+      @font-face { font-family: 'BarlowCondensed-SemiBold'; src: url('../src/assets/fonts/BarlowCondensed-SemiBold.ttf'); }
+      @font-face { font-family: 'BarlowCondensed-Bold'; src: url('../src/assets/fonts/BarlowCondensed-Bold.ttf'); }
+      @font-face { font-family: 'BarlowCondensed-ExtraBold'; src: url('../src/assets/fonts/BarlowCondensed-ExtraBold.ttf'); }
+      @font-face { font-family: 'BarlowCondensed-Black'; src: url('../src/assets/fonts/BarlowCondensed-Black.ttf'); }
+      @font-face { font-family: 'BarlowCondensed-BlackItalic'; src: url('../src/assets/fonts/BarlowCondensed-BlackItalic.ttf'); }
+      html, body { height: 100%; margin: 0; background: #020604; }
+      /* Masaüstünde telefon genişliğinde ortalanır, telefonda tam ekran */
+      #root { display: flex; height: 100%; max-width: 430px; margin: 0 auto; background: #05100A; box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 20px 60px rgba(0,0,0,.6); }
+      #root > div { flex: 1; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.tsx"></script>
+  </body>
+</html>

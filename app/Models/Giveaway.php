@@ -18,7 +18,7 @@ class Giveaway extends Model
     /**
      * Açılıp kapatılabilen sabit şartlar.
      * check: auto   → katılımcı listesinde otomatik doğrulanır (geçerli/geçersiz)
-     *        manual → Instagram/YouTube bu bilgiyi paylaşmadığı için kazanan seçildikten sonra admin kontrol eder
+     *        manual → Instagram bu bilgiyi paylaşmadığı için kazanan seçildikten sonra admin kontrol eder
      */
     public const REQUIREMENTS = [
         'site_registration' => ['label' => 'Sitedeki forma Instagram kullanıcı adını yaz', 'check' => 'auto', 'default' => true,
@@ -29,10 +29,8 @@ class Giveaway extends Model
             'help' => 'Kazananın takipçilerimiz arasında olduğu kazanan ekranında kontrol edilir.'],
         'instagram_like' => ['label' => 'Çekiliş gönderisini beğen', 'check' => 'manual', 'default' => true,
             'help' => 'Kazanan, gönderinin "beğenenler" listesinde aranır.'],
-        'youtube_subscribe' => ['label' => 'YouTube kanalımıza abone ol', 'check' => 'manual', 'default' => false,
-            'help' => 'Formda YouTube kanal adı istenir; kazananın kanalına bakılır veya abonelik ekran görüntüsü istenir.'],
-        'app_download' => ['label' => 'Mobil uygulamamızı indir', 'check' => 'manual', 'default' => false,
-            'help' => 'Kazanandan uygulamadaki profilinin ekran görüntüsü DM ile istenir.'],
+        'app_download' => ['label' => 'Mobil uygulamamızı indir ve çekilişe uygulamadan katıl', 'check' => 'auto', 'default' => false,
+            'help' => 'Katılımcı kullanıcı adını mobil uygulamadaki çekiliş ekranından gönderir. Sadece uygulamadan gelen kayıtlar bu şartı sağlar; bir cihazdan tek hesapla katılınabilir.'],
     ];
 
     protected $fillable = [
@@ -50,9 +48,12 @@ class Giveaway extends Model
         'comments_synced_at' => 'datetime',
     ];
 
-    /** Şart açık mı? Kaydedilmemişse varsayılan değer geçerli. */
+    /** Şart açık mı? Kaydedilmemişse varsayılan değer geçerli; listeden kaldırılmış şartlar hiç uygulanmaz. */
     public function requires(string $key): bool
     {
+        if (!isset(self::REQUIREMENTS[$key])) {
+            return false;
+        }
         $saved = $this->requirements ?? [];
         return array_key_exists($key, $saved)
             ? (bool) $saved[$key]
@@ -145,11 +146,6 @@ class Giveaway extends Model
     public function getImageUrlAttribute(): ?string
     {
         return $this->image_path && is_file(public_path($this->image_path)) ? asset($this->image_path) : null;
-    }
-
-    public function getYoutubeChannelUrlAttribute(): ?string
-    {
-        return SiteSetting::get('social_youtube') ?: null;
     }
 
     public function getInstagramProfileUrlAttribute(): ?string

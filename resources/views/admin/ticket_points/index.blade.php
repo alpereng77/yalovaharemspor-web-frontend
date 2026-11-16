@@ -31,11 +31,11 @@
       <tbody>
         @forelse($ticketPoints as $point)
         <tr>
-          <td style="width: 100px; background: rgba(0,0,0,0.3); text-align: center; border-radius: 4px; padding: 0.5rem;">
+          <td style="width: 100px; background: var(--surface-sunken); text-align: center; border-radius: 4px; padding: 0.5rem;">
             <img src="{{ $point->logo }}" alt="{{ $point->name }}" style="max-width: 80px; max-height: 48px; object-fit: contain;">
           </td>
           <td>
-            <strong style="font-size: 0.95rem; color: #fff;">{{ $point->name }}</strong>
+            <strong style="font-size: 0.95rem; color: var(--text-strong);">{{ $point->name }}</strong>
             @if($point->working_hours)
               <div style="font-size: 0.75rem; color: var(--accent-gold); margin-top: 2px;">
                 Saatler: {{ $point->working_hours }}
@@ -53,7 +53,7 @@
             @endif
           </td>
           <td style="max-width: 250px;">
-            <div style="font-size: 0.85rem; color: #e2e8f0; line-height: 1.3;">
+            <div style="font-size: 0.85rem; color: var(--text-soft); line-height: 1.3;">
               {{ $point->address ?? '—' }}
             </div>
             @if($point->phone)
