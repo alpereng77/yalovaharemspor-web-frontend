@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\BotController;
 use App\Http\Controllers\TbfImportController;
+use App\Http\Controllers\GiveawayPageController;
+use App\Http\Controllers\Admin\GiveawayController;
+use App\Http\Controllers\Admin\InstagramImportController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PlayerController;
@@ -27,6 +30,12 @@ use Illuminate\Support\Facades\Validator;
 // Ana Sayfa (Public)
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/api/players/{id}', [HomeController::class, 'playerDetail'])->name('player.detail');
+
+// Çekilişler (Public)
+Route::get('/cekilis', [GiveawayPageController::class, 'index'])->name('giveaways.index');
+Route::get('/cekilis/{giveaway}', [GiveawayPageController::class, 'show'])->name('giveaways.show');
+Route::post('/cekilis/{giveaway}/katil', [GiveawayPageController::class, 'register'])->middleware('throttle:10,1')->name('giveaways.register');
+
 Route::post('/api/tbf-import', [TbfImportController::class, 'store'])->name('api.tbf.import');
 Route::options('/api/tbf-import', [TbfImportController::class, 'preflight']);
 Route::post('/api/tbf-import/photo', [TbfImportController::class, 'photo'])->name('api.tbf.import.photo');
@@ -93,6 +102,23 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::post('/bot/clear-logs', [BotController::class, 'clearLogs'])->name('bot.clear_logs');
     Route::post('/bot/import-token', [BotController::class, 'regenerateImportToken'])->name('bot.import_token');
 
+
+    // Çekilişler
+    // Instagram → Site yer imi ile yorum aktarma (Instagram'ın kendi sayfasında, admin'in tarayıcısında çalışır)
+    Route::get('/instagram-aktar', [InstagramImportController::class, 'page'])->name('instagram.import');
+    Route::post('/instagram-aktar', [InstagramImportController::class, 'store'])->name('instagram.import.store');
+    Route::post('/giveaways/integrations', [GiveawayController::class, 'saveIntegrations'])->name('giveaways.integrations');
+    Route::resource('giveaways', GiveawayController::class);
+    Route::prefix('giveaways/{giveaway}')->name('giveaways.')->group(function () {
+        Route::delete('/entries', [GiveawayController::class, 'clearEntries'])->name('entries.clear');
+        Route::post('/draw', [GiveawayController::class, 'draw'])->name('draw');
+        Route::post('/extra-reserve', [GiveawayController::class, 'extraReserve'])->name('extra_reserve');
+        Route::post('/picks/{pick}', [GiveawayController::class, 'decide'])->name('picks.decide');
+        Route::post('/picks/{pick}/check', [GiveawayController::class, 'setCheck'])->name('picks.check');
+        Route::post('/publish', [GiveawayController::class, 'publish'])->name('publish');
+        Route::post('/unpublish', [GiveawayController::class, 'unpublish'])->name('unpublish');
+        Route::post('/reset', [GiveawayController::class, 'resetDraw'])->name('reset');
+    });
 
     // Oyuncular & İstatistikler
     Route::resource('players', PlayerController::class);

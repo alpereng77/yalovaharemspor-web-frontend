@@ -1235,6 +1235,9 @@
         <a href="#sponsorlar">SPONSORLAR</a>
         <a href="#oyuncular">OYUNCULAR</a>
         <a href="#kimlik">KİMLİĞİMİZ</a>
+        @if($hasGiveaways ?? false)
+        <a href="{{ route('giveaways.index') }}">ÇEKİLİŞ</a>
+        @endif
         @auth
         <a href="{{ route('admin.dashboard') }}" style="color: #6ee7b7; font-weight: 700;">YÖNETİM</a>
         @endauth

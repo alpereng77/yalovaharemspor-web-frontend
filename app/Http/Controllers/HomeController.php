@@ -51,7 +51,13 @@ class HomeController extends Controller
         $blogs = MediaArticle::where('type', 'blog')->where('is_active', true)->orderBy('order', 'asc')->get();
         $press = MediaArticle::where('type', 'press')->where('is_active', true)->orderBy('order', 'asc')->get();
 
+        // Menüde "Çekiliş" bağlantısı sadece yayında çekiliş varken görünür
+        // Tablo henüz oluşturulmadıysa (migration çalışmadıysa) ana sayfa yine açılır
+        $hasGiveaways = \Illuminate\Support\Facades\Schema::hasTable('giveaways')
+            && \App\Models\Giveaway::public()->exists();
+
         return view('home', compact(
+            'hasGiveaways',
             'settings',
             'standing',
             'nextMatch',
