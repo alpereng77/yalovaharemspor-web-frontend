@@ -1368,7 +1368,7 @@
                     <td>{{ $match->match_date ? $match->match_date->format('d.m.Y') : 'Tarih Belirsiz' }}</td>
                     <td><strong>{{ $match->home_team }}</strong> - {{ $match->away_team }}</td>
                     <td>{{ $match->is_home ? 'İç Saha' : 'Deplasman' }}</td>
-                    <td>{{ $match->match_date ? $match->match_date->format('H:i') : '—' }}</td>
+                    <td>{{ $match->has_time ? $match->match_date->format('H:i') : 'Açıklanacak' }}</td>
                   </tr>
                   @empty
                   <tr>
@@ -1419,7 +1419,7 @@
             </div>
           </div>
           <p class="matchday-source">
-            <a href="https://www.tbf.org.tr" target="_blank" rel="noopener noreferrer">VERİ KAYNAĞI: TBF ↗</a>
+            <a href="https://basketball.eurobasket.com/team/Haremspor-Istanbul/62577" target="_blank" rel="noopener noreferrer">VERİ KAYNAĞI: RESMİ LİG & EUROBASKET ↗</a>
           </p>
         </section>
       </div>
@@ -1691,7 +1691,7 @@
             </div>
 
             <div style="padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.5);">
-              <span>TBF Resmi İstatistik Verileri</span>
+              <span>Eurobasket & Resmi Lig İstatistikleri</span>
               <span style="color: #ff4d4d; font-weight: 700;">YALOVA HAREMSPOR • 2026-2027</span>
             </div>
           </div>

@@ -12,6 +12,7 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        'api/tbf-sync',
+        'api/tbf-import',
+        'api/tbf-import/photo',
     ];
 }

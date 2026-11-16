@@ -10,7 +10,7 @@
     <div style="display: flex; gap: 0.5rem;">
       <a href="{{ route('admin.bot.index') }}" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 5px;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        <span>TBF'den Kadroyu Çek</span>
+        <span>Veri Botu Merkezi</span>
       </a>
       <a href="{{ route('admin.staff.create') }}" class="btn btn-sm btn-primary">+ Yeni Personel Ekle</a>
     </div>

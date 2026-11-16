@@ -24,13 +24,10 @@
       <div class="card-header">
         <h2 class="card-title">KARŞILAŞMALAR ({{ $matches->total() }})</h2>
         <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-          <form method="POST" action="{{ route('admin.bot.sync_all') }}" style="display: inline-block; margin: 0;" onsubmit="return confirm('Eurobasket & TBF teyitli tüm maçlar, skorlar, fikstür ve puan durumu güncellenecektir. Onaylıyor musunuz?')">
-            @csrf
-            <button type="submit" class="btn btn-sm btn-success" style="background: #00A859; border: none; font-weight: 700; color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              <span>Fikstür ve Maçları Eşitle</span>
-            </button>
-          </form>
+          <a href="{{ route('admin.bot.index') }}" class="btn btn-sm btn-success" style="background: #00A859; border: none; font-weight: 700; color: #fff; display: inline-flex; align-items: center; gap: 5px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>TBF'den Aktar</span>
+          </a>
           <a href="{{ route('admin.matches.create') }}" class="btn btn-sm btn-primary">+ Yeni Maç Ekle</a>
         </div>
       </div>

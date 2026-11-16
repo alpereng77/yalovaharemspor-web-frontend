@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\BotController;
+use App\Http\Controllers\TbfImportController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PlayerController;
@@ -10,7 +12,6 @@ use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\SponsorController;
 use App\Http\Controllers\Admin\MediaController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\Admin\BotController;
 use App\Http\Controllers\Admin\TicketPointController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Models\Newsletter;
@@ -26,7 +27,9 @@ use Illuminate\Support\Facades\Validator;
 // Ana Sayfa (Public)
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/api/players/{id}', [HomeController::class, 'playerDetail'])->name('player.detail');
-Route::post('/api/tbf-sync', [BotController::class, 'syncFromBrowser'])->name('api.tbf.sync');
+Route::post('/api/tbf-import', [TbfImportController::class, 'store'])->name('api.tbf.import');
+Route::options('/api/tbf-import', [TbfImportController::class, 'preflight']);
+Route::post('/api/tbf-import/photo', [TbfImportController::class, 'photo'])->name('api.tbf.import.photo');
 
 Route::post('/newsletter', function (Request $request) {
     $validator = Validator::make($request->all(), [
@@ -84,14 +87,12 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::get('/', fn() => redirect()->route('admin.dashboard'));
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // TBF & Eurobasket Veri Botu
+    // TBF Veri Aktarımı (yer imi)
     Route::get('/bot', [BotController::class, 'index'])->name('bot.index');
-    Route::post('/bot/sync-all', [BotController::class, 'syncAll'])->name('bot.sync_all');
-    Route::post('/bot/sync-official', [BotController::class, 'syncOfficial'])->name('bot.sync_official');
-    Route::post('/bot/scrape', [BotController::class, 'scrape'])->name('bot.scrape');
-    Route::post('/bot/parse-manual', [BotController::class, 'parseManualHtml'])->name('bot.parse_manual');
     Route::post('/bot/settings', [BotController::class, 'updateSettings'])->name('bot.settings');
     Route::post('/bot/clear-logs', [BotController::class, 'clearLogs'])->name('bot.clear_logs');
+    Route::post('/bot/import-token', [BotController::class, 'regenerateImportToken'])->name('bot.import_token');
+
 
     // Oyuncular & İstatistikler
     Route::resource('players', PlayerController::class);

@@ -74,80 +74,56 @@
   }
 </style>
 
-<!-- Tek Tuşla Ana Senkronizasyon Alanı -->
-<div class="sync-hero-card">
-  <div style="margin-bottom: 1rem; display: inline-flex; align-items: center; justify-content: center; width: 68px; height: 68px; border-radius: 50%; background: rgba(0, 168, 89, 0.15); border: 2px solid rgba(0, 168, 89, 0.5); color: #00A859;">
-    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/></svg>
+<!-- TBF Tarayıcı Aktarımı (Yer İmi) -->
+@php
+  $tbfTeam = (int) ($settings['tbf_team_id'] ?? 266056);
+  $tbfLeague = (int) ($settings['tbf_league_id'] ?? 22215);
+  $tbfSeason = (int) ($settings['tbf_season_id'] ?? 174);
+  $tbfPrefix = $settings['tbf_prefix'] ?? 'tbl';
+  $tbfJs = '(async()=>{'
+    . 'const T=' . json_encode($settings['tbf_import_token'] ?? '') . ',U=' . json_encode(url('/api/tbf-import')) . ';'
+    . 'if(!/(^|\.)tbf\.org\.tr$/.test(location.hostname)){alert("Önce tbf.org.tr sitesinde takım sayfasını açın, sonra bu yer imine tıklayın.");return;}'
+    . 'const L=' . $tbfLeague . ',q="LeagueId="+L+"&SeasonId=' . $tbfSeason . '&TeamProcessId=' . $tbfTeam . '&prefix=' . $tbfPrefix . '";'
+    . 'const g=async p=>{const r=await fetch(p,{credentials:"include"});if(!r.ok)throw new Error(p+" → HTTP "+r.status);return (await r.json()).data;};'
+    . 'try{const[standings,matches,stats,players]=await Promise.all(['
+    . 'g("/api/League/get-standings-table?leagueId="+L),'
+    . 'g("/api/Team/get-team-detail-matches-by-season-and-league?"+q),'
+    . 'g("/api/Team/get-team-detail-statistic?"+q),'
+    . 'g("/api/Team/get-team-active-player-list-by-season-and-league?"+q)]);'
+    . 'const r=await fetch(U,{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({token:T,data:{standings,matches,stats,players}})});'
+    . 'const j=await r.json();if(!j.success){alert("✗ "+j.message);return;}'
+    . 'let ok=0,fail=0;for(const ph of (j.photos_needed||[])){try{'
+    . 'const b=await (await fetch(new URL(ph.url).pathname,{credentials:"include"})).blob();'
+    . 'const d=await new Promise((res,rej)=>{const f=new FileReader();f.onload=()=>res(f.result);f.onerror=rej;f.readAsDataURL(b);});'
+    . 'const pr=await (await fetch(U+"/photo",{method:"POST",headers:{"Content-Type":"text/plain"},body:JSON.stringify({token:T,tbf_id:ph.tbf_id,url:ph.url,data:d})})).json();'
+    . 'pr.success?ok++:fail++;}catch(e){fail++;}}'
+    . 'alert("✓ "+j.message+(ok||fail?"\\n"+ok+" oyuncu fotoğrafı eklendi"+(fail?", "+fail+" başarısız":"")+".":""));'
+    . '}catch(e){alert("TBF aktarımı başarısız: "+e.message);}})();';
+  $tbfBookmarklet = 'javascript:' . rawurlencode($tbfJs);
+@endphp
+<div class="card" style="border-left: 4px solid var(--primary-green);">
+  <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+    <h2 class="card-title">TBF'DEN TEK TIKLA AKTAR (YER İMİ)</h2>
+    <form action="{{ route('admin.bot.import_token') }}" method="POST" onsubmit="return confirm('Yeni anahtar oluşturulursa eski yer imi çalışmaz. Devam edilsin mi?')">
+      @csrf
+      <button type="submit" class="btn btn-sm btn-secondary">Anahtarı Yenile</button>
+    </form>
   </div>
-  <h1 style="font-family: 'Barlow Condensed', sans-serif; font-size: 2.4rem; font-weight: 900; color: #fff; margin: 0 0 0.5rem; letter-spacing: 0.5px;">
-    EUROBASKET & TBF OTOMATİK VERİ BOTU
-  </h1>
-  <p style="color: #bbf7d0; font-size: 1.05rem; max-width: 680px; margin: 0 auto 2rem; line-height: 1.6;">
-    Aşağıdaki butona basarak botu başlatabilirsiniz. Bot web servislerine bağlanıp <strong>tüm oyuncuları, detaylı istatistikleri, maç sonuçlarını, güncel fikstürü ve lig puan durumunu</strong> otomatik olarak çeker ve veritabanına işler.
+  <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+    Puan durumu, tüm maçlar ve oyuncu istatistikleri resmi TBF verisinden gelir. Sayfayı siz kendi tarayıcınızda açtığınız için Cloudflare doğrulaması sorun olmaz.
   </p>
-
-  <form method="POST" action="{{ route('admin.bot.sync_all') }}" onsubmit="return confirm('Eurobasket & TBF Web Botu çalıştırılacaktır. Tüm maçlar, sonuçlar, oyuncular ve istatistikler çekilsin mi?')">
-    @csrf
-    <button type="submit" class="sync-main-btn">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      <span>BOTU BAŞLAT VE VERİLERİ ÇEK</span>
-    </button>
-  </form>
-
-  <div style="display: flex; justify-content: center; gap: 0.75rem; margin-top: 1.25rem; flex-wrap: wrap;">
-    <a href="https://basketball.eurobasket.com/team/Haremspor-Istanbul/62577/Games" target="_blank" style="background: rgba(255,255,255,0.08); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); display: inline-flex; align-items: center; gap: 0.5rem;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      <span>Eurobasket Maçlar (/Games) ↗</span>
-    </a>
-    <a href="https://basketball.eurobasket.com/team/Haremspor-Istanbul/62577/Roster" target="_blank" style="background: rgba(255,255,255,0.08); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); display: inline-flex; align-items: center; gap: 0.5rem;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      <span>Eurobasket Oyuncular (/Roster) ↗</span>
-    </a>
-    <a href="https://basketball.eurobasket.com/team/Haremspor-Istanbul/62577/Stats" target="_blank" style="background: rgba(255,255,255,0.08); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); display: inline-flex; align-items: center; gap: 0.5rem;">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      <span>Eurobasket İstatistikler (/Stats) ↗</span>
-    </a>
-  </div>
-
-  <!-- Veri Durumu Kartları -->
-  <div class="sync-status-grid">
-    <div class="sync-stat-item">
-      <div class="sync-stat-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-      </div>
-      <div>
-        <div class="sync-stat-title">Oyuncu Kadrosu</div>
-        <div class="sync-stat-val">13 Aktif Basketbolcu</div>
-      </div>
-    </div>
-    <div class="sync-stat-item">
-      <div class="sync-stat-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      </div>
-      <div>
-        <div class="sync-stat-title">Detaylı İstatistikler</div>
-        <div class="sync-stat-val">PPG, RPG, APG, Yüzdeler</div>
-      </div>
-    </div>
-    <div class="sync-stat-item">
-      <div class="sync-stat-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      </div>
-      <div>
-        <div class="sync-stat-title">Maçlar & Fikstür</div>
-        <div class="sync-stat-val">16 Hafta (6 Oynandı)</div>
-      </div>
-    </div>
-    <div class="sync-stat-item">
-      <div class="sync-stat-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      </div>
-      <div>
-        <div class="sync-stat-title">TBL Puan Durumu</div>
-        <div class="sync-stat-val">2. Sıra (11 Puan, 5G 1M)</div>
-      </div>
-    </div>
-  </div>
+  <ol style="color: #e2e8f0; font-size: 0.9rem; line-height: 1.8; margin: 0 0 1rem 1.2rem;">
+    <li>Aşağıdaki yeşil butonu tarayıcınızın <strong>yer imleri çubuğuna sürükleyin</strong> (bir kez yapmanız yeterli).</li>
+    <li><a href="https://www.tbf.org.tr/ligler/{{ $tbfPrefix }}-2026-2027/takim-detay/{{ $tbfTeam }}/genel-bakis" target="_blank" rel="noopener" style="color: var(--accent-gold);">TBF takım sayfasını açın ↗</a> ve sayfanın yüklenmesini bekleyin.</li>
+    <li>Yer imleri çubuğundaki <strong>"TBF → Site"</strong> yer imine tıklayın. Sonuç bir uyarı penceresinde görünür.</li>
+  </ol>
+  <a href="{{ $tbfBookmarklet }}" onclick="alert('Bu butonu tıklamayın; yer imleri çubuğuna sürükleyin, sonra TBF sayfasındayken oradan tıklayın.'); return false;" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 6px; cursor: grab;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+    <span>TBF → Site</span>
+  </a>
+  <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.75rem;">
+    Yer imi gizli bir anahtar içerir; başkalarıyla paylaşmayın. Paylaşıldıysa "Anahtarı Yenile" ile geçersiz kılın.
+  </p>
 </div>
 
 <!-- Son İşlem Geçmişi (Loglar) -->

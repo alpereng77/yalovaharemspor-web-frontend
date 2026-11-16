@@ -12,7 +12,7 @@ class MatchController extends Controller
     public function index()
     {
         $matches = BasketballMatch::orderBy('match_date', 'asc')->paginate(20);
-        $standing = Standing::first() ?? new Standing();
+        $standing = Standing::latest('id')->first() ?? new Standing();
         return view('admin.matches.index', compact('matches', 'standing'));
     }
 
@@ -92,7 +92,7 @@ class MatchController extends Controller
             'points_against' => 'required|integer',
         ]);
 
-        $standing = Standing::first() ?? new Standing();
+        $standing = Standing::latest('id')->first() ?? new Standing();
         $standing->fill($data);
         $standing->save();
 

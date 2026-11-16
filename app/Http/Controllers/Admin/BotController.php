@@ -7,6 +7,7 @@ use App\Services\TbfScraperService;
 use App\Models\SiteSetting;
 use App\Models\BotLog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BotController extends Controller
 {
@@ -19,6 +20,9 @@ class BotController extends Controller
 
     public function index()
     {
+        if (!SiteSetting::get('tbf_import_token')) {
+            SiteSetting::set('tbf_import_token', Str::random(40), 'bot', 'TBF içe aktarma anahtarı');
+        }
         $settings = SiteSetting::pluck('value', 'key')->toArray();
         $logs = BotLog::latest()->take(30)->get();
 
@@ -127,6 +131,12 @@ class BotController extends Controller
 
     public function syncFromBrowser(Request $request)
     {
+        // Bu uç nokta oturum gerektirmez; içe aktarma anahtarı olmadan veri yazılamaz.
+        $expected = (string) SiteSetting::get('tbf_import_token', '');
+        if ($expected === '' || !hash_equals($expected, (string) $request->input('token', ''))) {
+            return response()->json(['success' => false, 'count' => 0, 'message' => 'Geçersiz içe aktarma anahtarı.'], 403);
+        }
+
         $type = $request->input('type');
         $html = $request->input('html');
         $url = $request->input('url', '');
@@ -193,6 +203,12 @@ class BotController extends Controller
         }
 
         return redirect()->route('admin.bot.index')->with('success', 'Bot ayarları güncellendi.');
+    }
+
+    public function regenerateImportToken()
+    {
+        SiteSetting::set('tbf_import_token', Str::random(40), 'bot', 'TBF içe aktarma anahtarı');
+        return redirect()->route('admin.bot.index')->with('success', 'Yeni içe aktarma anahtarı oluşturuldu. Yer imini yeniden eklemeyi unutmayın.');
     }
 
     public function clearLogs()

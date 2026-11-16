@@ -8,13 +8,6 @@
   <div class="card-header">
     <h2 class="card-title">TAKIM OYUNCU KADROSU ({{ $players->total() }})</h2>
     <div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">
-      <form method="POST" action="{{ route('admin.bot.sync_all') }}" style="display: inline-block; margin: 0;" onsubmit="return confirm('Eurobasket & TBF teyitli TÜM VERİLER (Oyuncular, İstatistikler, Fikstür, Puan Durumu) güncellenecektir. Onaylıyor musunuz?')">
-        @csrf
-        <button type="submit" class="btn btn-sm btn-success" style="background: #00A859; border: none; font-weight: 700; color: #fff; cursor: pointer; display: inline-flex; align-items: center; gap: 5px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          <span>Tüm Verileri Eşitle</span>
-        </button>
-      </form>
       <a href="{{ route('admin.bot.index') }}" class="btn btn-sm btn-gold" style="display: inline-flex; align-items: center; gap: 5px;">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
         <span>Veri Botu</span>

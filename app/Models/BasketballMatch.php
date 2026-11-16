@@ -33,7 +33,18 @@ class BasketballMatch extends Model
 
     public function getFormattedDateAttribute(): string
     {
-        return $this->match_date ? $this->match_date->translatedFormat('d F Y, l H:i') : 'Açıklanacak';
+        if (!$this->match_date) {
+            return 'Açıklanacak';
+        }
+        // TBF saati belli olmayan maçları 00:00 olarak verir.
+        return $this->has_time
+            ? $this->match_date->translatedFormat('d F Y, l H:i')
+            : $this->match_date->translatedFormat('d F Y, l') . ' · Saat açıklanacak';
+    }
+
+    public function getHasTimeAttribute(): bool
+    {
+        return $this->match_date !== null && $this->match_date->format('H:i') !== '00:00';
     }
 
     public function getOpponentAttribute(): string

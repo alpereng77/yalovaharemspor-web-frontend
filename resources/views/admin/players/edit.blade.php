@@ -80,7 +80,7 @@
     </div>
 
     <h3 style="font-family: 'Barlow Condensed'; font-size: 1.15rem; color: var(--accent-gold); margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.35rem;">
-      2. 2026–2027 SEZONU İSTATİSTİKLERİ (TBF)
+      2. 2026–2027 SEZONU İSTATİSTİKLERİ (EUROBASKET & TBL)
     </h3>
 
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;">

@@ -20,7 +20,7 @@ class HomeController extends Controller
         $settings = SiteSetting::pluck('value', 'key')->toArray();
 
         // Standing / Sezon İstatistiği
-        $standing = Standing::first() ?? new Standing([
+        $standing = Standing::latest('id')->first() ?? new Standing([
             'rank' => 2, 'played' => 4, 'won' => 3, 'lost' => 1, 'points' => 7, 'points_for' => 353, 'points_against' => 294
         ]);
 

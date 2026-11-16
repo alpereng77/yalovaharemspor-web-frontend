@@ -63,26 +63,6 @@
   }
 </style>
 
-<!-- Tek Tıkla Senkronizasyon Banner -->
-<div style="background: linear-gradient(135deg, rgba(0, 168, 89, 0.15) 0%, rgba(0, 63, 32, 0.4) 100%); border: 1px solid rgba(0, 168, 89, 0.5); border-radius: 10px; padding: 1.25rem; margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-  <div>
-    <div style="display: flex; align-items: center; gap: 0.6rem;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00A859" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      <strong style="color: #fff; font-size: 1.15rem; font-family: 'Barlow Condensed'; letter-spacing: 0.5px;">TEK TIKLA TÜM VERİLERİ EŞİTLE (EUROBASKET & TBF)</strong>
-    </div>
-    <div style="color: #c6e6cf; font-size: 0.85rem; margin-top: 0.25rem;">
-      Tüm oyuncular, maç skorları, fikstürler, puan durumu ve teknik kadroyu tek tıkla resmi verilere senkronize edin.
-    </div>
-  </div>
-  <form method="POST" action="{{ route('admin.bot.sync_all') }}" onsubmit="return confirm('Tüm veritabanı (Oyuncular, İstatistikler, Maçlar, Fikstür, Puan Durumu, Teknik Kadro) güncellenecektir. Onaylıyor musunuz?')">
-    @csrf
-    <button type="submit" class="btn btn-primary" style="background: linear-gradient(135deg, #00A859 0%, #006030 100%); font-weight: 800; font-family: 'Barlow Condensed'; font-size: 1.1rem; padding: 10px 22px; border: none; box-shadow: 0 4px 15px rgba(0, 168, 89, 0.4); cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      <span>TÜMÜNÜ ŞİMDİ EŞİTLE</span>
-    </button>
-  </form>
-</div>
-
 <!-- İstatistik Sayaçları -->
 <div class="stats-grid">
   <div class="stat-card">
@@ -147,33 +127,20 @@
 </div>
 
 <div class="dash-grid">
-  <!-- Sol Bölüm: TBF Bot & Hızlı İşlemler -->
+  <!-- Sol Bölüm: Veri Botu & Hızlı İşlemler -->
   <div>
-    <!-- TBF Bot Kartı -->
-    <div class="card" style="border-left: 4px solid var(--accent-gold);">
+    <!-- Veri Botu Kartı -->
+    <div class="card" style="border-left: 4px solid var(--primary-green);">
       <div class="card-header">
         <h2 class="card-title">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="4"/></svg>
-          TBF VERİ BOTU
+          TBF VERİ AKTARIMI
         </h2>
         <a href="{{ route('admin.bot.index') }}" class="btn btn-sm btn-gold">Bot Merkezine Git ↗</a>
       </div>
-      <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1rem;">
-        TBF resmi web sitesinden (Basketbolcular, Teknik Kadro, İstatistikler ve Maçlar) otomatik veri çekebilir veya Cloudflare koruması devredeyken <strong>"Manuel HTML Ayrıştır"</strong> sekmesiyle saniyeler içinde tüm kadroyu ve istatistikleri güncelleyebilirsiniz.
+      <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 0;">
+        Veriler resmi TBF sayfasından, yöneticinin tarayıcısındaki "TBF → Site" yer imiyle aktarılır. Kurulum adımları Veri Senkronizasyonu sayfasındadır.
       </p>
-
-      <form action="{{ route('admin.bot.scrape') }}" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        @csrf
-        <button type="submit" name="type" value="all" class="btn btn-primary">
-          <span>Tüm Verileri TBF'den Çek</span>
-        </button>
-        <button type="submit" name="type" value="players" class="btn btn-secondary">
-          <span>Oyuncuları Güncelle</span>
-        </button>
-        <button type="submit" name="type" value="stats" class="btn btn-secondary">
-          <span>İstatistikleri Çek</span>
-        </button>
-      </form>
     </div>
 
     <!-- Son Bot Hareketleri -->
