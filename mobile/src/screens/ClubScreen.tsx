@@ -6,7 +6,7 @@ import { Gradient } from '../components/Gradient';
 import { Icon, IconName } from '../components/Icon';
 import { FadeIn, PressableScale } from '../components/motion';
 import { ParallaxScreen } from '../components/Parallax';
-import { Button, ErrorState, Loading, openUrl, SectionHeader, Segmented } from '../components/ui';
+import { Button, ErrorState, Loading, MadeBy, openUrl, SectionHeader, Segmented } from '../components/ui';
 import { fonts, radius, space } from '../theme';
 import { createStyles, ThemePref, useTheme } from '../themeContext';
 
@@ -125,6 +125,7 @@ export function ClubScreen() {
       <Newsletter />
 
       {info.footer_copyright ? <Text style={[T.small, { textAlign: 'center' }]}>© {new Date().getFullYear()} {info.footer_copyright}</Text> : null}
+      <MadeBy name={info.footer_credit_name} url={info.footer_credit_url} />
     </ParallaxScreen>
   );
 }
@@ -135,7 +136,7 @@ function Row({ icon, text }: { icon: IconName; text: string }) {
   return (
     <View style={styles.row}>
       <Icon name={icon} size={16} color={c.muted} />
-      <Text style={[T.body, { flex: 1, fontSize: 14 }]}>{text}</Text>
+      <Text style={[T.body, { flex: 1, fontSize: 15 }]}>{text}</Text>
     </View>
   );
 }
@@ -190,14 +191,14 @@ const useStyles = createStyles((c) => StyleSheet.create({
   hero: { alignItems: 'center' },
   logo: { width: 92, height: 92, borderRadius: 46, borderWidth: 3, borderColor: c.white, marginBottom: space.sm },
   city: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 4, color: 'rgba(255,255,255,0.8)' },
-  name: { fontFamily: fonts.condBlackItalic, fontSize: 48, lineHeight: 48, color: c.white },
+  name: { fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42, color: c.white },
   hashtag: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 1, color: c.gold },
-  motto: { fontFamily: fonts.condBlack, fontSize: 26, lineHeight: 28, color: c.text, textAlign: 'center', textTransform: 'uppercase', marginTop: space.sm },
+  motto: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.text, textAlign: 'center', textTransform: 'uppercase', marginTop: space.sm },
   socials: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   social: { flexGrow: 1, flexBasis: '45%', flexDirection: 'row', alignItems: 'center', gap: space.sm, backgroundColor: c.surface, borderWidth: StyleSheet.hairlineWidth, borderColor: c.lineStrong, borderRadius: radius.md, padding: space.md, minHeight: 52 },
-  socialText: { fontFamily: fonts.condBold, fontSize: 16, letterSpacing: 0.8, color: c.text, textTransform: 'uppercase' },
+  socialText: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 0.8, color: c.text, textTransform: 'uppercase' },
   identity: { borderRadius: radius.xl, padding: space.xl, gap: 8, overflow: 'hidden' },
-  identityTitle: { fontFamily: fonts.condBlack, fontSize: 28, lineHeight: 29, color: c.white, textTransform: 'uppercase' },
+  identityTitle: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.white, textTransform: 'uppercase' },
   identityText: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 22, color: 'rgba(255,255,255,0.88)' },
   card: { backgroundColor: c.surface, borderRadius: radius.xl, padding: space.lg, gap: space.md, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
   pointHead: { flexDirection: 'row', alignItems: 'center', gap: space.md },
@@ -207,7 +208,7 @@ const useStyles = createStyles((c) => StyleSheet.create({
   sponsors: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm },
   sponsor: { width: '31.5%', aspectRatio: 1.5, backgroundColor: c.white, borderRadius: radius.md, padding: space.sm, alignItems: 'center', justifyContent: 'center', borderWidth: StyleSheet.hairlineWidth, borderColor: c.lineStrong },
   sponsorLogo: { width: '100%', height: '100%' },
-  email: { borderWidth: 1.5, borderColor: c.lineStrong, backgroundColor: c.surface2, borderRadius: radius.md, height: 52, paddingHorizontal: space.md, fontFamily: fonts.medium, fontSize: 16, color: c.text },
+  email: { borderWidth: 1.5, borderColor: c.lineStrong, backgroundColor: c.surface2, borderRadius: radius.md, height: 52, paddingHorizontal: space.md, fontFamily: fonts.regular, fontSize: 15, color: c.text },
   ok: { fontFamily: fonts.semibold, color: c.greenGlow },
   err: { fontFamily: fonts.semibold, color: c.mode === 'dark' ? '#FF8A8A' : c.loss },
 }));

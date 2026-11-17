@@ -103,16 +103,16 @@ export const radius = { sm: 6, md: 10, lg: 14, xl: 20, pill: 999 };
 
 export function makeType(c: Palette) {
   return {
-    display: { fontFamily: fonts.condBlackItalic, fontSize: 44, lineHeight: 44, color: c.text, textTransform: 'uppercase', letterSpacing: -0.5 } as TextStyle,
-    h1: { fontFamily: fonts.condBlack, fontSize: 32, lineHeight: 34, color: c.text, textTransform: 'uppercase' } as TextStyle,
-    h2: { fontFamily: fonts.condXBold, fontSize: 24, lineHeight: 27, color: c.text, textTransform: 'uppercase' } as TextStyle,
-    h3: { fontFamily: fonts.condBold, fontSize: 19, lineHeight: 22, color: c.text } as TextStyle,
-    kicker: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 2, color: c.muted, textTransform: 'uppercase' } as TextStyle,
-    body: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 23, color: c.textSoft } as TextStyle,
-    bodyStrong: { fontFamily: fonts.semibold, fontSize: 15, lineHeight: 21, color: c.text } as TextStyle,
-    small: { fontFamily: fonts.medium, fontSize: 13, lineHeight: 18, color: c.muted } as TextStyle,
+    display: { fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42, color: c.text, textTransform: 'uppercase', letterSpacing: -0.5 } as TextStyle,
+    h1: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.text, textTransform: 'uppercase' } as TextStyle,
+    h2: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.text, textTransform: 'uppercase' } as TextStyle,
+    h3: { fontFamily: fonts.condBold, fontSize: 22, lineHeight: 26, color: c.text } as TextStyle,
+    kicker: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 2, color: c.muted, textTransform: 'uppercase' } as TextStyle,
+    body: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 22, color: c.textSoft } as TextStyle,
+    bodyStrong: { fontFamily: fonts.semibold, fontSize: 15, lineHeight: 22, color: c.text } as TextStyle,
+    small: { fontFamily: fonts.regular, fontSize: 12, lineHeight: 16, color: c.muted } as TextStyle,
     label: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.2, color: c.muted, textTransform: 'uppercase' } as TextStyle,
-    number: { fontFamily: fonts.condBlack, fontSize: 34, lineHeight: 36, color: c.text, fontVariant: ['tabular-nums'] } as TextStyle,
+    number: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.text, fontVariant: ['tabular-nums'] } as TextStyle,
   };
 }
 export type Typography = ReturnType<typeof makeType>;

@@ -51,10 +51,10 @@ export function ArticleScreen({ route }: RootScreenProps<'Article'>) {
 
 const useStyles = createStyles((c) => StyleSheet.create({
   kickerRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  kickerBar: { width: 22, height: 3, backgroundColor: c.red },
-  kicker: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 2, color: c.gold, textTransform: 'uppercase' },
-  title: { fontFamily: fonts.condBlack, fontSize: 36, lineHeight: 37, color: c.white, textTransform: 'uppercase' },
-  date: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 1.5, color: c.muted, textTransform: 'uppercase', marginTop: space.sm },
-  paragraph: { fontFamily: fonts.regular, fontSize: 17, lineHeight: 28, color: c.textSoft },
-  lead: { fontFamily: fonts.medium, fontSize: 19, lineHeight: 29, color: c.text },
+  kickerBar: { width: 0, height: 0 },
+  kicker: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 2, color: c.gold, textTransform: 'uppercase' },
+  title: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.white, textTransform: 'uppercase' },
+  date: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.muted, textTransform: 'uppercase', marginTop: space.sm },
+  paragraph: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 22, color: c.textSoft },
+  lead: { fontFamily: fonts.regular, fontSize: 22, lineHeight: 26, color: c.text },
 }));

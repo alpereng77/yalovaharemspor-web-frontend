@@ -23,6 +23,9 @@ export type Club = {
   social_youtube: string | null;
   footer_hashtag: string | null;
   footer_copyright: string | null;
+  /** Uygulamayı hazırlayan (site ayarı) */
+  footer_credit_name: string | null;
+  footer_credit_url: string | null;
   app_store_url: string | null;
   play_store_url: string | null;
   logo: string;

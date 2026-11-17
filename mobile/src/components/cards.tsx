@@ -6,7 +6,8 @@ import { fonts, radius, space } from '../theme';
 import { createStyles, useTheme } from '../themeContext';
 import { Gradient } from './Gradient';
 import { Icon } from './Icon';
-import { Bar, CountUp, PressableScale, Pulse } from './motion';
+import { CountUp, PressableScale, Pulse } from './motion';
+import { TopImage } from './TopImage';
 import { Pill, TeamBadge } from './ui';
 
 /** Belirli aralıkla güncellenen "şimdi" (geri sayımlar) */
@@ -147,7 +148,7 @@ export function MatchRow({ match }: { match: Match }) {
       {played ? (
         <Text style={[styles.wlText, { color: match.result === 'W' ? c.win : c.loss }]}>{match.result === 'W' ? 'G' : 'M'}</Text>
       ) : (
-        <Text style={[styles.mrowHa, match.is_home && { color: c.redBright }]}>{match.is_home ? 'İÇ' : 'DEP'}</Text>
+        <Text style={[styles.mrowHa, match.is_home && { color: c.text }]}>{match.is_home ? 'İÇ' : 'DEP'}</Text>
       )}
     </View>
   );
@@ -158,35 +159,24 @@ export function MatchRow({ match }: { match: Match }) {
 export function SeasonStrip({ standing }: { standing: Standing }) {
   const { c, T } = useTheme();
   const styles = useStyles();
-  const games = standing.won + standing.lost || 1;
-  const winPct = standing.won / games;
   return (
     <View style={styles.season} accessible accessibilityLabel={`${standing.season}: ${standing.rank}. sıra, ${standing.won} galibiyet, ${standing.lost} mağlubiyet, ${standing.points} puan`}>
       <View style={styles.rankBox}>
         <CountUp value={standing.rank} suffix="." style={styles.rank} />
         <Text style={styles.rankLabel}>{standing.rank === 1 ? 'LİDER' : 'SIRA'}</Text>
       </View>
-      <View style={{ flex: 1, gap: space.md }}>
-        <View style={styles.seasonNums}>
-          {[
-            { v: standing.won, l: 'G', c: c.win },
-            { v: standing.lost, l: 'M', c: c.loss },
-            { v: standing.points, l: 'PUAN', c: c.text },
-            { v: standing.diff, l: 'AVERAJ', c: c.gold, p: standing.diff > 0 ? '+' : '' },
-          ].map(n => (
-            <View key={n.l} style={{ alignItems: 'center', flex: 1 }}>
-              <CountUp value={n.v} prefix={n.p} style={[styles.seasonNum, { color: n.c }]} />
-              <Text style={T.label}>{n.l}</Text>
-            </View>
-          ))}
-        </View>
-        <View style={{ gap: 6 }}>
-          <View style={styles.rowBetween}>
-            <Text style={T.label}>{standing.season}</Text>
-            <Text style={[T.label, { color: c.textSoft }]}>%{Math.round(winPct * 100)} GALİBİYET</Text>
+      <View style={styles.seasonNums}>
+        {[
+          { v: standing.won, l: 'G', c: c.win },
+          { v: standing.lost, l: 'M', c: c.loss },
+          { v: standing.points, l: 'PUAN', c: c.text },
+          { v: standing.diff, l: 'AVERAJ', c: c.gold, p: standing.diff > 0 ? '+' : '' },
+        ].map(n => (
+          <View key={n.l} style={styles.seasonItem}>
+            <CountUp value={n.v} prefix={n.p} style={[styles.seasonNum, { color: n.c }]} />
+            <Text style={T.label}>{n.l}</Text>
           </View>
-          <Bar ratio={winPct} color={c.win} />
-        </View>
+        ))}
       </View>
     </View>
   );
@@ -198,7 +188,7 @@ export function PlayerCard({ player, onPress, width }: { player: Player; onPress
   const styles = useStyles();
   return (
     <PressableScale onPress={onPress} style={[styles.player, width ? { width } : { flex: 1 }]} accessibilityLabel={`${player.number ? player.number + ' numara ' : ''}${player.name}, ${player.position ?? ''}`}>
-      <Image source={{ uri: player.image }} style={styles.playerImg} resizeMode="cover" />
+      <TopImage uri={player.image} />
       <Gradient />
       {player.number ? <Text style={styles.bigNumber}>{player.number}</Text> : null}
       <View style={styles.playerInfo}>
@@ -257,7 +247,7 @@ export function GiveawayBanner({ giveaway, onPress }: { giveaway: GiveawaySummar
           <Gradient vertical={false} stops={[{ offset: 0, color: '#8E0303', opacity: 1 }, { offset: 0.5, color: '#8E0303', opacity: 0.85 }, { offset: 1, color: '#8E0303', opacity: 0.1 }]} />
         </>
       ) : null}
-      <View style={{ flex: 1, gap: 6, maxWidth: '72%' }}>
+      <View style={{ flex: 1, gap: 8, maxWidth: '72%' }}>
         <View style={styles.row}><Pulse color={c.white} size={7} /><Text style={styles.bannerKicker}>ÇEKİLİŞ DEVAM EDİYOR</Text></View>
         <Text style={styles.bannerTitle} numberOfLines={2}>{giveaway.prize}</Text>
         <Text style={styles.bannerSub} numberOfLines={1}>{giveaway.title}</Text>
@@ -275,7 +265,7 @@ export function GiveawayCard({ giveaway, onPress }: { giveaway: GiveawaySummary;
   return (
     <PressableScale onPress={onPress} style={styles.gw} accessibilityLabel={`${giveaway.title}, ${giveaway.prize}, ${giveaway.status_text}`}>
       {giveaway.image ? <Image source={{ uri: giveaway.image }} style={styles.gwImg} /> : <View style={[styles.gwImg, styles.center1]}><Icon name="gift" size={28} color={c.gold} /></View>}
-      <View style={{ flex: 1, gap: 6 }}>
+      <View style={{ flex: 1, gap: 8 }}>
         <Pill text={giveaway.status_text} tone={tone} live={giveaway.is_open} />
         <Text style={styles.gwTitle} numberOfLines={2}>{giveaway.title}</Text>
         <Text style={styles.gwPrize} numberOfLines={1}>{giveaway.prize}</Text>
@@ -294,76 +284,76 @@ const useStyles = createStyles((c) => StyleSheet.create({
 
   center: { paddingTop: space.sm },
   centerTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  centerKicker: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 2, color: c.muted },
+  centerKicker: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 2, color: c.muted },
   tag: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.gold },
-  tagHome: { color: c.redBright },
-  teams: { flexDirection: 'row', alignItems: 'flex-start', marginTop: space.xl },
+  tagHome: { color: c.text },
+  teams: { flexDirection: 'row', alignItems: 'flex-start', marginTop: space.xxl },
   team: { flex: 1, alignItems: 'center', gap: space.sm },
-  teamName: { fontFamily: fonts.condBold, fontSize: 15, lineHeight: 17, color: c.textSoft, textAlign: 'center', textTransform: 'uppercase' },
+  teamName: { fontFamily: fonts.condBold, fontSize: 15, lineHeight: 22, color: c.textSoft, textAlign: 'center', textTransform: 'uppercase' },
   mid: { width: 112, alignItems: 'center', paddingTop: 8 },
   midTime: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.text, fontVariant: ['tabular-nums'] },
-  midDate: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1, color: c.gold, textAlign: 'center', marginTop: 2 },
-  countdown: { flexDirection: 'row', marginTop: space.xl, paddingTop: space.lg, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.line },
+  midDate: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1, color: c.gold, textAlign: 'center', marginTop: 4 },
+  countdown: { flexDirection: 'row', marginTop: space.xxl, paddingTop: space.xl, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.line },
   unit: { flex: 1, alignItems: 'center' },
   unitDivider: { borderLeftWidth: StyleSheet.hairlineWidth, borderLeftColor: c.line },
-  unitValue: { fontFamily: fonts.condBlack, fontSize: 28, lineHeight: 30, color: c.text, fontVariant: ['tabular-nums'] },
-  unitLabel: { fontFamily: fonts.condBold, fontSize: 10, letterSpacing: 1.5, color: c.muted, marginTop: 2 },
-  centerMeta: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 6, marginTop: space.lg },
-  metaText: { fontFamily: fonts.medium, fontSize: 13, color: c.muted, flexShrink: 1 },
+  unitValue: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.text, fontVariant: ['tabular-nums'] },
+  unitLabel: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.muted, marginTop: 4 },
+  centerMeta: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, marginTop: space.xl },
+  metaText: { fontFamily: fonts.regular, fontSize: 12, color: c.muted, flexShrink: 1 },
 
-  result: { width: 168, gap: 6, paddingRight: space.lg, borderRightWidth: StyleSheet.hairlineWidth, borderRightColor: c.line },
-  resultHead: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 },
-  resultBadge: { fontFamily: fonts.condBold, fontSize: 11, letterSpacing: 1 },
+  result: { width: 216, gap: 12, paddingRight: space.xl, borderRightWidth: StyleSheet.hairlineWidth, borderRightColor: c.line },
+  resultHead: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
+  resultBadge: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1 },
   resultLine: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   resultTeam: { flex: 1, fontFamily: fonts.condBold, fontSize: 15, color: c.muted, textTransform: 'uppercase' },
-  resultScore: { fontFamily: fonts.condBlack, fontSize: 24, color: c.text, fontVariant: ['tabular-nums'] },
+  resultScore: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, fontVariant: ['tabular-nums'] },
 
   mrow: { flexDirection: 'row', alignItems: 'center', paddingVertical: space.md, gap: space.md, borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: c.line },
   mrowDate: { width: 44, alignItems: 'center' },
-  mrowDay: { fontFamily: fonts.condBlack, fontSize: 26, lineHeight: 28, color: c.text },
+  mrowDay: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.text },
   mrowMonth: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1, color: c.gold },
-  mrowTeams: { flex: 1, gap: 2 },
+  mrowTeams: { flex: 1, gap: 4 },
   mrowLine: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  mrowTeam: { flex: 1, fontFamily: fonts.condBold, fontSize: 17, color: c.muted, textTransform: 'uppercase' },
+  mrowTeam: { flex: 1, fontFamily: fonts.condBold, fontSize: 15, color: c.muted, textTransform: 'uppercase' },
   mrowScore: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, minWidth: 34, textAlign: 'right', fontVariant: ['tabular-nums'] },
-  mrowMeta: { fontFamily: fonts.medium, fontSize: 12, color: c.muted, marginTop: 2 },
-  wlText: { fontFamily: fonts.condBlack, fontSize: 18, width: 24, textAlign: 'center' },
+  mrowMeta: { fontFamily: fonts.regular, fontSize: 12, color: c.muted, marginTop: 4 },
+  wlText: { fontFamily: fonts.condBlack, fontSize: 22, width: 24, textAlign: 'center' },
   mrowHa: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1, color: c.muted, width: 30, textAlign: 'center' },
 
   season: { flexDirection: 'row', alignItems: 'center', gap: space.xl },
   rankBox: { alignItems: 'center', minWidth: 64 },
-  rank: { fontFamily: fonts.condBlackItalic, fontSize: 64, lineHeight: 64, color: c.redBright },
+  rank: { fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42, color: c.text },
   rankLabel: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 2, color: c.muted },
-  seasonNums: { flexDirection: 'row' },
-  seasonNum: { fontFamily: fonts.condBlack, fontSize: 28, lineHeight: 30, fontVariant: ['tabular-nums'] },
+  seasonNums: { flex: 1, flexDirection: 'row' },
+  seasonItem: { flex: 1, alignItems: 'center', gap: 4 },
+  seasonNum: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, fontVariant: ['tabular-nums'] },
 
   player: { height: 250, borderRadius: radius.lg, overflow: 'hidden', backgroundColor: c.surface2 },
-  playerImg: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, width: '100%', height: '100%' },
-  bigNumber: { position: 'absolute', top: 6, right: 10, fontFamily: fonts.condBlackItalic, fontSize: 64, lineHeight: 66, color: 'rgba(255,255,255,0.9)', textShadowColor: 'rgba(0,0,0,0.45)', textShadowRadius: 12, textShadowOffset: { width: 0, height: 2 } },
+  bigNumber: { position: 'absolute', top: 6, right: 10, fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42, color: 'rgba(255,255,255,0.9)', textShadowColor: 'rgba(0,0,0,0.45)', textShadowRadius: 12, textShadowOffset: { width: 0, height: 2 } },
   playerInfo: { position: 'absolute', left: space.md, right: space.md, bottom: space.md },
-  playerFirst: { fontFamily: fonts.condSemi, fontSize: 15, color: 'rgba(255,255,255,0.8)', textTransform: 'uppercase' },
-  playerLast: { fontFamily: fonts.condBlack, fontSize: 24, lineHeight: 26, color: c.white, textTransform: 'uppercase' },
-  playerPos: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.2, color: c.gold, textTransform: 'uppercase', marginTop: 2 },
+  playerFirst: { fontFamily: fonts.condBold, fontSize: 15, color: 'rgba(255,255,255,0.8)', textTransform: 'uppercase' },
+  playerLast: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.white, textTransform: 'uppercase' },
+  playerPos: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.2, color: c.gold, textTransform: 'uppercase', marginTop: 4 },
 
   feature: { height: 300, borderRadius: radius.xl, overflow: 'hidden', backgroundColor: c.surface2, justifyContent: 'flex-end' },
   featureBody: { padding: space.xl, gap: 8 },
-  featureTitle: { fontFamily: fonts.condBlack, fontSize: 30, lineHeight: 32, color: c.white, textTransform: 'uppercase' },
-  newsKicker: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.redBright, textTransform: 'uppercase' },
+  featureTitle: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.white, textTransform: 'uppercase' },
+  newsKicker: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.muted, textTransform: 'uppercase' },
   newsRow: { flexDirection: 'row', gap: space.md, alignItems: 'center' },
   newsThumb: { width: 104, height: 84, borderRadius: radius.md, backgroundColor: c.surface2 },
-  newsTitle: { fontFamily: fonts.condBold, fontSize: 18, lineHeight: 21, color: c.text },
+  newsTitle: { fontFamily: fonts.condBold, fontSize: 22, lineHeight: 26, color: c.text },
 
   banner: { flexDirection: 'row', alignItems: 'center', borderRadius: radius.xl, padding: space.xl, overflow: 'hidden', minHeight: 140 },
   bannerImg: { position: 'absolute', right: 0, top: 0, bottom: 0, width: '55%' },
   bannerKicker: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 2, color: 'rgba(255,255,255,0.85)' },
-  bannerTitle: { fontFamily: fonts.condBlack, fontSize: 26, lineHeight: 27, color: c.white, textTransform: 'uppercase' },
-  bannerSub: { fontFamily: fonts.semibold, fontSize: 14, color: 'rgba(255,255,255,0.85)', marginTop: -2 },
-  bannerCta: { flexDirection: 'row', alignItems: 'center', gap: 4, alignSelf: 'flex-start', backgroundColor: c.white, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 6, marginTop: 4 },
-  bannerCtaText: { fontFamily: fonts.condXBold, fontSize: 13, letterSpacing: 1, color: c.red },
+  bannerTitle: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.white, textTransform: 'uppercase' },
+  bannerSub: { fontFamily: fonts.semibold, fontSize: 15, color: 'rgba(255,255,255,0.85)', marginTop: 0 },
+  bannerCta: { flexDirection: 'row', alignItems: 'center', gap: 4, alignSelf: 'flex-start', backgroundColor: c.white, borderRadius: radius.pill, paddingHorizontal: 12, paddingVertical: 8, marginTop: 4 },
+  bannerCtaText: { fontFamily: fonts.condBlack, fontSize: 12, letterSpacing: 1, color: c.red },
   bannerIcon: { position: 'absolute', right: space.lg, top: space.lg, width: 56, height: 56, borderRadius: 28, backgroundColor: 'rgba(0,0,0,0.25)', alignItems: 'center', justifyContent: 'center' },
 
   gw: { flexDirection: 'row', alignItems: 'center', padding: space.md, gap: space.md, backgroundColor: c.surface, borderRadius: radius.lg, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
   gwImg: { width: 76, height: 76, borderRadius: radius.md, backgroundColor: c.surface2 },
-  gwTitle: { fontFamily: fonts.condXBold, fontSize: 19, lineHeight: 21, color: c.text, textTransform: 'uppercase' },
-  gwPrize: { fontFamily: fonts.semibold, fontSize: 14, color: c.gold },
+  gwTitle: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.text, textTransform: 'uppercase' },
+  gwPrize: { fontFamily: fonts.semibold, fontSize: 15, color: c.gold },
 }));

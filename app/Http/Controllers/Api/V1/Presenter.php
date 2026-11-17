@@ -30,7 +30,7 @@ class Presenter
         'identity_green_title', 'identity_green_text', 'identity_red_title', 'identity_red_text',
         'identity_mascot_title', 'identity_mascot_text',
         'social_instagram', 'social_x', 'social_youtube',
-        'footer_hashtag', 'footer_copyright',
+        'footer_hashtag', 'footer_copyright', 'footer_credit_name', 'footer_credit_url',
         'app_store_url', 'play_store_url',
     ];
 

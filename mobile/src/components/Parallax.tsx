@@ -5,6 +5,7 @@ import { space } from '../theme';
 import { createStyles, useTheme } from '../themeContext';
 import { Gradient } from './Gradient';
 import { Icon } from './Icon';
+import { TopImage } from './TopImage';
 import { NATIVE } from './motion';
 
 /**
@@ -12,9 +13,11 @@ import { NATIVE } from './motion';
  * üstte geri butonu için koyu perde, altta içeriğe kararan geçiş.
  */
 export function ParallaxScreen({
-  image, height = 380, overlay, children, onRefresh, testID,
+  image, height = 380, overlay, children, onRefresh, testID, alignTop,
 }: {
   image: ImageSourcePropType | null; height?: number; overlay?: ReactNode; children: ReactNode;
+  /** Oyuncu fotoğrafları gibi dar/uzun görselleri üste yasla (baş kesilmesin) */
+  alignTop?: boolean;
   onRefresh?: () => Promise<unknown>; testID?: string;
 }) {
   const { c } = useTheme();
@@ -48,7 +51,8 @@ export function ParallaxScreen({
       ) : undefined}>
       <View style={{ height, overflow: 'hidden' }}>
         <Animated.View style={[StyleSheet.absoluteFill, { transform: [{ translateY }, { scale }] }]}>
-          {image ? <Image source={image} style={StyleSheet.absoluteFill} resizeMode="cover" /> : (
+          {image && alignTop && typeof image === 'object' && 'uri' in image && image.uri ? <TopImage uri={image.uri} />
+            : image ? <Image source={image} style={StyleSheet.absoluteFill} resizeMode="cover" /> : (
             // Fotoğraf yoksa kulüp renklerinde degrade + silik basketbol topu
             <View style={StyleSheet.absoluteFill}>
               <Gradient vertical={false} stops={[{ offset: 0, color: '#0B5A31' }, { offset: 0.6, color: '#062414' }, { offset: 1, color: '#3A0000' }]} />

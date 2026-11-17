@@ -7,7 +7,7 @@ import { GiveawayBanner, MatchCenter, NewsFeature, NewsRow, PlayerCard, ResultCa
 import { Gradient } from '../components/Gradient';
 import { Icon } from '../components/Icon';
 import { FadeIn, NATIVE, Skeleton } from '../components/motion';
-import { ErrorState, openUrl, SectionHeader } from '../components/ui';
+import { ErrorState, MadeBy, openUrl, SectionHeader } from '../components/ui';
 import type { TabScreenProps } from '../navigation/types';
 import { fonts, radius, space } from '../theme';
 import { createStyles, useTheme } from '../themeContext';
@@ -111,8 +111,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
 
               {data.standing ? (
                 <FadeIn index={2}>
-                  <SectionHeader title="Sezon" />
-                  <View style={{ height: space.md }} />
+                  <SectionHeader title="Sezon" note={data.standing.season} />
                   <SeasonStrip standing={data.standing} />
                 </FadeIn>
               ) : null}
@@ -156,6 +155,7 @@ export function HomeScreen({ navigation }: TabScreenProps<'Home'>) {
                     </Pressable>
                   ))}
               </FadeIn>
+              <MadeBy name={club?.footer_credit_name} url={club?.footer_credit_url} />
             </>
           ) : null}
         </View>
@@ -176,20 +176,20 @@ const useStyles = createStyles((c) => StyleSheet.create({
   brand: { flexDirection: 'row', alignItems: 'center', gap: space.md },
   logo: { width: 46, height: 46, borderRadius: 23, borderWidth: 2, borderColor: 'rgba(255,255,255,0.85)' },
   city: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 3, color: 'rgba(255,255,255,0.8)' },
-  clubName: { fontFamily: fonts.condBlack, fontSize: 24, lineHeight: 25, color: c.white, letterSpacing: 0.5 },
+  clubName: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.white, letterSpacing: 0.5 },
   topActions: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
-  iconBtn: { paddingHorizontal: 9 },
-  glassBtn: { flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: 'rgba(0,0,0,0.35)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.25)', paddingHorizontal: 12, paddingVertical: 7, borderRadius: radius.pill },
-  glassText: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 1.5, color: c.white },
+  iconBtn: { paddingHorizontal: 8 },
+  glassBtn: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: 'rgba(0,0,0,0.35)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.25)', paddingHorizontal: 12, paddingVertical: 8, borderRadius: radius.pill },
+  glassText: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.white },
   heroCopy: { position: 'absolute', left: space.lg, right: space.lg, bottom: 28 },
-  hashtag: { fontFamily: fonts.condBold, fontSize: 14, letterSpacing: 1.5, color: c.gold, marginBottom: 6 },
-  heroTitle: { fontFamily: fonts.condBlackItalic, fontSize: 54, lineHeight: 52, color: c.white, textTransform: 'uppercase', letterSpacing: -0.5 },
-  content: { paddingHorizontal: space.lg, gap: space.xxl, marginTop: space.lg },
-  hScroll: { marginHorizontal: -space.lg, marginTop: space.md },
-  hList: { paddingHorizontal: space.lg, gap: space.md },
+  hashtag: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 1.5, color: c.gold, marginBottom: 8 },
+  heroTitle: { fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42, color: c.white, textTransform: 'uppercase', letterSpacing: -0.5 },
+  content: { paddingHorizontal: space.lg, gap: 48, marginTop: space.xl },
+  hScroll: { marginHorizontal: -space.lg },
+  hList: { paddingHorizontal: space.lg, gap: space.xl },
   socials: { flexDirection: 'row', justifyContent: 'center', gap: space.md, marginTop: space.sm },
   social: { width: 46, height: 46, borderRadius: 23, backgroundColor: c.surface, borderWidth: StyleSheet.hairlineWidth, borderColor: c.lineStrong, alignItems: 'center', justifyContent: 'center' },
   stickyBar: { position: 'absolute', left: 0, right: 0, top: 0, flexDirection: 'row', alignItems: 'center', gap: space.sm, paddingHorizontal: space.lg, paddingBottom: space.sm, backgroundColor: c.mode === 'dark' ? 'rgba(5,16,10,0.96)' : 'rgba(255,255,255,0.97)', borderBottomWidth: StyleSheet.hairlineWidth, borderBottomColor: c.line },
   stickyLogo: { width: 30, height: 30, borderRadius: 15 },
-  stickyTitle: { fontFamily: fonts.condBlack, fontSize: 19, color: c.text, letterSpacing: 0.5 },
+  stickyTitle: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, letterSpacing: 0.5 },
 }));

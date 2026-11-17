@@ -13,7 +13,7 @@ import { createStyles, useTheme } from '../themeContext';
 type NumKey = 'points' | 'rebounds' | 'assists' | 'steals' | 'blocks' | 'efficiency' | 'minutes';
 
 export function PlayerScreen({ route }: RootScreenProps<'Player'>) {
-  const { c, T } = useTheme();
+  const { T } = useTheme();
   const styles = useStyles();
   const { data: p, isPending, error, refetch } = usePlayer(route.params.id);
   const team = usePlayers();
@@ -42,6 +42,7 @@ export function PlayerScreen({ route }: RootScreenProps<'Player'>) {
   return (
     <ParallaxScreen
       image={{ uri: p.image }}
+      alignTop
       height={460}
       onRefresh={refetch}
       testID="player-screen"
@@ -72,9 +73,9 @@ export function PlayerScreen({ route }: RootScreenProps<'Player'>) {
               { k: 'assists' as const, l: 'ASİST' },
             ].map((tile, i) => (
               <View key={tile.k} style={[styles.tile, i === 0 && styles.tileHot]}>
-                <CountUp value={s[tile.k]} decimals={1} style={[styles.tileValue, i === 0 && { color: c.white }]} />
-                <Text style={[styles.tileLabel, i === 0 && { color: 'rgba(255,255,255,0.85)' }]}>{tile.l}</Text>
-                <Text style={[styles.tileSub, i === 0 && { color: 'rgba(255,255,255,0.7)' }]}>MAÇ BAŞI</Text>
+                <CountUp value={s[tile.k]} decimals={1} style={styles.tileValue} />
+                <Text style={styles.tileLabel}>{tile.l}</Text>
+                <Text style={styles.tileSub}>MAÇ BAŞI</Text>
               </View>
             ))}
           </FadeIn>
@@ -105,12 +106,12 @@ function StatBar({ label, value, max, delay }: { label: string; value: number; m
   const styles = useStyles();
   const leader = value > 0 && value >= max;
   return (
-    <View style={{ gap: 6 }}>
+    <View style={{ gap: 8 }}>
       <View style={styles.statHead}>
         <Text style={styles.statLabel}>{label}{leader ? '  ·  TAKIM LİDERİ' : ''}</Text>
         <Text style={styles.statValue}>{stat(value)}</Text>
       </View>
-      <Bar ratio={value / max} color={leader ? c.gold : c.red} delay={delay} />
+      <Bar ratio={value / max} color={leader ? c.gold : c.textSoft} delay={delay} />
     </View>
   );
 }
@@ -136,23 +137,23 @@ function Grid({ s }: { s: PlayerStats }) {
 
 const useStyles = createStyles((c) => StyleSheet.create({
   hero: { flexDirection: 'row', alignItems: 'flex-end', gap: space.md },
-  number: { fontFamily: fonts.condBlackItalic, fontSize: 96, lineHeight: 92, color: c.redBright },
-  first: { fontFamily: fonts.condBold, fontSize: 20, letterSpacing: 1, color: 'rgba(255,255,255,0.8)', textTransform: 'uppercase' },
-  last: { fontFamily: fonts.condBlack, fontSize: 46, lineHeight: 46, color: c.white, textTransform: 'uppercase' },
+  number: { fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42, color: c.redBright },
+  first: { fontFamily: fonts.condBold, fontSize: 22, letterSpacing: 1, color: 'rgba(255,255,255,0.8)', textTransform: 'uppercase' },
+  last: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.white, textTransform: 'uppercase' },
   facts: { flexDirection: 'row', flexWrap: 'wrap', gap: space.sm, marginTop: space.sm },
-  fact: { flexGrow: 1, minWidth: '30%', backgroundColor: c.surface, borderRadius: radius.md, paddingHorizontal: space.md, paddingVertical: 10, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
-  factValue: { fontFamily: fonts.condBold, fontSize: 18, color: c.text, marginTop: 2 },
+  fact: { flexGrow: 1, minWidth: '30%', backgroundColor: c.surface, borderRadius: radius.md, paddingHorizontal: space.md, paddingVertical: 12, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
+  factValue: { fontFamily: fonts.condBold, fontSize: 22, color: c.text, marginTop: 4 },
   tiles: { flexDirection: 'row', gap: space.sm },
   tile: { flex: 1, alignItems: 'center', backgroundColor: c.surface, borderRadius: radius.lg, paddingVertical: space.lg, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
-  tileHot: { backgroundColor: c.red, borderColor: c.red },
+  tileHot: {},
   tileValue: { fontFamily: fonts.condBlack, fontSize: 40, lineHeight: 42, color: c.text, fontVariant: ['tabular-nums'] },
-  tileLabel: { fontFamily: fonts.condBold, fontSize: 14, letterSpacing: 1.5, color: c.textSoft },
-  tileSub: { fontFamily: fonts.condSemi, fontSize: 11, letterSpacing: 1, color: c.muted },
+  tileLabel: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 1.5, color: c.textSoft },
+  tileSub: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1, color: c.muted },
   card: { backgroundColor: c.surface, borderRadius: radius.xl, padding: space.lg, gap: space.md, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
-  cardTitle: { fontFamily: fonts.condBlack, fontSize: 20, color: c.text, textTransform: 'uppercase' },
+  cardTitle: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, textTransform: 'uppercase' },
   statHead: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline' },
-  statLabel: { fontFamily: fonts.condBold, fontSize: 14, letterSpacing: 0.8, color: c.textSoft, textTransform: 'uppercase' },
-  statValue: { fontFamily: fonts.condBlack, fontSize: 20, color: c.text, fontVariant: ['tabular-nums'] },
+  statLabel: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 0.8, color: c.textSoft, textTransform: 'uppercase' },
+  statValue: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, fontVariant: ['tabular-nums'] },
   grid: { flexDirection: 'row', flexWrap: 'wrap', rowGap: space.lg },
   cell: { width: '25%', alignItems: 'center' },
   cellValue: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, fontVariant: ['tabular-nums'] },

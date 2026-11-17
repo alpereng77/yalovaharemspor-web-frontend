@@ -65,7 +65,7 @@ function TabItem({ label, icon, focused, onPress }: { label: string; icon: IconN
 }
 
 const useStyles = createStyles((c) => StyleSheet.create({
-  bar: { flexDirection: 'row', backgroundColor: c.tabBar, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.lineStrong, paddingTop: 10 },
+  bar: { flexDirection: 'row', backgroundColor: c.tabBar, borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: c.lineStrong, paddingTop: 12 },
   indicator: { position: 'absolute', top: 0, height: 3, borderBottomLeftRadius: 3, borderBottomRightRadius: 3, backgroundColor: c.red },
   item: { flex: 1, alignItems: 'center', gap: 4 },
   label: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 0.8, color: c.muted, textTransform: 'uppercase' },

@@ -52,15 +52,15 @@ export function Card({ children, style, onPress, accessibilityLabel, testID }: {
 }
 
 /** Bölüm başlığı: kırmızı dikey çizgi + büyük harf dar başlık + sağda "Tümü" */
-export function SectionHeader({ title, action, onAction, style }: { title: string; action?: string; onAction?: () => void; style?: StyleProp<ViewStyle> }) {
+export function SectionHeader({ title, action, onAction, note, style }: { title: string; action?: string; onAction?: () => void; note?: string; style?: StyleProp<ViewStyle> }) {
   const { c } = useTheme();
   const styles = useStyles();
   return (
     <View style={[styles.sectionHeader, style]}>
       <View style={styles.sectionLeft}>
-        <View style={styles.sectionBar} />
         <Text style={styles.sectionTitle} accessibilityRole="header">{title}</Text>
       </View>
+      {note ? <Text style={styles.sectionNote}>{note}</Text> : null}
       {action && onAction ? (
         <Pressable onPress={onAction} hitSlop={12} accessibilityRole="button" style={styles.sectionAction}>
           <Text style={styles.sectionActionText}>{action}</Text>
@@ -172,6 +172,24 @@ export function TeamBadge({ name, ours, logo, opponentLogo, size = 44, onDark }:
 }
 
 /** Dış bağlantı açma (Instagram, harita, telefon). Açılamazsa sessizce geçer. */
+/**
+ * "Uygulamayı hazırlayan" satırı. Ad ve bağlantı site ayarlarından gelir (admin panelinden değiştirilebilir);
+ * ayar boşsa varsayılan değerler kullanılır. Dokununca hazırlayanın sitesi açılır.
+ */
+export function MadeBy({ name, url }: { name?: string | null; url?: string | null }) {
+  const { c } = useTheme();
+  const who = name?.trim() || 'alperengundogdu';
+  const link = url?.trim() || 'https://alperengundogdu.com.tr';
+  return (
+    <Pressable onPress={() => openUrl(link)} hitSlop={12} accessibilityRole="link" accessibilityLabel={`Uygulamayı hazırlayan: ${who}`} testID="made-by"
+      style={{ alignSelf: 'center', paddingVertical: space.sm }}>
+      <Text style={{ fontFamily: fonts.regular, fontSize: 12, lineHeight: 16, color: c.muted, textAlign: 'center' }}>
+        Uygulamayı hazırlayan <Text style={{ fontFamily: fonts.semibold, color: c.textSoft }}>{who}</Text>
+      </Text>
+    </Pressable>
+  );
+}
+
 export function openUrl(url: string | null | undefined) {
   if (url) {
     Linking.openURL(url).catch(() => undefined);
@@ -274,15 +292,15 @@ export const ease = Easing.out(Easing.cubic);
 
 const useStyles = createStyles((c) => StyleSheet.create({
   screen: { flex: 1, backgroundColor: c.bg },
-  content: { padding: space.lg, gap: space.xl },
+  content: { padding: space.lg, paddingTop: space.xl, gap: space.xxl },
   card: { backgroundColor: c.surface, borderRadius: radius.lg, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line, overflow: 'hidden' },
-  sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: -space.sm },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginBottom: space.lg },
+  sectionNote: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.muted },
   sectionLeft: { flexDirection: 'row', alignItems: 'center', gap: space.sm },
-  sectionBar: { width: 4, height: 20, borderRadius: 2, backgroundColor: c.red },
   sectionTitle: { fontFamily: fonts.condBlack, fontSize: 22, color: c.text, textTransform: 'uppercase', letterSpacing: 0.3 },
-  sectionAction: { flexDirection: 'row', alignItems: 'center', gap: 2 },
-  sectionActionText: { fontFamily: fonts.condBold, fontSize: 14, color: c.gold, letterSpacing: 1, textTransform: 'uppercase' },
-  pill: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: 6, paddingHorizontal: 10, paddingVertical: 4, borderRadius: radius.pill },
+  sectionAction: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  sectionActionText: { fontFamily: fonts.condBold, fontSize: 15, color: c.gold, letterSpacing: 1, textTransform: 'uppercase' },
+  pill: { flexDirection: 'row', alignItems: 'center', alignSelf: 'flex-start', gap: 8, paddingHorizontal: 12, paddingVertical: 4, borderRadius: radius.pill },
   dot: { width: 7, height: 7, borderRadius: 4 },
   pillText: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1, textTransform: 'uppercase' },
   button: { minHeight: 52, borderRadius: radius.md, paddingHorizontal: space.xl, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: space.sm },
@@ -291,7 +309,7 @@ const useStyles = createStyles((c) => StyleSheet.create({
   buttonGhost: { backgroundColor: 'transparent', borderWidth: 1, borderColor: c.lineStrong },
   buttonGold: { backgroundColor: c.gold },
   buttonDisabled: { opacity: 0.45 },
-  buttonText: { fontFamily: fonts.condXBold, fontSize: 18, letterSpacing: 1, textTransform: 'uppercase' },
+  buttonText: { fontFamily: fonts.condBlack, fontSize: 22, letterSpacing: 1, textTransform: 'uppercase' },
   logoDisc: { backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center', borderWidth: StyleSheet.hairlineWidth, borderColor: c.lineStrong },
   logoImg: { width: '100%', height: '100%' },
   noLogo: { alignItems: 'center', justifyContent: 'center' },
@@ -300,8 +318,8 @@ const useStyles = createStyles((c) => StyleSheet.create({
   stateText: { textAlign: 'center', marginTop: space.xs, maxWidth: 300 },
   skelGrid: { flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between', rowGap: space.md },
   segmented: { flexDirection: 'row', backgroundColor: c.surface, borderRadius: radius.md, padding: 4, borderWidth: StyleSheet.hairlineWidth, borderColor: c.line },
-  segIndicator: { position: 'absolute', top: 4, bottom: 4, left: 4, borderRadius: radius.sm, backgroundColor: c.red },
-  segment: { flex: 1, paddingVertical: 10, alignItems: 'center' },
+  segIndicator: { position: 'absolute', top: 4, bottom: 4, left: 4, borderRadius: radius.sm, backgroundColor: c.surface3 },
+  segment: { flex: 1, paddingVertical: 12, alignItems: 'center' },
   segmentText: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 1, textTransform: 'uppercase', color: c.muted },
-  segmentTextActive: { color: c.white },
+  segmentTextActive: { color: c.text },
 }));

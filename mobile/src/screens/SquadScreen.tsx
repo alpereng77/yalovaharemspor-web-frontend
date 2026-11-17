@@ -78,8 +78,8 @@ const useStyles = createStyles((c) => StyleSheet.create({
   pair: { flexDirection: 'row', gap: space.md },
   staff: { flexDirection: 'row', alignItems: 'center', backgroundColor: c.surface, borderRadius: radius.lg, overflow: 'hidden', borderWidth: StyleSheet.hairlineWidth, borderColor: c.line, height: 112 },
   staffImgWrap: { width: 110, height: '100%', backgroundColor: c.surface2 },
-  staffInfo: { flex: 1, paddingHorizontal: space.md, gap: 2 },
-  staffRole: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 1.5, color: c.redBright, textTransform: 'uppercase' },
-  staffName: { fontFamily: fonts.condBlack, fontSize: 24, lineHeight: 26, color: c.text, textTransform: 'uppercase' },
-  staffNat: { fontFamily: fonts.medium, fontSize: 13, color: c.muted },
+  staffInfo: { flex: 1, paddingHorizontal: space.md, gap: 4 },
+  staffRole: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 1.5, color: c.gold, textTransform: 'uppercase' },
+  staffName: { fontFamily: fonts.condBlack, fontSize: 22, lineHeight: 26, color: c.text, textTransform: 'uppercase' },
+  staffNat: { fontFamily: fonts.regular, fontSize: 12, color: c.muted },
 }));

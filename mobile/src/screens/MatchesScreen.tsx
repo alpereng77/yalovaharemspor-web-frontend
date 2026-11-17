@@ -83,8 +83,8 @@ export function MatchesScreen() {
 const useStyles = createStyles((c) => StyleSheet.create({
   record: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: space.xl },
   recordItem: { alignItems: 'center' },
-  recordNum: { fontFamily: fonts.condBlackItalic, fontSize: 64, lineHeight: 64 },
-  recordLabel: { fontFamily: fonts.condBold, fontSize: 13, letterSpacing: 2, color: c.muted },
+  recordNum: { fontFamily: fonts.condBlackItalic, fontSize: 40, lineHeight: 42 },
+  recordLabel: { fontFamily: fonts.condBold, fontSize: 12, letterSpacing: 2, color: c.muted },
   recordDivider: { width: 2, height: 54, backgroundColor: c.lineStrong, transform: [{ rotate: '18deg' }] },
-  month: { fontFamily: fonts.condBold, fontSize: 14, letterSpacing: 2.5, color: c.gold, marginTop: space.sm },
+  month: { fontFamily: fonts.condBold, fontSize: 15, letterSpacing: 2.5, color: c.gold, marginTop: space.sm },
 }));

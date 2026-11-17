@@ -12,7 +12,7 @@ import { Platform } from 'react-native';
  * APP_KEY: Sunucudaki MOBILE_APP_KEY ile aynı olmalı. Çekilişe katılım gibi yazma isteklerinde gönderilir.
  *  Sunucuda MOBILE_APP_KEY boşsa bu değer kullanılmaz.
  */
-const PRODUCTION_API_URL = 'https://yalovaharemspor.com';
+const PRODUCTION_API_URL = 'https://yalovaharemspor.alperengundogdu.com.tr';
 
 const DEV_API_URL = Platform.select({
   android: 'http://10.0.2.2:8000',
